@@ -81,9 +81,17 @@
   padding: 4px;
   margin-top: 10px;
 }
+.login input[type="text"]:focus {
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+.login input[type="password"]:focus {
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
 /* LOGIN BUTTON */
 .button {
-  width: 260px;
+  width: 250px;
   height: 35px;
   background: #fff;
   border: 1px solid #fff;
