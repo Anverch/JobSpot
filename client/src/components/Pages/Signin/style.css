@@ -1,0 +1,50 @@
+/* Table of Contents */
+
+/* BACKGROUND */
+.body {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -40px;
+  bottom: -40px;
+  width: auto;
+  height: auto;
+  background-image: url(https://www.muralsyourway.com/media/catalog/product/cache/1/base/1200x/040ec09b1e35df139433887a97daa66f/k/a/kansas-city-skyline-wallpaper-mural.jpg);
+  background-size: cover;
+  filter: blur(5px);
+  z-index: 0;
+}
+.grad {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -40px;
+  bottom: -40px;
+  width: auto;
+  height: auto;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, rgba(0, 0, 0, 0)),
+    color-stop(100%, rgba(0, 0, 0, 0.65))
+  );
+}
+/* HEADER */
+.header {
+  position: absolute;
+  top: calc(50% - 35px);
+  left: calc(50% - 255px);
+  z-index: 2;
+}
+.header div {
+  float: left;
+  color: #fff;
+  font-family: "Exo", sans-serif;
+  font-size: 35px;
+  font-weight: 200;
+}
+.header div span {
+  color: #5379fa !important;
+}
+/* LOGIN INPUTS */
