@@ -21,6 +21,13 @@ export default function SignIn() {
                         Job<span>Spot</span>
                     </div>
                 </Header>
+                <Form className="login">
+                    <Segment stacked>
+                        <Form.Input fluid icon="user" iconPosition="left" placeholder="E-mail Address" type="text" />
+                        <Form.Input fluid icon="lock" iconPosition="left" placeholder="Password" type="password" />
+                        
+                    </Segment>
+                </Form>
             </Grid.Column>
         </Grid>
     )
