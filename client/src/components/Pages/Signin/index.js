@@ -1,22 +1,27 @@
 import React from "react";
-import { Button, Form } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import {
+    Button,
+    Form,
+    Grid,
+    Header,
+    Message,
+    Segment
+} from "semantic-ui-react";
+import "./style.css";
 
-function SignIn() {
+export default function SignIn() {
     return (
-        <Form>
-            <Form.Field>
-                <label>First Name</label>
-                <input placeholder="First Name" />
-            </Form.Field>
-            <Form.Field>
-                <label>Last Name</label>
-                <input placeholder="Last Name" />
-            </Form.Field>
-            <Button type="submit">Sign In</Button>
-        </Form>
-        
-            
+        <Grid className="styleGrid">
+            <div className="body" />
+            <div className="grad" />
+            <Grid.Column className="colStyle">
+                <Header className="header" as="h2">
+                    <div>
+                        Job<span>Spot</span>
+                    </div>
+                </Header>
+            </Grid.Column>
+        </Grid>
     )
 }
-
-export default SignIn;
