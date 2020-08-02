@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node server.js",
+    "start:prod": "node server/server.js",
+    "server": "node server/server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
@@ -25,6 +26,6 @@
     "react-router-dom": "^5.2.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^1.1.0",
-    "sequelize": "^6.3.4"
+    "sequelize": "^4.44.4"
   }
 }
