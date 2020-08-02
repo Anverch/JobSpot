@@ -42,13 +42,13 @@ export default function SignIn() {
             Login
           </Button>
           <Message className="signup">
-            New to us?{" "}
+            New to us?
             <Link
-              to="/signin"
+              to="/signup"
               className={
-                window.location.pathname === "/signin"
+                window.location.pathname === "/signup"
                   ? "nav-link active"
-                  : "nav=link"
+                  : "nav-link"
               }
             >
               Sign Up
