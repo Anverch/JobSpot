@@ -1,10 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
     const jobApplication = sequelize.define(
-        'jobApplication',
+        'jobApplications',
         {
             id: {
                 type: DataTypes.INTEGER,
+                autoIncrement: true,
                 primaryKey: true
             },
             status: DataTypes.STRING,
