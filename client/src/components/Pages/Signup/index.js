@@ -62,10 +62,12 @@ class Register extends Component {
     event.preventDefault();
     this.setState({ formValid: validateForm(this.state.errors) });
     this.setState({ errorCount: countErrors(this.state.errors) });
+    this.setState({ fullName: "", email: "", password: "" });
   };
 
   render() {
     const { errors, formValid } = this.state;
+    const { fullName, email, password } = this.state;
     return (
       <Grid className="wrapper">
         <Grid.Column className="form-wrapper">
@@ -78,6 +80,7 @@ class Register extends Component {
               <Form.Input
                 type="text"
                 name="fullName"
+                value={fullName}
                 onChange={this.handleChange}
                 noValidate
               />
@@ -90,6 +93,7 @@ class Register extends Component {
               <Form.Input
                 type="email"
                 name="email"
+                value={email}
                 onChange={this.handleChange}
                 noValidate
               />
@@ -102,6 +106,7 @@ class Register extends Component {
               <Form.Input
                 type="password"
                 name="password"
+                value={password}
                 onChange={this.handleChange}
                 noValidate
               />
@@ -126,7 +131,7 @@ class Register extends Component {
             )}
           </Form>
           <Message>
-            <Link to="/">
+            <Link className="login-link" to="/">
               Already a member?
             </Link>
           </Message>

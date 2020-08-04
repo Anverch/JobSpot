@@ -26,7 +26,7 @@ div {
   background-color: #fefefe;
 }
 
-.form-wrapper > .form-header {
+.form-wrapper > h2 {
   display: flex;
   text-align: center;
   justify-content: center;
@@ -89,7 +89,7 @@ input::placeholder {
 
 .error {
   color: #db2269;
-  font-size: 0.5em;
+  font-size: 1.0em;
   display: relative;
 }
 
@@ -109,7 +109,9 @@ input::placeholder {
 .password {
   width: 100%;
 }
-
+.login-link {
+  justify-content: center;
+}
 .submit {
   width: 100%;
   display: flex;

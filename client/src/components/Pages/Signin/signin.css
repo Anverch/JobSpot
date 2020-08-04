@@ -129,7 +129,7 @@
   padding: 10px;
   text-align: center;
 }
-a {
+a.signup-link {
   width: 250px;
   height: 30px;
   border-radius: 2px;

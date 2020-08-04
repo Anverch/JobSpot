@@ -44,6 +44,7 @@ export default function SignIn() {
           <Message className="signup">
             New to us?
             <Link
+              className="signup-link"
               to="/index"
             >
               Sign Up
