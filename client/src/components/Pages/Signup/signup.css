@@ -14,7 +14,8 @@ div {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #4a4e69;
+  background-image: url(https://www.freedomleaf.com/wp-content/uploads/2017/04/KansasCityHeader-672x353.png);
+  background-size: cover;
 }
 .form-wrapper {
   display: flex;
@@ -89,7 +90,7 @@ input::placeholder {
 
 .error {
   color: #db2269;
-  font-size: 1.0em;
+  font-size: 1em;
   display: relative;
 }
 
