@@ -30,20 +30,20 @@
   );
 }
 /* HEADER */
-.header {
+.title-header {
   position: absolute;
   top: calc(50% - 35px);
   left: calc(50% - 255px);
   z-index: 2;
 }
-.header div {
+.title-header div {
   float: left;
   color: #fff;
   font-family: "Exo", sans-serif;
   font-size: 35px;
   font-weight: 200;
 }
-.header div span {
+.title-header div span {
   color: #5379fa !important;
 }
 /* LOGIN INPUTS */
@@ -82,7 +82,7 @@
   margin-top: 10px;
 }
 /* LOGIN BUTTON */
-.button {
+.signinBtn {
   width: 260px;
   height: 35px;
   background: #fff;
@@ -96,10 +96,10 @@
   padding: 6px;
   margin-top: 10px;
 }
-.button:hover {
+.signinBtn:hover {
   opacity: 0.8;
 }
-.button:active {
+.signinBtn:active {
   opacity: 0.6;
 }
 .login input[type="text"]:focus {
@@ -110,7 +110,7 @@
   outline: none;
   border: 1px solid rgba(255, 255, 255, 0.9);
 }
-.button:focus {
+.signinBtn:focus {
   outline: none;
 }
 ::-webkit-input-placeholder {

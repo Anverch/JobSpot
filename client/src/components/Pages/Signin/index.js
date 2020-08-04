@@ -8,7 +8,7 @@ import {
   Message,
   Segment,
 } from "semantic-ui-react";
-import "./style.css";
+import "./signin.css";
 
 export default function SignIn() {
   return (
@@ -16,7 +16,7 @@ export default function SignIn() {
       <div className="body" />
       <div className="grad" />
       <Grid.Column className="colStyle">
-        <Header className="header" as="h2">
+        <Header className="title-header" as="h2">
           <div>
             Job<span>Spot</span>
           </div>
@@ -38,18 +38,13 @@ export default function SignIn() {
               type="password"
             />
           </Segment>
-          <Button className="button" value="Login">
+          <Button className="signinBtn" value="Login">
             Login
           </Button>
           <Message className="signup">
             New to us?
             <Link
-              to="/signup"
-              className={
-                window.location.pathname === "/signup"
-                  ? "nav-link active"
-                  : "nav-link"
-              }
+              to="/index"
             >
               Sign Up
             </Link>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./style.css";
-import { Grid, Header, Message } from "semantic-ui-react";
+import { Grid, Header, Message, Form, Button} from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import "./signup.css";
 
 const validEmailRegex = RegExp(
   /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
@@ -69,13 +69,13 @@ class Register extends Component {
     return (
       <Grid className="wrapper">
         <Grid.Column className="form-wrapper">
-          <Header className="header" as="h2">
+          <Header className="form-header" as="h2">
             Create an account with us!
           </Header>
-          <form onSubmit={this.handleSubmit} noValidate>
+          <Form onSubmit={this.handleSubmit} noValidate>
             <div className="fullName">
               <label htmlFor="fullName">Full Name</label>
-              <input
+              <Form.Input
                 type="text"
                 name="fullName"
                 onChange={this.handleChange}
@@ -87,7 +87,7 @@ class Register extends Component {
             </div>
             <div className="email">
               <label htmlFor="email">Email</label>
-              <input
+              <Form.Input
                 type="email"
                 name="email"
                 onChange={this.handleChange}
@@ -99,7 +99,7 @@ class Register extends Component {
             </div>
             <div className="password">
               <label htmlFor="password">Password</label>
-              <input
+              <Form.Input
                 type="password"
                 name="password"
                 onChange={this.handleChange}
@@ -115,7 +115,7 @@ class Register extends Component {
               </small>
             </div>
             <div className="submit">
-              <button>Create</button>
+              <Button className="signupBtn">Create</Button>
             </div>
             {this.state.errorCount !== null ? (
               <p className="form-status">
@@ -124,16 +124,9 @@ class Register extends Component {
             ) : (
               "Form not submitted"
             )}
-          </form>
-          <Message className="signup">
-            <Link
-              to="/"
-              className={
-                window.location.pathname === "/"
-                  ? "nav-link active"
-                  : "nav-link"
-              }
-            >
+          </Form>
+          <Message>
+            <Link to="/">
               Already a member?
             </Link>
           </Message>
