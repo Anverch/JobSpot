@@ -5,7 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node server.js",
+    "start:prod": "node server/server.js",
+    "server": "node server/server.js",
+    "seed:up": "node_modules/.bin/sequelize db:seed:all",
+    "seed:down": "node_modules/.bin/sequelize db:seed:undo:all",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
@@ -16,10 +19,16 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^4.1.0",
-    "nodemon": "^1.18.7"
+    "nodemon": "^1.18.7",
+    "sequelize-cli": "^6.2.0"
   },
   "dependencies": {
     "express": "^4.16.3",
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "mysql2": "^2.1.0",
+    "react-router-dom": "^5.2.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^1.1.0",
+    "sequelize": "^4.44.4"
   }
 }
