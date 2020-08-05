@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    const jobs = sequelize.define(
-        'jobs',
+    const Job = sequelize.define(
+        'Job',
         {
             id: {
                 type: DataTypes.INTEGER,
@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
             company: DataTypes.STRING,
             job_title: DataTypes.STRING,
             salary: DataTypes.INTEGER
+            // status: Interested, applied,  ect. (drop down)
         }
     )
-    return jobs;
+    return Job;
 };
