@@ -5,6 +5,15 @@ module.exports = {
         db.Job 
         .findAll()
         .then(dbJob => res.json(dbJob))
-        .catch(err => res.status(422).json(err))
-    }
+        .catch(err => res.status(500).json(err))
+    },
+    getJob(req, params) {
+        const id = req.params.id;
+        db.Job
+        .findOne({
+            where: { id: id }
+        })
+        .then(dbJob => res.json(dbJob))
+        .catch(err=> res.status(500).json(err))
+    },
 }
