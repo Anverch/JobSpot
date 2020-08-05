@@ -17,7 +17,9 @@ module.exports = {
         const id = req.params.id;
         db.Job
             .findOne({
-                where: { id: id }
+                where: { 
+                    id: id 
+                }
             })
             .then(dbJob => res.json(dbJob))
             .catch(err => res.status(500).json(err));
@@ -37,5 +39,16 @@ module.exports = {
             }).then(function (dbJob) {
                 res.json(dbJob)
             })
+    },
+    deleteJob(req, params) {
+        const id = req.params.id;
+        db.Job 
+        .destroy({
+            where: {
+                id: id 
+            }
+        }).then(function(dbJob) {
+            res.json(dbJob)
+        })
     }
 }
