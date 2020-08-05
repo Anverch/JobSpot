@@ -1,6 +1,16 @@
 const router = require('express').router();
 const jobsController = require("../../controllers/jobs");
 
-// api/jobs
+// Matches with "/api/jobs"
 router.route("/")
-.get(jobsController.getJobs);
+.get(jobsController.getJobs)
+.post(jobsController.createJob);
+
+// Matches with "/api/jobs/:id" 
+router.route("/:id")
+.get(jobsController.getJob)
+// .put(jobsController.update)
+// .delete(jobsController.remove);
+
+
+module.exports= router
