@@ -10,7 +10,7 @@ router.route("/")
 router.route("/:id")
 .get(jobsController.getJob)
 .put(jobsController.updateJob)
-// .delete(jobsController.remove);
+.delete(jobsController.deleteJob);
 
 
 module.exports= router
