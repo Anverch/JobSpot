@@ -29,10 +29,11 @@ module.exports = {
         const id = req.params.id;
         db.Job
             .update({
-                company: req.body.text,
-                job_title: req.body.text,
-                salary: req.body.text,
-                status: req.body.text
+                company: req.body.text
+                // job_title: req.body.text,
+                // salary: req.body.number,
+                // status: req.body.text,
+                // notes: req.body.text
             }, {
                 where: {
                     id: id
@@ -48,8 +49,8 @@ module.exports = {
                 where: {
                     id: id
                 }
-            }).then(function (dbJob) {
-                res.json(dbJob)
+            }).then(function (res) {
+                console.log(`Job ${id} deleted`);
             })
     }
 }
