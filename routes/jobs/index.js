@@ -6,6 +6,7 @@ router.route("/")
     .get(jobsController.getJobs)
     .post(jobsController.createJob)
     .put(jobsController.updateJob);
+    
 // Matches with "/api/jobs/:id" 
 router.route("/:id")
     .get(jobsController.getJob)
