@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const jobsController = require("../../controllers/jobs");
+const jobsController = require("../../controllers/job");
 
 // Matches with "/api/jobs"
 router.route("/")

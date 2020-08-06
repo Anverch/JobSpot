@@ -2,7 +2,7 @@ const db = require("../models")
 
 module.exports = {
     getJobs(req, res) {
-        console.log("get job route")
+        console.log("get jobs route")
         db.Job
             .findAll()
             .then(dbJob => res.json(dbJob))
