@@ -37,5 +37,15 @@ module.exports = {
                 res.json(dbUser)
             })
     },
-    
+    deleteUser(req, params) {
+        const id = req.params.id;
+        db.User
+        .destroy({
+            where: {
+                id: id
+            }
+        }).then(function(dbUser) {
+            res.json(dbUser)
+        })
+    }
 }
