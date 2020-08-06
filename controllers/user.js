@@ -22,8 +22,7 @@ module.exports = {
             .then(dbUser => res.json(dbUser))
             .catch(err => res.status(500).json(err));
     },
-    updateUser(req, params) {
-        const id = req.params.id;
+    updateUser(req, res) {
         db.User
             .update({
                 name: req.body,
@@ -31,21 +30,22 @@ module.exports = {
                 password: req.body
             }, {
                 where: {
-                    id: id
+                    id: req.body.id
                 }
-            }).then(function (dbUser) {
-                res.json(dbUser)
             })
-    },
+            .then(dbUser => res.json(dbUser))
+            .catch(err => res.status(500).json(err));
+    
+},
     deleteUser(req, params) {
-        const id = req.params.id;
-        db.User
-            .destroy({
-                where: {
-                    id: id
-                }
-            }).then(function (dbUser) {
-                res.json(dbUser)
-            })
-    }
+    const id = req.params.id;
+    db.User
+        .destroy({
+            where: {
+                id: id
+            }
+        }).then(function (dbUser) {
+            res.json(dbUser)
+        })
+}
 }

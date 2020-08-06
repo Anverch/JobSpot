@@ -35,22 +35,22 @@ module.exports = {
             .then(dbJob => res.json(dbJob))
             .catch(err => res.status(500).json(err));
     },
-    updateJob(req, params) {
-        const id = req.params.id;
+    updateJob(req, res) {
         db.Job
             .update({
-                company: req.body.company
-                // job_title: req.body,
-                // salary: req.body,
-                // status: req.body,
-                // notes: req.body
+                company: req.body.company,
+                job_title: req.body.job_title,
+                salary: req.body.salary,
+                status: req.body.status,
+                notes: req.body.notes,
+                user_id: req.body.user_id
             }, {
                 where: {
-                    id: id
+                    id: req.body.id
                 }
-            }).then(function (dbJob) {
-                res.json(dbJob)
             })
+            .then(dbJob => res.json(dbJob))
+            .catch(err => res.status(500).json(err));
     },
     deleteJob(req, params) {
         const id = req.params.id;
@@ -59,8 +59,8 @@ module.exports = {
                 where: {
                     id: id
                 }
-            }).then(function (res) {
-                console.log(`Job ${id} deleted`);
             })
+            .then(function () { console.log(`Job ${id} deleted`); })
+            .catch(err => res.status(500).json(err));
     }
 }
