@@ -1,10 +1,10 @@
-const router = require('express').router();
+const router = require('express').Router();
 const usersController = require("../../controllers/user");
 
 // api/jobs
 router.route("/")
     .get(usersController.getUsers)
-    .post(jobsController.createUser);
+    .post(usersController.createUser);
 
 router.route("/:id")
     .get(usersController.getUser)

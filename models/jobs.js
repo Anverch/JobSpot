@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    const Jobs = sequelize.define(
-        'jobs',
+    const Job = sequelize.define(
+        'Job',
         {
             id: {
                 type: DataTypes.INTEGER,
@@ -15,9 +15,9 @@ module.exports = (sequelize, DataTypes) => {
             notes: DataTypes.STRING
         }
     );
-    Jobs.associate = function (models) {
+    Job.associate = function (models) {
         // associations can be defined here
-        Jobs.belongsTo(models.User, {
+        Job.belongsTo(models.User, {
             onDelete: "cascade",
             foreignKey: {
                 name: 'user_id',
@@ -25,5 +25,5 @@ module.exports = (sequelize, DataTypes) => {
             }
         });
     }
-    return Jobs;
+    return Job;
 };

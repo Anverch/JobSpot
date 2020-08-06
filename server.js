@@ -1,5 +1,5 @@
 const express = require('express');
-// const routes = require('./routes');
+const routes = require('./routes');
 const db = require('./models');
 
 const app = express();
@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // Routes
-// app.use(routes);
+app.use(routes);
 
 const syncOptions = { force: false };
 
