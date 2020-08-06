@@ -2,19 +2,19 @@ const db = require("../models")
 
 module.exports = {
     getUsers(req, res) {
-        db.User 
-        .findAll()
-        .then(dbUser => res.json(dbUser))
-        .catch(err => res.status(500).json(err))
+        db.User
+            .findAll()
+            .then(dbUser => res.json(dbUser))
+            .catch(err => res.status(500).json(err))
     },
     getUser(req, params) {
         const id = req.params.id;
-        db.User 
-        .findOne({
-            where: { id: id }
-        })
-        .then(dbUser  => res.json(dbUser))
-        .catch(err=> res.status(500).json(err))
+        db.User
+            .findOne({
+                where: { id: id }
+            })
+            .then(dbUser => res.json(dbUser))
+            .catch(err => res.status(500).json(err))
     },
     createUser(req, res) {
         db.User
@@ -22,7 +22,7 @@ module.exports = {
             .then(dbUser => res.json(dbUser))
             .catch(err => res.status(500).json(err));
     },
-    updateUser (req, params) {
+    updateUser(req, params) {
         const id = req.params.id;
         db.User
             .update({
@@ -40,12 +40,12 @@ module.exports = {
     deleteUser(req, params) {
         const id = req.params.id;
         db.User
-        .destroy({
-            where: {
-                id: id
-            }
-        }).then(function(dbUser) {
-            res.json(dbUser)
-        })
+            .destroy({
+                where: {
+                    id: id
+                }
+            }).then(function (dbUser) {
+                res.json(dbUser)
+            })
     }
 }

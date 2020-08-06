@@ -17,8 +17,8 @@ module.exports = {
         const id = req.params.id;
         db.Job
             .findOne({
-                where: { 
-                    id: id 
+                where: {
+                    id: id
                 }
             })
             .then(dbJob => res.json(dbJob))
@@ -42,13 +42,13 @@ module.exports = {
     },
     deleteJob(req, params) {
         const id = req.params.id;
-        db.Job 
-        .destroy({
-            where: {
-                id: id 
-            }
-        }).then(function(dbJob) {
-            res.json(dbJob)
-        })
+        db.Job
+            .destroy({
+                where: {
+                    id: id
+                }
+            }).then(function (dbJob) {
+                res.json(dbJob)
+            })
     }
 }
