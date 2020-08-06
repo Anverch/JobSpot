@@ -7,17 +7,17 @@ module.exports = {
             .then(dbJob => res.json(dbJob))
             .catch(err => res.status(500).json(err));
     },
-    // getJobsByUser(req, res) {
-    //     let userId;
-    //     db.Job
-    //         .findAll({
-    //             where: {
-    //                 user_id: userId
-    //             }
-    //         })
-    //         .then(dbJob => res.json(dbJob))
-    //         .catch(err => res.status(500).json(err));
-    // },
+    getJobsByUser(req, res) {
+        userId = req.params.id;
+        db.Job
+            .findAll({
+                where: {
+                    user_id: userId
+                }
+            })
+            .then(dbJob => res.json(dbJob))
+            .catch(err => res.status(500).json(err));
+    },
     createJob(req, res) {
         db.Job
             .create(req.body)
@@ -39,11 +39,11 @@ module.exports = {
         const id = req.params.id;
         db.Job
             .update({
-                company: req.body,
-                job_title: req.body,
-                salary: req.body,
-                status: req.body,
-                notes: req.body
+                company: req.body.company
+                // job_title: req.body,
+                // salary: req.body,
+                // status: req.body,
+                // notes: req.body
             }, {
                 where: {
                     id: id

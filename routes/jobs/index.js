@@ -12,4 +12,8 @@ router.route("/:id")
     .put(jobsController.updateJob)
     .delete(jobsController.deleteJob);
     
+// Matches with "/api/jobs/user/:id"
+router.route("/user/:id")
+    .get(jobsController.getJobsByUser);
+    
 module.exports = router
