@@ -8,10 +8,11 @@ module.exports = (sequelize, DataTypes) => {
                 autoIncrement: true,
                 primaryKey: true
             },
-            
             company: DataTypes.STRING,
             job_title: DataTypes.STRING,
-            salary: DataTypes.INTEGER
+            salary: DataTypes.INTEGER,
+            status: DataTypes.STRING,
+            notes: DataTypes.STRING
         }
     );
     Jobs.associate = function (models) {
