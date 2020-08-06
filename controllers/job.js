@@ -7,6 +7,17 @@ module.exports = {
             .then(dbJob => res.json(dbJob))
             .catch(err => res.status(500).json(err));
     },
+    // getJobsByUser(req, res) {
+    //     let userId;
+    //     db.Job
+    //         .findAll({
+    //             where: {
+    //                 user_id: userId
+    //             }
+    //         })
+    //         .then(dbJob => res.json(dbJob))
+    //         .catch(err => res.status(500).json(err));
+    // },
     createJob(req, res) {
         db.Job
             .create(req.body)
