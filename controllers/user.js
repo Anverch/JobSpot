@@ -26,9 +26,9 @@ module.exports = {
         const id = req.params.id;
         db.User
             .update({
-                name: req.body.text,
-                email: req.body.text,
-                password: req.body.text
+                name: req.body,
+                email: req.body,
+                password: req.body
             }, {
                 where: {
                     id: id

@@ -2,7 +2,6 @@ const db = require("../models")
 
 module.exports = {
     getJobs(req, res) {
-        console.log("get jobs route")
         db.Job
             .findAll()
             .then(dbJob => res.json(dbJob))
@@ -29,11 +28,11 @@ module.exports = {
         const id = req.params.id;
         db.Job
             .update({
-                company: req.body.text
-                // job_title: req.body.text,
-                // salary: req.body.number,
-                // status: req.body.text,
-                // notes: req.body.text
+                company: req.body,
+                job_title: req.body,
+                salary: req.body,
+                status: req.body,
+                notes: req.body
             }, {
                 where: {
                     id: id
