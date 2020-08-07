@@ -3,6 +3,8 @@ import { Container, Header, Segment, Divider } from "semantic-ui-react";
 import JobsCounter from "../../components/JobsCounter/JobsCounter";
 import Footer from "../../components/Footer/Footer";
 import Nav from "../../components/Nav/Nav";
+import "semantic-ui-css/semantic.min.css";
+import "../../styles.css";
 
 export default function Dashboard() {
   return (
