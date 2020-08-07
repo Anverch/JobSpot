@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Button, Grid } from "semantic-ui-react";
+import { Header, Grid } from "semantic-ui-react";
 import MenuDropdown from "../MenuDropdown/MenuDropdown";
 import "./Nav.css";
 
