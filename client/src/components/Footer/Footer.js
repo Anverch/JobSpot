@@ -6,22 +6,19 @@ export default function Footer() {
   return (
     <Segment id="footer">
       <Container textAlign="center">
-        <p>Let's connect!</p>
         <List horizontal divided link size="medium">
-          <List.Item as="a" href="https://github.com/ewirtz3">
-            GitHub
-          </List.Item>
           <List.Item
             as="a"
-            href="https://www.linkedin.com/in/emily-wirtz-63b98519/"
+            href="https://github.com/anverch/jobspot"
+            target="_blank"
           >
-            LinkedIn
-          </List.Item>
-          <List.Item as="a" href="https://stackoverflow.com/story/ewirtz3">
-            Stack Overflow
+            GitHub Repository
           </List.Item>
         </List>
-        <p>Copyright 2020 Emily Wirtz</p>
+        <p>
+          Copyright 2020 Emily Wirtz, Aleks Saiyan, Emily Carlisle, & Mackenzie
+          Schutz
+        </p>
       </Container>
     </Segment>
   );
