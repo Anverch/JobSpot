@@ -1,4 +1,4 @@
-const db = require("../models")
+const db = require("../models");
 
 module.exports = {
     getUsers(req, res) {
@@ -47,5 +47,18 @@ module.exports = {
         }).then(function (dbUser) {
             res.json(dbUser)
         })
-}
+},
+    login(req, res) {
+        db.User
+        .findOne({
+            where: {
+                email: req.body.email,
+                password: req.body.password
+            }
+        })
+        .then(function(dbUser) {
+            res.json(dbUser);
+        })
+        .catch(err => res.status(500).json(err));
+    }
 }

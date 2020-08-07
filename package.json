@@ -28,6 +28,7 @@
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "mysql2": "^2.1.0",
+    "passport": "^0.4.1",
     "react-router-dom": "^5.2.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^1.1.0",
