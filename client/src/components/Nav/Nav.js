@@ -9,7 +9,7 @@ export default function Nav() {
       <Grid>
         <Grid.Row id="nav" columns={2} verticalAlign="middle">
           <Grid.Column textAlign="center">
-            <Header as="h3" id="nav-logo">
+            <Header as="h2" id="nav-logo">
               <span id="job">Job</span>
               Spot
             </Header>
