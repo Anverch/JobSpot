@@ -7,7 +7,7 @@ var isAuthenticated = require("../../config/middleware/isAuthenticated");
 router.route("/")
     .get(jobsController.getJobs)
     .post(jobsController.createJob)
-    .put(isAuthenticated, jobsController.updateJob);
+    .put(isAuthenticated, jobsController.updateJob)
 
 // Matches with "/api/jobs/:id" 
 router.route("/:id")
