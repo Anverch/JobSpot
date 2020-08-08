@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const routes = require('./routes');
 const db = require('./models');
@@ -14,7 +15,7 @@ app.use(express.json());
 app.use(express.static('public'));
 // Keeping track of user login status
 app.use(
-  session({ secret: 'keyboard cat', resave: true, saveUninitialized: true })
+  session({ secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true })
 );
 app.use(passport.initialize());
 app.use(passport.session());
