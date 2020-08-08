@@ -1,6 +1,7 @@
 const express = require('express');
 const routes = require('./routes');
 const db = require('./models');
+const session = require('express-session');
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
 
