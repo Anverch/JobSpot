@@ -7,7 +7,7 @@ module.exports = {
             .then(dbUser => res.json(dbUser))
             .catch(err => res.status(500).json(err))
     },
-    getUser(req, params) {
+    getUser(req, res) {
         const id = req.params.id;
         db.User
             .findOne({
@@ -35,30 +35,34 @@ module.exports = {
             })
             .then(dbUser => res.json(dbUser))
             .catch(err => res.status(500).json(err));
-    
-},
+
+    },
     deleteUser(req, params) {
-    const id = req.params.id;
-    db.User
-        .destroy({
-            where: {
-                id: id
-            }
-        }).then(function (dbUser) {
-            res.json(dbUser)
-        })
-},
+        const id = req.params.id;
+        db.User
+            .destroy({
+                where: {
+                    id: id
+                }
+            }).then(function (dbUser) {
+                res.json(dbUser)
+            })
+    },
     login(req, res) {
         db.User
-        .findOne({
-            where: {
-                email: req.body.email,
-                password: req.body.password
-            }
-        })
-        .then(function(dbUser) {
-            res.json(dbUser);
-        })
-        .catch(err => res.status(500).json(err));
+            .findOne({
+                where: {
+                    email: req.body.email,
+                    password: req.body.password
+                }
+            })
+            .then(function (dbUser) {
+                res.json(dbUser);
+            })
+            .catch(err => res.status(500).json(err));
+    },
+    getUserData(req, res) {
+        const { password, ...user } = req.user || {};
+        res.json(user);
     }
 }

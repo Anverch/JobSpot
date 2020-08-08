@@ -1,20 +1,25 @@
 const router = require('express').Router();
 const usersController = require("../../controllers/user");
 const passport = require("../../config/passport");
+var isAuthenticated = require("../../config/middleware/isAuthenticated");
 
 // Matches with "/api/users"
 router.route("/")
     .get(usersController.getUsers)
     .post(usersController.createUser)
-    .put(usersController.updateUser);
+
+// Matches with "/api/users/user_data"
+router.route("/user_data")
+    .get( usersController.getUserData);
 
 // Matches with "/api/users/:id" 
 router.route("/:id")
     .get(usersController.getUser)
-    .delete(usersController.deleteUser);
+    .delete(usersController.deleteUser)
+    .put(usersController.updateUser);
 
 // Matches with "/api/users/login" 
 router.route("/login")
-    .post(passport.authenticate('local'), usersController.login);
+    .post(passport.authenticate('local'), isAuthenticated, usersController.login);
 
 module.exports = router
