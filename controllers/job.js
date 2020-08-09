@@ -62,5 +62,45 @@ module.exports = {
             })
             .then(function () { console.log(`Job ${id} deleted`); })
             .catch(err => res.status(500).json(err));
+    },
+    getJobsPending(req, res) {
+        db.Job
+            .findAll({
+                where: {
+                    status: 'Pending'
+                }
+            })
+            .then(dbJob => res.json(dbJob))
+            .catch(err => res.status(500).json(err));
+    },
+    getJobsActive(req, res) {
+        db.Job
+            .findAll({
+                where: {
+                    status: 'Active'
+                }
+            })
+            .then(dbJob => res.json(dbJob))
+            .catch(err => res.status(500).json(err));
+    },
+    getJobsInterviewed(req, res) {
+        db.Job
+            .findAll({
+                where: {
+                    status: 'Interviewed'
+                }
+            })
+            .then(dbJob => res.json(dbJob))
+            .catch(err => res.status(500).json(err));
+    },
+    getJobsInterested(req, res) {
+        db.Job
+            .findAll({
+                where: {
+                    status: 'Interested'
+                }
+            })
+            .then(dbJob => res.json(dbJob))
+            .catch(err => res.status(500).json(err));
     }
 }
