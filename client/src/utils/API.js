@@ -19,7 +19,7 @@ export default {
   },
   //Gets all users
   getUsers: function () {
-    return axtios.get("/users");
+    return axios.get("/users");
   },
   //Gets one user based on id
   getUser: function (id) {
