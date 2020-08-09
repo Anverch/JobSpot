@@ -4,6 +4,7 @@ import SignIn from "./pages/Signin/index";
 import Register from "./pages/Signup/index";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import JobsView from "./pages/JobsView/JobsView";
+import JobDetail from "./pages/JobDetail/JobDetail";
 import Nav from "./components/Nav/Nav";
 
 function App() {
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route exact path="/view">
             <JobsView />
+          </Route>
+          <Route path="/job/">
+            <JobDetail />
           </Route>
         </Switch>
       </div>
