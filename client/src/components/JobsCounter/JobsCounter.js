@@ -41,9 +41,9 @@ export default function JobsCounter() {
         In Process
       </Menu.Item>
       <Menu.Item
-        name="outcome Reached"
-        active={activeItem === "outcome Reached"}
-        onClick={() => setActiveItem({ activeItem: "outcome Reached" })}
+        name="outcome reached"
+        active={activeItem === "outcome reached"}
+        onClick={() => setActiveItem({ activeItem: "outcome reached" })}
       >
         <Label color="grey">3</Label>
         Outcome Reached

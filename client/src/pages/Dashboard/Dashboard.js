@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Header, Segment, Divider } from "semantic-ui-react";
 import JobsCounter from "../../components/JobsCounter/JobsCounter";
 import Footer from "../../components/Footer/Footer";
-import Nav from "../../components/Nav/Nav";
+import API from "../../utils/API";
 import "semantic-ui-css/semantic.min.css";
 import "../../styles.css";
 
-export default function Dashboard() {
+export default function Dashboard({ data }) {
   return (
     <>
-      <Nav />
       <Container>
         <Segment raised centered="true" id="greetingSegment">
           <Header as="h1" color="orange" textAlign="center">

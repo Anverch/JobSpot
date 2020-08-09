@@ -3,11 +3,14 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SignIn from "./pages/Signin/index";
 import Register from "./pages/Signup/index";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import JobsView from "./pages/JobsView/JobsView";
+import Nav from "./components/Nav/Nav";
 
 function App() {
   return (
     <Router>
       <div>
+        <Nav />
         <Switch>
           <Route exact path="/">
             <SignIn />
@@ -17,6 +20,9 @@ function App() {
           </Route>
           <Route exact path="/home">
             <Dashboard />
+          </Route>
+          <Route exact path="/view">
+            <JobsView />
           </Route>
         </Switch>
       </div>
