@@ -12,7 +12,13 @@ const PORT = process.env.PORT || 8080;
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static('public'));
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+} else {
+  app.use(express.static('public'));
+}
+
 // Keeping track of user login status
 app.use(
   session({ secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true })
