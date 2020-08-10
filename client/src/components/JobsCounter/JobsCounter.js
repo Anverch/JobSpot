@@ -3,19 +3,19 @@ import { Label, Menu } from "semantic-ui-react";
 
 export default function JobsCounter() {
   const [activeItem, setActiveItem] = useState({
-    activeItem: "overview",
+    activeItem: "",
   });
 
   return (
     <Menu fluid vertical inverted color="yellow">
-      <Menu.Item
+      {/* <Menu.Item
         name="overview"
         active={activeItem === "overview"}
         onClick={() => setActiveItem({ activeItem: "overview" })}
       >
         <Label color="purple">23</Label>
         Overview
-      </Menu.Item>
+      </Menu.Item> */}
       <Menu.Item
         name="interested"
         active={activeItem === "interested"}

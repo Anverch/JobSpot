@@ -38,6 +38,7 @@ export default function MenuDropdown() {
           options={menuOptions}
           defaultValue={menuOptions[0].value}
           id="menu"
+          icon={menuOptions.image}
         />
       </span>
     </>

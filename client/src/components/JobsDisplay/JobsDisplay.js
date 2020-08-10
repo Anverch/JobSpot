@@ -1,16 +1,17 @@
 import React from "react";
 import { Segment, List, Button } from "semantic-ui-react";
 import "./JobsDisplay.css";
+import UpdateButton from "../UpdateButton/UpdateButton";
 // import API from '../../utils/API'
 
 export default function JobsDisplay() {
   return (
     <>
-      <Segment id="jobs-segment" centered raised>
+      <Segment id="jobs-segment" centered="true" raised>
         <List divided verticalAlign="middle" size="large">
           <List.Item>
             <List.Content floated="right">
-              <Button color="teal">Update</Button>
+              <UpdateButton />
             </List.Content>
             <List.Header>Facebook</List.Header>
             <List.Content>Backend Developer</List.Content>
@@ -18,7 +19,7 @@ export default function JobsDisplay() {
           </List.Item>
           <List.Item>
             <List.Content floated="right">
-              <Button color="teal">Update</Button>
+              <UpdateButton />
             </List.Content>
             <List.Header>American Century</List.Header>
             <List.Content>Frontend Developer</List.Content>
@@ -26,7 +27,7 @@ export default function JobsDisplay() {
           </List.Item>
           <List.Item>
             <List.Content floated="right">
-              <Button color="teal">Update</Button>
+              <UpdateButton />
             </List.Content>
             <List.Header>Google</List.Header>
             <List.Content>UX Designer</List.Content>
@@ -34,7 +35,7 @@ export default function JobsDisplay() {
           </List.Item>
           <List.Item>
             <List.Content floated="right">
-              <Button color="teal">Update</Button>
+              <UpdateButton />
             </List.Content>
             <List.Header>Sonder</List.Header>
             <List.Content>Software Engineer</List.Content>
