@@ -5,7 +5,9 @@ import Register from "./pages/Signup/index";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import JobsView from "./pages/JobsView/JobsView";
 import JobDetail from "./pages/JobDetail/JobDetail";
+import CreateJob from "./pages/CreateJob/CreateJob";
 import Nav from "./components/Nav/Nav";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -28,7 +30,11 @@ function App() {
           <Route path="/job/">
             <JobDetail />
           </Route>
+          <Route path="/create-job">
+            <CreateJob />
+          </Route>
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

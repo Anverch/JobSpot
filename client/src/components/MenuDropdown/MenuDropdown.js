@@ -14,12 +14,14 @@ const menuOptions = [
     text: "Dashboard",
     value: "Dashboard",
     image: "dashboard",
+    href: "/home",
   },
   {
     key: "Add New",
     text: "Add new job",
     value: "Add New",
     image: "plus",
+    href: "/create-job",
   },
   {
     key: "Sign out",
