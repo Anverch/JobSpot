@@ -10,7 +10,7 @@ router.route("/")
 
 // Matches with "/api/users/user_data"
 router.route("/user_data")
-    .get( usersController.getUserData);
+    .get(isAuthenticated, usersController.getUserData);
 
 // Matches with "/api/users/:id" 
 router.route("/:id")
