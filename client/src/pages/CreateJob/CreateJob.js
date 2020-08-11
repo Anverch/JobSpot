@@ -1,13 +1,11 @@
 import React from "react";
-import { Container, Segment } from "semantic-ui-react";
 import JobForm from "../../components/JobForm/JobForm";
+import Wrapper from "../../components/Wrapper/Wrapper";
 
 export default function CreateJob() {
   return (
-    <Container>
-      <Segment raised centered="true" padded="very">
-        <JobForm />
-      </Segment>
-    </Container>
+    <Wrapper>
+      <JobForm />
+    </Wrapper>
   );
 }
