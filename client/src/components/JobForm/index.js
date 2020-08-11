@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { Header, Form, Grid, TextArea } from "semantic-ui-react";
+import { useJobContext } from "../../utils/JobContext";
 
 const yesNoOptions = [
   { key: "y", text: "Yes", value: "yes" },
@@ -30,6 +31,7 @@ const jobStatusOptions = [
 ];
 
 export default function JobForm() {
+  const { job } = useJobContext();
   return (
     <Grid rows={4}>
       <Form>

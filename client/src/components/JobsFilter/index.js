@@ -35,17 +35,11 @@ export default function JobsFilter() {
       <Header as="h4">
         <Header.Content>
           Filter jobs
-          <Dropdown floating options={filterOptions} id="status-filter">
-            {/* <Menu>
-              <Menu.Item active data-text="overview">
-                Overview
-              </Menu.Item>
-              <Menu.Item data-text="interested">Interested</Menu.Item>
-              <Menu.Item data-text="applied">Applied</Menu.Item>
-              <Menu.Item data-text="in process">In Process</Menu.Item>
-              <Menu.Item data-text="outcome reached">Outcome Reached</Menu.Item>
-            </Menu> */}
-          </Dropdown>
+          <Dropdown
+            floating
+            options={filterOptions}
+            id="status-filter"
+          ></Dropdown>
         </Header.Content>
       </Header>
     </Container>

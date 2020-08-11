@@ -1,23 +1,35 @@
 import React from "react";
 import { Segment, List, Button } from "semantic-ui-react";
 import "./JobsDisplay.css";
-import UpdateButton from "../UpdateButton/UpdateButton";
+import UpdateButton from "../UpdateButton";
+import { useJobContext } from "../../utils/JobContext";
+import { useUserContext } from "../../utils/UserContext";
 // import API from '../../utils/API'
 
 export default function JobsDisplay() {
+  const { job } = useJobContext();
+  console.log(`job:>>`, job);
+  const { user } = useUserContext();
+  console.log(`user.jobs:>>`, user.jobs);
+
   return (
     <>
       <Segment id="jobs-segment" centered="true" raised>
         <List divided verticalAlign="middle" size="large">
-          <List.Item>
-            <List.Content floated="right">
-              <UpdateButton />
-            </List.Content>
-            <List.Header>Facebook</List.Header>
-            <List.Content>Backend Developer</List.Content>
-            <List.Content>Last updated: yesterday</List.Content>
-          </List.Item>
-          <List.Item>
+          {user.jobs.map((job) => {
+            return (
+              <List.Item>
+                <List.Content floated="right">
+                  <UpdateButton />
+                </List.Content>
+                <List.Header>{job.companyName}</List.Header>
+                <List.Content>{job.positionTitle}</List.Content>
+                <List.Content>Last updated: yesterday</List.Content>
+              </List.Item>
+            );
+          })}
+
+          {/* <List.Item>
             <List.Content floated="right">
               <UpdateButton />
             </List.Content>
@@ -40,7 +52,7 @@ export default function JobsDisplay() {
             <List.Header>Sonder</List.Header>
             <List.Content>Software Engineer</List.Content>
             <List.Content>Last updated: yesterday</List.Content>
-          </List.Item>
+          </List.Item> */}
         </List>
       </Segment>
     </>

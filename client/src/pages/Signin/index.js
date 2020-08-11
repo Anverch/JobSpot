@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Grid, Header } from "semantic-ui-react";
 import "./signin.css";
-import SignInForm from "../../components/SignInForm/SignInForm";
+import SignInForm from "../../components/SignInForm";
 import API from "../../utils/API";
 
 export default function SignIn() {

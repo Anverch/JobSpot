@@ -6,7 +6,7 @@ export const JobModel = {
   currentStatus: "interested",
   phoneInterview: new Date(),
   inPersonInterview: new Date(),
-  fullBenefits: "",
+  fullBenefits: false,
   location: "",
   jobNotes: "",
 };
@@ -20,3 +20,5 @@ export function JobProvider({ value, children }) {
 export function useJobContext() {
   return useContext(JobContext);
 }
+
+// export default { useJobContext, JobProvider };

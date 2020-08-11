@@ -1,6 +1,6 @@
 import React from "react";
-import Wrapper from "../../components/Wrapper/Wrapper";
-import Details from "../../components/Details/Details";
+import Wrapper from "../../components/Wrapper";
+import Details from "../../components/Details";
 
 export default function JobDetail() {
   return (

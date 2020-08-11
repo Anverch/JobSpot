@@ -1,6 +1,7 @@
 import React from "react";
 import { Dropdown, Icon } from "semantic-ui-react";
 import "./MenuDropdown.css";
+import { useUserContext } from "../../utils/UserContext";
 
 const menuOptions = [
   {
@@ -32,13 +33,14 @@ const menuOptions = [
 ];
 
 export default function MenuDropdown() {
+  const { user } = useUserContext();
   return (
     <>
       <span>
         {" "}
         <Dropdown
           options={menuOptions}
-          defaultValue={menuOptions[0].value}
+          defaultValue={user.email}
           id="menu"
           icon={menuOptions.image}
         />

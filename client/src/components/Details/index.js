@@ -1,8 +1,13 @@
 import React from "react";
 import { Header, Form, Grid, TextArea } from "semantic-ui-react";
-import UpdateButton from "../UpdateButton/UpdateButton";
+import UpdateButton from "../UpdateButton";
+import { useUserContext } from "../../utils/UserContext";
+import { useJobContext } from "../../utils/JobContext";
 
 export default function Details() {
+  const { user } = useUserContext();
+  console.log(`user.jobs:>>`, user.jobs);
+
   return (
     <>
       <Grid rows={5}>
