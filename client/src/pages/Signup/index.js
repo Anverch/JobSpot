@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Grid, Header, Message, Form, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-// import SignUpForm from '../../components/SignUpForm/SignUpForm'
+// import SignUpForm from '../../components/SignUpForm'
 import "./signup.css";
 
 const validEmailRegex = RegExp(
