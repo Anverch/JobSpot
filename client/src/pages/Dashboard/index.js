@@ -8,6 +8,7 @@ import "../../styles.css";
 
 export default function Dashboard() {
   const { user } = useUserContext();
+
   return (
     <>
       <Container>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Header, Dropdown, Menu } from "semantic-ui-react";
+import { Container, Header, Dropdown } from "semantic-ui-react";
 
 export default function JobsFilter() {
   const filterOptions = [

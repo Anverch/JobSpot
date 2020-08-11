@@ -15,25 +15,25 @@ export default {
   },
   //Saves a new job to the database
   saveJob: function (jobInfo) {
-    return axios.post("/api/books", jobInfo);
+    return axios.post("/api/jobs", jobInfo);
   },
   //Gets all users
   getUsers: function () {
-    return axios.get("/users");
+    return axios.get("/api/users");
   },
   //Gets one user based on id
   getUser: function (id) {
-    return axios.get("/users/" + id);
+    return axios.get("/api/users/" + id);
   },
   //Updates on user based on id
   updateUser: function (id) {
-    return axios.put("/users/" + id);
+    return axios.put("/api/users/" + id);
   },
   //Saves a new user to the database
   createUser: function (userInfo) {
-    return axios.post("/users", userInfo);
+    return axios.post("/api/users", userInfo);
   },
   deleteUser: function (id) {
-    return axios.delete("/users/" + id);
+    return axios.delete("/api/users/" + id);
   },
 };
