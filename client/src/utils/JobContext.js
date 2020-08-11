@@ -2,7 +2,7 @@ import React, { createContext, useContext } from "react";
 export const JobModel = {
   companyName: "",
   positionTitle: "",
-  yearlySalary: 0,
+  salary: 0,
   currentStatus: "interested",
   phoneInterview: new Date(),
   inPersonInterview: new Date(),
@@ -20,5 +20,3 @@ export function JobProvider({ value, children }) {
 export function useJobContext() {
   return useContext(JobContext);
 }
-
-// export default { useJobContext, JobProvider };

@@ -10,6 +10,7 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import { JobProvider } from "./utils/JobContext";
 import { UserProvider } from "./utils/UserContext";
+import API from "./utils/API";
 
 function App() {
   const [user, setUser] = useState({
@@ -22,10 +23,10 @@ function App() {
   const [job, setJob] = useState({
     companyName: "",
     positionTitle: "",
-    yearlySalary: 0,
+    salary: 0,
     currentStatus: "interested",
-    phoneInterview: new Date(),
-    inPersonInterview: new Date(),
+    phoneInterview: new Date(Date.now()),
+    inPersonInterview: new Date(Date.now()),
     fullBenefits: false,
     location: "",
     jobNotes: "",
