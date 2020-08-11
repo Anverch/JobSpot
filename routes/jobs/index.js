@@ -27,7 +27,7 @@ router.route("/outcome")
 router.route("/")
     .get(jobsController.getJobs)
     .post(jobsController.createJob)
-    .put(isAuthenticated, jobsController.updateJob)
+    .put(jobsController.updateJob)
 
 // Matches with "/api/jobs/:id" 
 router.route("/:id")
