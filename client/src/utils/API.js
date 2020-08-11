@@ -36,4 +36,8 @@ export default {
   deleteUser: function (id) {
     return axios.delete("/api/users/" + id);
   },
+  // Login to Application
+  login: function (userInfo) {
+    return axios.post("/api/users/login")
+  }
 };
