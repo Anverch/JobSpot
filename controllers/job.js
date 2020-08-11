@@ -72,28 +72,8 @@ module.exports = {
             })
             .then(dbJob => res.json(dbJob))
             .catch(err => res.status(500).json(err));
-    },
-    getJobsActive(req, res) {
-        db.Job
-            .findAll({
-                where: {
-                    status: 'Active'
-                }
-            })
-            .then(dbJob => res.json(dbJob))
-            .catch(err => res.status(500).json(err));
-    },
-    getJobsInterviewed(req, res) {
-        db.Job
-            .findAll({
-                where: {
-                    status: 'Interviewed'
-                }
-            })
-            .then(dbJob => res.json(dbJob))
-            .catch(err => res.status(500).json(err));
-    },
-    getJobsInterested(req, res) {
+    },  
+     getJobsInterested(req, res) {
         db.Job
             .findAll({
                 where: {
@@ -102,5 +82,36 @@ module.exports = {
             })
             .then(dbJob => res.json(dbJob))
             .catch(err => res.status(500).json(err));
-    }
+    },
+    getJobsApplied(req, res) {
+        db.Job
+            .findAll({
+                where: {
+                    status: 'Applied'
+                }
+            })
+            .then(dbJob => res.json(dbJob))
+            .catch(err => res.status(500).json(err));
+    },
+    getJobsInProcess(req, res) {
+        db.Job
+            .findAll({
+                where: {
+                    status: 'In Process'
+                }
+            })
+            .then(dbJob => res.json(dbJob))
+            .catch(err => res.status(500).json(err));
+    },
+    getJobsOutcome(req, res) {
+        db.Job
+            .findAll({
+                where: {
+                    status: 'Outcome Reached'
+                }
+            })
+            .then(dbJob => res.json(dbJob))
+            .catch(err => res.status(500).json(err));
+    },
+
 }
