@@ -30,14 +30,14 @@ module.exports = {
                 password: req.body
             }, {
                 where: {
-                    id: req.body.id
+                    id: req.params.id
                 }
             })
             .then(dbUser => res.json(dbUser))
             .catch(err => res.status(500).json(err));
 
     },
-    deleteUser(req, params) {
+    deleteUser(req, res) {
         const id = req.params.id;
         db.User
             .destroy({

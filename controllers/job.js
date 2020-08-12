@@ -24,7 +24,7 @@ module.exports = {
             .then(dbJob => res.json(dbJob))
             .catch(err => res.status(500).json(err));
     },
-    getJob(req, params) {
+    getJob(req, res) {
         const id = req.params.id;
         db.Job
             .findOne({
@@ -46,13 +46,13 @@ module.exports = {
                 user_id: req.body.user_id
             }, {
                 where: {
-                    id: req.body.id
+                    id: req.params.id
                 }
             })
             .then(dbJob => res.json(dbJob))
             .catch(err => res.status(500).json(err));
     },
-    deleteJob(req, params) {
+    deleteJob(req, res) {
         const id = req.params.id;
         db.Job
             .destroy({
@@ -60,7 +60,7 @@ module.exports = {
                     id: id
                 }
             })
-            .then(function () { console.log(`Job ${id} deleted`); })
+            .then (dbJob=> res.json(dbJob))
             .catch(err => res.status(500).json(err));
     },
     getJobsPending(req, res) {

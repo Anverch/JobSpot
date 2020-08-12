@@ -27,11 +27,12 @@ router.route("/outcome")
 router.route("/")
     .get(jobsController.getJobs)
     .post(jobsController.createJob)
-    .put(isAuthenticated, jobsController.updateJob)
+
 
 // Matches with "/api/jobs/:id" 
 router.route("/:id")
     .get(jobsController.getJob)
+    .put(jobsController.updateJob)
     .delete(jobsController.deleteJob);
 
 // Matches with "/api/jobs/user/:id"
