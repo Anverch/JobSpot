@@ -37,7 +37,7 @@ module.exports = {
             .catch(err => res.status(500).json(err));
 
     },
-    deleteUser(req, params) {
+    deleteUser(req, res) {
         const id = req.params.id;
         db.User
             .destroy({

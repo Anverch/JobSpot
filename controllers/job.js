@@ -52,7 +52,7 @@ module.exports = {
             .then(dbJob => res.json(dbJob))
             .catch(err => res.status(500).json(err));
     },
-    deleteJob(req, params) {
+    deleteJob(req, res) {
         const id = req.params.id;
         db.Job
             .destroy({
@@ -60,7 +60,7 @@ module.exports = {
                     id: id
                 }
             })
-            .then(function () { console.log(`Job ${id} deleted`); })
+            .then (dbJob=> res.json(dbJob))
             .catch(err => res.status(500).json(err));
     },
     getJobsPending(req, res) {
