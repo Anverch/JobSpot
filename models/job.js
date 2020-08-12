@@ -12,6 +12,11 @@ module.exports = (sequelize, DataTypes) => {
             job_title: DataTypes.STRING,
             salary: DataTypes.INTEGER,
             status: DataTypes.STRING,
+            phone: DataTypes.INTEGER,
+            in_person_interview_date: DataTypes.STRING,
+            benefits: DataTypes.STRING,
+            location: DataTypes.STRING,
+            source: DataTypes.STRING,
             notes: DataTypes.STRING
         }
     );
