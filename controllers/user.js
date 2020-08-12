@@ -30,7 +30,7 @@ module.exports = {
                 password: req.body
             }, {
                 where: {
-                    id: req.body.id
+                    id: req.params.id
                 }
             })
             .then(dbUser => res.json(dbUser))
