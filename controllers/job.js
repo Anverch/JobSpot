@@ -24,7 +24,7 @@ module.exports = {
             .then(dbJob => res.json(dbJob))
             .catch(err => res.status(500).json(err));
     },
-    getJob(req, params) {
+    getJob(req, res) {
         const id = req.params.id;
         db.Job
             .findOne({
