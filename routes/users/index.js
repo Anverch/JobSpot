@@ -10,7 +10,7 @@ router
   .post(usersController.createUser);
 
 // Matches with "/api/users/user_data"
-router.route("/user_data").get(isAuthenticated, usersController.getUserData);
+router.route("/user_data").get(usersController.getUserData);
 
 // Matches with "/api/users/:id"
 router
