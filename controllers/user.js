@@ -57,6 +57,7 @@ module.exports = {
                 }
             })
             .then(function (dbUser) {
+                console.log("that", dbUser)
                 res.json(dbUser);
             })
             .catch(err => res.status(500).json(err));
