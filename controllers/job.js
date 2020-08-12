@@ -46,7 +46,7 @@ module.exports = {
                 user_id: req.body.user_id
             }, {
                 where: {
-                    id: req.body.id
+                    id: req.params.id
                 }
             })
             .then(dbJob => res.json(dbJob))
