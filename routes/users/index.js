@@ -22,6 +22,9 @@ router
 // Matches with "/api/users/login"
 router
   .route("/login")
-  .post(passport.authenticate("local"), isAuthenticated, usersController.login);
+  .post(passport.authenticate("local"), isAuthenticated, (req,res) => {
+    const { email, id, name } = req.user || {};
+    res.json({email, id, name });
+  })
 
 module.exports = router;
