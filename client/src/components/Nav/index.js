@@ -1,5 +1,6 @@
 import React from "react";
 import { Header, Grid, Menu } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 import "./Nav.css";
 
 export default function Nav() {
@@ -16,16 +17,16 @@ export default function Nav() {
         </Grid.Row>
       </Grid>
       <div class="ui secondary pointing menu">
-        <a class="item active">
+        <Link to="/home" class="item active">
           Dashboard
-  </a>
-        <a class="item">
+        </Link>
+        <Link to="/create-job" class="item">
           Add New Job
-  </a>
+        </Link>
         <div class="right menu">
           <a class="ui item">
             Logout
-    </a>
+          </a>
         </div>
       </div>
       <div class="ui segment">
