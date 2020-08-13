@@ -1,21 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Label, Menu } from "semantic-ui-react";
+import { useUserContext } from "../../utils/UserContext";
 
 export default function JobsCounter() {
+  const { user } = useUserContext();
+  console.log(`user.jobs:>>`, user.jobs);
+
   const [activeItem, setActiveItem] = useState({
-    activeItem: "overview",
+    activeItem: "",
   });
 
   return (
     <Menu fluid vertical inverted color="yellow">
-      <Menu.Item
-        name="overview"
-        active={activeItem === "overview"}
-        onClick={() => setActiveItem({ activeItem: "overview" })}
-      >
-        <Label color="purple">23</Label>
-        Overview
-      </Menu.Item>
       <Menu.Item
         name="interested"
         active={activeItem === "interested"}
@@ -41,9 +37,9 @@ export default function JobsCounter() {
         In Process
       </Menu.Item>
       <Menu.Item
-        name="outcome Reached"
-        active={activeItem === "outcome Reached"}
-        onClick={() => setActiveItem({ activeItem: "outcome Reached" })}
+        name="outcome reached"
+        active={activeItem === "outcome reached"}
+        onClick={() => setActiveItem({ activeItem: "outcome reached" })}
       >
         <Label color="grey">3</Label>
         Outcome Reached

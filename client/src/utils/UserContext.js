@@ -7,12 +7,14 @@ export const UserModel = {
   addJob: (job) => {},
   handleInputChange: () => {},
   handleSubmit: () => {},
+
 };
 
 const UserContext = createContext(UserModel);
 
 export function UserProvider({ value, ...props }) {
   return <UserContext.Provider value={value} {...props} />;
+
 }
 
 export function useUserContext() {

@@ -1,16 +1,22 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import {
-  Button,
-  Form,
-  Grid,
-  Header,
-  Message,
-  Segment,
-} from "semantic-ui-react";
+import React, { useState, useEffect } from "react";
+import { Grid, Header } from "semantic-ui-react";
 import "./signin.css";
+import SignInForm from "../../components/SignInForm";
+import API from "../../utils/API";
 
 export default function SignIn() {
+  const [user, setUser] = useState("");
+
+  // useEffect(() => {
+  //   if(!user) {
+  //     return;
+  //   }
+
+  //   API.getUser
+  // })
+
+  const handleInputChange = (event) => setUser(event.target.value);
+
   return (
     <Grid className="styleGrid">
       <div className="body" />
@@ -21,36 +27,7 @@ export default function SignIn() {
             Job<span>Spot</span>
           </div>
         </Header>
-        <Form className="login">
-          <Segment stacked>
-            <Form.Input
-              fluid
-              icon="user"
-              iconPosition="left"
-              placeholder="E-mail Address"
-              type="text"
-            />
-            <Form.Input
-              fluid
-              icon="lock"
-              iconPosition="left"
-              placeholder="Password"
-              type="password"
-            />
-          </Segment>
-          <Button className="signinBtn" value="Login">
-            Login
-          </Button>
-          <Message className="signup">
-            New to us?
-            <Link
-              className="signup-link"
-              to="/index"
-            >
-              Sign Up
-            </Link>
-          </Message>
-        </Form>
+        <SignInForm handleInputChange={handleInputChange} user={user} />
       </Grid.Column>
     </Grid>
   );

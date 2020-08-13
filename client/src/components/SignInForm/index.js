@@ -9,6 +9,7 @@ export default function SignInForm() {
   // console.log(`user:>>`, user);
   const { user, handleInputChange, handleSubmit } = useUserContext();
 
+
   return (
     <>
       <Form className="login">
@@ -19,6 +20,7 @@ export default function SignInForm() {
             value={user.fullName}
             onChange={handleInputChange}
             onSubmit={handleSubmit}
+
             iconPosition="left"
             placeholder="E-mail Address"
             type="text"
@@ -34,6 +36,7 @@ export default function SignInForm() {
           />
         </Segment>
         {/* <Link
+
           to={{
             pathname: "/home",
             data: user,
@@ -43,6 +46,7 @@ export default function SignInForm() {
           Login
         </Button>
         {/* </Link> */}
+
         <Message className="signup">
           New to us?
           <Link className="signup-link" to="/index">

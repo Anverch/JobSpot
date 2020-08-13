@@ -1,4 +1,5 @@
-import React, { useEffect, use } from "react";
+
+import React, { useEffect } from "react";
 import { Container, Header, Segment, Divider } from "semantic-ui-react";
 import JobsCounter from "../../components/JobsCounter";
 import { useUserContext } from "../../utils/UserContext";
@@ -22,6 +23,7 @@ export default function Dashboard() {
       .catch((err) => console.error(err));
   };
 
+
   return (
     <>
       <Container>
@@ -39,6 +41,7 @@ export default function Dashboard() {
           <Header as="h3" color="orange" textAlign="center">
             You have {user.jobs.length > 0 ? user.jobs.length : 0} open jobs,
             click below to filter by status
+
           </Header>
           <Divider />
           <JobsCounter />

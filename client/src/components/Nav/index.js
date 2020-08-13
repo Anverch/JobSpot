@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { Header, Grid, Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
@@ -16,6 +17,7 @@ export default function Nav() {
     <>
       <Grid rows={2}>
         <Grid.Row id="nav" columns={1} verticalAlign="bottom">
+
           <Grid.Column textAlign="center">
             <Header as="h2" id="nav-logo">
               <span id="job">Job</span>
@@ -52,6 +54,7 @@ export default function Nav() {
           </Grid.Column>
         </Grid.Row>
       </Grid>
+
     </>
   );
 }

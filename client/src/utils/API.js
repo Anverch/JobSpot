@@ -4,6 +4,7 @@ export default {
   //Gets all jobs for one user
   getJobs: function (id) {
     return axios.get("/api/jobs/" + id);
+
   },
   //Gets one job based on id
   getJob: function (id) {
@@ -22,8 +23,10 @@ export default {
     return axios.get("/api/users");
   },
   //Gets one user based on id
-  getUser: function (email) {
-    return axios.get("/api/users/" + email);
+//   getUser: function (email) {
+//     return axios.get("/api/users/" + email);
+  getUser: function (id) {
+    return axios.get("/api/users/" + id);
   },
   //Updates on user based on id
   updateUser: function (id) {
@@ -40,4 +43,5 @@ export default {
   login: function (userInfo) {
     return axios.post("/api/users/login");
   },
+
 };
