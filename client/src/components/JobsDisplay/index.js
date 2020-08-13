@@ -2,15 +2,17 @@ import React from "react";
 import { Segment, List, Button } from "semantic-ui-react";
 import "./JobsDisplay.css";
 import UpdateButton from "../UpdateButton";
+import ViewButton from "../ViewButton";
 import { useJobContext } from "../../utils/JobContext";
-import { useUserContext } from "../../utils/UserContext";
+import { useUserContext } from "../../utils/GlobalState";
 // import API from '../../utils/API'
 
 export default function JobsDisplay() {
-  const { job } = useJobContext();
-  console.log(`job:>>`, job);
-  const { user } = useUserContext();
-  console.log(`user.jobs:>>`, user.jobs);
+  // const { job } = useJobContext();
+  // console.log(`job:>>`, job);
+  const [state, dispatch] = useUserContext();
+  console.log(`state:>>`, state);
+  const { user } = state;
 
   return (
     <>
@@ -20,6 +22,7 @@ export default function JobsDisplay() {
             return (
               <List.Item>
                 <List.Content floated="right">
+                  <ViewButton />
                   <UpdateButton />
                 </List.Content>
                 <List.Header>{job.companyName}</List.Header>

@@ -24,9 +24,9 @@ const jobStatusOptions = [
     value: "In Process",
   },
   {
-    key: "Outcome Reached",
-    text: "Outcome Reached",
-    value: "Outcome Reached",
+    key: "Closed",
+    text: "Closed",
+    value: "Closed",
   },
 ];
 
