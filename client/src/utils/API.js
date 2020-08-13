@@ -1,9 +1,10 @@
 import axios from "axios";
 
 export default {
-  //Gets all jobs
-  getJobs: function () {
-    return axios.get("/api/jobs");
+  //Gets all jobs for one user
+  getJobs: function (id) {
+    return axios.get("/api/jobs/" + id);
+
   },
   //Gets one job based on id
   getJob: function (id) {
@@ -22,6 +23,8 @@ export default {
     return axios.get("/api/users");
   },
   //Gets one user based on id
+//   getUser: function (email) {
+//     return axios.get("/api/users/" + email);
   getUser: function (id) {
     return axios.get("/api/users/" + id);
   },
@@ -38,6 +41,7 @@ export default {
   },
   // Login to Application
   login: function (userInfo) {
-    return axios.post("/api/users/login")
-  }
+    return axios.post("/api/users/login");
+  },
+
 };

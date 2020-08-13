@@ -2,10 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Form, Segment, Button, Message } from "semantic-ui-react";
 import "./SignInForm.css";
+import { useUserContext } from "../../utils/UserContext";
 
-export default function SignInForm({ handleInputChange, user }) {
-  console.log(`handleInputChange:>>`, handleInputChange);
-  console.log(`user:>>`, user);
+export default function SignInForm() {
+  // console.log(`handleInputChange:>>`, handleInputChange);
+  // console.log(`user:>>`, user);
+  const { user, handleInputChange, handleSubmit } = useUserContext();
+
 
   return (
     <>
@@ -14,9 +17,10 @@ export default function SignInForm({ handleInputChange, user }) {
           <Form.Input
             fluid
             icon="user"
-            value={user}
+            value={user.fullName}
             onChange={handleInputChange}
-            // onSubmit={handleSubmit}
+            onSubmit={handleSubmit}
+
             iconPosition="left"
             placeholder="E-mail Address"
             type="text"
@@ -31,16 +35,18 @@ export default function SignInForm({ handleInputChange, user }) {
             id="password"
           />
         </Segment>
-        <Link
+        {/* <Link
+
           to={{
             pathname: "/home",
             data: user,
           }}
-        >
-          <Button className="signinBtn" value="Login">
-            Login
-          </Button>
-        </Link>
+        > */}
+        <Button className="signinBtn" value="Login" type="submit">
+          Login
+        </Button>
+        {/* </Link> */}
+
         <Message className="signup">
           New to us?
           <Link className="signup-link" to="/index">
