@@ -2,13 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Form, Segment, Button, Message } from "semantic-ui-react";
 import "./SignInForm.css";
-import { useUserContext } from "../../utils/UserContext";
+import { useUserContext } from "../../utils/GlobalState";
 
 export default function SignInForm() {
   // console.log(`handleInputChange:>>`, handleInputChange);
   // console.log(`user:>>`, user);
   const { user, handleInputChange, handleSubmit } = useUserContext();
-
 
   return (
     <>
@@ -20,7 +19,6 @@ export default function SignInForm() {
             value={user.fullName}
             onChange={handleInputChange}
             onSubmit={handleSubmit}
-
             iconPosition="left"
             placeholder="E-mail Address"
             type="text"

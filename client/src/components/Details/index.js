@@ -1,12 +1,18 @@
+//this functional component uses the UserContext to render a specific job and its details
+//pulls from user.jobs[i] where job id matches
+//use reducer to filter
+
+//importing dependencies
 import React from "react";
 import { Header, Form, Grid, TextArea } from "semantic-ui-react";
 import UpdateButton from "../UpdateButton";
-import { useUserContext } from "../../utils/UserContext";
+import { useUserContext } from "../../utils/GlobalState";
 import { useJobContext } from "../../utils/JobContext";
 
 export default function Details() {
-  const { user } = useUserContext();
-  console.log(`user.jobs:>>`, user.jobs);
+  // invokes useUserContext(),
+  const [job, dispatch] = useUserContext();
+  console.log(`job:>>`, job);
 
   return (
     <>

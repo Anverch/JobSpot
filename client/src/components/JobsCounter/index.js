@@ -1,10 +1,46 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Label, Menu } from "semantic-ui-react";
-import { useUserContext } from "../../utils/UserContext";
+import { useUserContext } from "../../utils/GlobalState";
 
 export default function JobsCounter() {
-  const { user } = useUserContext();
-  console.log(`user.jobs:>>`, user.jobs);
+  const [state, dispatch] = useUserContext();
+  const { user } = state;
+  console.log(`state>>`, state);
+
+  const filterJobs = (filter) => {
+    switch (filter) {
+      case "Overview": {
+        return user.jobs.length;
+      }
+
+      case "Interested": {
+        const interested = user.jobs.filter(
+          (job) => job.currentStatus === "Interested"
+        );
+        return interested.length;
+      }
+      case "Applied": {
+        const applied = user.jobs.filter(
+          (job) => job.currentStatus === "Applied"
+        );
+        return applied.length;
+      }
+      case "In Process": {
+        const inProcess = user.jobs.filter(
+          (job) => job.currentStatus === "In Process"
+        );
+        return inProcess.length;
+      }
+      case "Closed": {
+        const closed = user.jobs.filter(
+          (job) => job.currentStatus === "Closed"
+        );
+        return closed.length;
+      }
+      default:
+        return user.jobs.length;
+    }
+  };
 
   const [activeItem, setActiveItem] = useState({
     activeItem: "",
@@ -13,41 +49,49 @@ export default function JobsCounter() {
   return (
     <Menu fluid vertical inverted color="yellow">
       <Menu.Item
-        name="interested"
-        active={activeItem === "interested"}
-        onClick={() => setActiveItem({ activeItem: "interested" })}
+        name="Overview"
+        active={activeItem === "Overview"}
+        onClick={() => setActiveItem({ activeItem: "Overview" })}
       >
-        <Label color="teal">34</Label>
+        <Label color="purple">{filterJobs("Overview")}</Label>
+        Overview
+      </Menu.Item>
+      <Menu.Item
+        name="Interested"
+        active={activeItem === "Interested"}
+        onClick={() => setActiveItem({ activeItem: "Interested" })}
+      >
+        <Label color="teal">{filterJobs("Interested")}</Label>
         Interested
       </Menu.Item>
       <Menu.Item
-        name="applied"
-        active={activeItem === "applied"}
-        onClick={() => setActiveItem({ activeItem: "applied" })}
+        name="Applied"
+        active={activeItem === "Applied"}
+        onClick={() => setActiveItem({ activeItem: "Applied" })}
       >
-        <Label color="blue">29</Label>
+        <Label color="blue">{filterJobs("Applied")}</Label>
         Applied
       </Menu.Item>
       <Menu.Item
-        name="in process"
-        active={activeItem === "in process"}
-        onClick={() => setActiveItem({ activeItem: "in process" })}
+        name="In Process"
+        active={activeItem === "In Process"}
+        onClick={() => setActiveItem({ activeItem: "In Process" })}
       >
-        <Label color="green">8</Label>
+        <Label color="green">{filterJobs("In Process")}</Label>
         In Process
       </Menu.Item>
       <Menu.Item
-        name="outcome reached"
-        active={activeItem === "outcome reached"}
-        onClick={() => setActiveItem({ activeItem: "outcome reached" })}
+        name="Closed"
+        active={activeItem === "Closed"}
+        onClick={() => setActiveItem({ activeItem: "Closed" })}
       >
-        <Label color="grey">3</Label>
-        Outcome Reached
+        <Label color="grey">{filterJobs("Closed")}</Label>
+        Closed
       </Menu.Item>
       <Menu.Item
-        name="create"
-        active={activeItem === "create"}
-        onClick={() => setActiveItem({ activeItem: "create" })}
+        name="Create"
+        active={activeItem === "Create"}
+        onClick={() => setActiveItem({ activeItem: "Create" })}
       >
         <Label color="orange">Add</Label>
         Add a new job

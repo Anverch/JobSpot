@@ -1,7 +1,7 @@
 import React from "react";
 import { Dropdown, Icon } from "semantic-ui-react";
 import "./MenuDropdown.css";
-import { useUserContext } from "../../utils/UserContext";
+import { useUserContext } from "../../utils/GlobalState";
 
 const menuOptions = [
   {
