@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
             salary: DataTypes.INTEGER,
             status: DataTypes.STRING,
             phone: DataTypes.BIGINT,
-            in_person_interview_date: DataTypes.DATETIME,
+            in_person_interview_date: DataTypes.DATE,
             benefits: DataTypes.STRING,
             location: DataTypes.STRING,
             source: DataTypes.STRING,
