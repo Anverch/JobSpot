@@ -7,7 +7,6 @@ import React from "react";
 import { Header, Form, Grid, TextArea } from "semantic-ui-react";
 import UpdateButton from "../UpdateButton";
 import { useUserContext } from "../../utils/GlobalState";
-import { useJobContext } from "../../utils/JobContext";
 
 export default function Details() {
   // invokes useUserContext(),

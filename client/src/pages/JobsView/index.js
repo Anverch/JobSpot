@@ -4,8 +4,6 @@ import JobsFilter from "../../components/JobsFilter";
 import Wrapper from "../../components/Wrapper";
 
 export default function JobsView() {
-  const [activeFilter, setActiveFilter] = useState({});
-
   return (
     <Wrapper>
       <JobsFilter />

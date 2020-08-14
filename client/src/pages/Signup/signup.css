@@ -94,7 +94,7 @@ input::placeholder {
   display: relative;
 }
 
-.fullName,
+.name,
 .email,
 .password {
   display: flex;
@@ -102,7 +102,7 @@ input::placeholder {
   margin-bottom: 15px;
 }
 
-.fullName {
+.name {
   width: 100%;
 }
 
