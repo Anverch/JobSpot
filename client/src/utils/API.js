@@ -43,5 +43,11 @@ export default {
   login: function (userInfo) {
     return axios.post("/api/users/login");
   },
-
+  getUserData: function () {
+    return axios.get("/api/users/user_data");
+  },
+    // Logout
+  logout: function () {
+    return axios.post("/api/users/logout");
+  }
 };
