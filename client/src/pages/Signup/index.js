@@ -26,7 +26,7 @@ class Register extends Component {
       formValid: false,
       errorCount: null,
       errors: {
-        fullName: "",
+        name: "",
         email: "",
         password: "",
       },
@@ -39,9 +39,8 @@ class Register extends Component {
     let errors = this.state.errors;
 
     switch (name) {
-      case "fullName":
-        errors.fullName =
-          value.length < 5 ? "Please enter your full name." : "";
+      case "name":
+        errors.name = value.length < 5 ? "Please enter your full name." : "";
         break;
       case "email":
         errors.email = validEmailRegex.test(value) ? "" : "Email is not valid!";
@@ -63,12 +62,12 @@ class Register extends Component {
     event.preventDefault();
     this.setState({ formValid: validateForm(this.state.errors) });
     this.setState({ errorCount: countErrors(this.state.errors) });
-    this.setState({ fullName: "", email: "", password: "" });
+    this.setState({ name: "", email: "", password: "" });
   };
 
   render() {
     const { errors, formValid } = this.state;
-    const { fullName, email, password } = this.state;
+    const { name, email, password } = this.state;
     return (
       <Grid className="wrapper">
         <Grid.Column className="form-wrapper">
@@ -76,17 +75,17 @@ class Register extends Component {
             Create an account with us!
           </Header>
           <Form onSubmit={this.handleSubmit} noValidate>
-            <div className="fullName">
-              <label htmlFor="fullName">Full Name</label>
+            <div className="name">
+              <label htmlFor="name">Full Name</label>
               <Form.Input
                 type="text"
-                name="fullName"
-                value={fullName}
+                name="name"
+                value={name}
                 onChange={this.handleChange}
                 noValidate
               />
-              {errors.fullName.length > 0 && (
-                <span className="error">{errors.fullName}</span>
+              {errors.name.length > 0 && (
+                <span className="error">{errors.name}</span>
               )}
             </div>
             <div className="email">

@@ -7,7 +7,7 @@ import { useUserContext } from "../../utils/GlobalState";
 export default function SignInForm() {
   // console.log(`handleInputChange:>>`, handleInputChange);
   // console.log(`user:>>`, user);
-  const { user, handleInputChange, handleSubmit } = useUserContext();
+  const [state, dispatch] = useUserContext();
 
   return (
     <>
@@ -16,9 +16,9 @@ export default function SignInForm() {
           <Form.Input
             fluid
             icon="user"
-            value={user.fullName}
-            onChange={handleInputChange}
-            onSubmit={handleSubmit}
+            value={state.name}
+            onChange={state.handleInputChange}
+            onSubmit={state.handleSubmit}
             iconPosition="left"
             placeholder="E-mail Address"
             type="text"

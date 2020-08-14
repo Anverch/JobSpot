@@ -8,7 +8,6 @@ import JobDetail from "./pages/JobDetail";
 import CreateJob from "./pages/CreateJob";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
-import { JobProvider } from "./utils/JobContext";
 import { UserProvider } from "./utils/GlobalState";
 
 function App() {
@@ -18,7 +17,6 @@ function App() {
         <UserProvider>
           <Nav />
           <Switch>
-            {/* <JobProvider value={{ job }}> */}
             <Route exact path="/">
               <SignIn />
             </Route>
@@ -37,7 +35,6 @@ function App() {
             <Route path="/create-job">
               <CreateJob />
             </Route>
-            {/* </JobProvider> */}
           </Switch>
         </UserProvider>
         <Footer />

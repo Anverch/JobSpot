@@ -4,41 +4,40 @@ import { useUserContext } from "../../utils/GlobalState";
 
 export default function JobsCounter() {
   const [state, dispatch] = useUserContext();
-  const { user } = state;
   console.log(`state>>`, state);
 
   const filterJobs = (filter) => {
     switch (filter) {
-      case "Overview": {
-        return user.jobs.length;
+      case "All": {
+        return state.jobs.length;
       }
 
       case "Interested": {
-        const interested = user.jobs.filter(
+        const interested = state.jobs.filter(
           (job) => job.currentStatus === "Interested"
         );
         return interested.length;
       }
       case "Applied": {
-        const applied = user.jobs.filter(
+        const applied = state.jobs.filter(
           (job) => job.currentStatus === "Applied"
         );
         return applied.length;
       }
       case "In Process": {
-        const inProcess = user.jobs.filter(
+        const inProcess = state.jobs.filter(
           (job) => job.currentStatus === "In Process"
         );
         return inProcess.length;
       }
       case "Closed": {
-        const closed = user.jobs.filter(
+        const closed = state.jobs.filter(
           (job) => job.currentStatus === "Closed"
         );
         return closed.length;
       }
       default:
-        return user.jobs.length;
+        return state.jobs.length;
     }
   };
 
@@ -49,12 +48,12 @@ export default function JobsCounter() {
   return (
     <Menu fluid vertical inverted color="yellow">
       <Menu.Item
-        name="Overview"
-        active={activeItem === "Overview"}
-        onClick={() => setActiveItem({ activeItem: "Overview" })}
+        name="All"
+        active={activeItem === "All"}
+        onClick={() => setActiveItem({ activeItem: "All" })}
       >
-        <Label color="purple">{filterJobs("Overview")}</Label>
-        Overview
+        <Label color="purple">{filterJobs("All")}</Label>
+        All
       </Menu.Item>
       <Menu.Item
         name="Interested"

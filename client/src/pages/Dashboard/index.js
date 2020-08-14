@@ -8,8 +8,8 @@ import "../../styles.css";
 
 export default function Dashboard() {
   const [state, _] = useUserContext();
-  const { user } = state;
-  const filteredJobs = user.jobs.filter(
+
+  const filteredJobs = state.jobs.filter(
     (job) => job.currentStatus !== "Closed"
   );
 
@@ -23,7 +23,7 @@ export default function Dashboard() {
             textAlign="center"
             id="greeting-header"
           >
-            Hello, {user.fullName}
+            Hello, {state.name}
           </Header>
         </Segment>
         <Segment raised id="jobs-header">

@@ -5,49 +5,24 @@ import { useUserContext } from "../../utils/GlobalState";
 export default function JobsFilter() {
   const inputRef = useRef();
   const [state, dispatch] = useUserContext();
-  const { user } = state;
-
-  function handleFilter(e) {
-    e.preventDefault();
-    // dispatch({
-    //   type: "filter",
-    //   name: inputRef.current.value,
-    // });
-    switch (inputRef.current.value) {
-      case "Interested": {
-        const interested = user.jobs.filter(
-          (job) => job.currentStatus === "Interested"
-        );
-        return interested;
-      }
-
-      case "Applied": {
-        const applied = user.jobs.filter(
-          (job) => job.currentStatus === "Applied"
-        );
-        return applied;
-      }
-      case "In Process": {
-        const inProcess = user.jobs.filter(
-          (job) => job.currentStatus === "In Process"
-        );
-        return inProcess;
-      }
-      case "Closed": {
-        const closed = user.jobs.filter(
-          (job) => job.currentStatus === "Closed"
-        );
-        return closed;
-      }
-      default:
-        return state;
+  const handleFilter = (data) => {
+    if (data.value !== "All") {
+      const filteredJobs = state.jobs.filter(
+        (job) => job.currentStatus === data.value
+      );
+      dispatch({ type: "filter", filteredJobs });
+      return;
     }
-  }
+    const allJobs = state.jobs;
+    dispatch({ type: "all", allJobs });
+    return;
+  };
+
   const filterOptions = [
     {
-      key: "Dashboard",
-      text: "Dashboard",
-      value: "Dashboard",
+      key: "All",
+      text: "All",
+      value: "All",
     },
     {
       key: "Interested",
@@ -81,6 +56,8 @@ export default function JobsFilter() {
             ref={inputRef}
             options={filterOptions}
             id="status-filter"
+            defaultValue="All"
+            onChange={handleFilter}
           ></Dropdown>
         </Header.Content>
       </Header>
