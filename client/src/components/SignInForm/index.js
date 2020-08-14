@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Form, Segment, Button, Message } from "semantic-ui-react";
-import "./SignInForm.css";
+// import "./SignInForm.css";
 import { useUserContext } from "../../utils/GlobalState";
 
 export default function SignInForm() {
@@ -16,7 +16,7 @@ export default function SignInForm() {
           <Form.Input
             fluid
             icon="user"
-            value={state.name}
+            value=''
             onChange={state.handleInputChange}
             onSubmit={state.handleSubmit}
             iconPosition="left"

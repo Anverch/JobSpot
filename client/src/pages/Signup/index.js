@@ -3,6 +3,7 @@ import { Grid, Header, Message, Form, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 // import SignUpForm from '../../components/SignUpForm'
 import "./signup.css";
+import API from "../../utils/API";
 
 const validEmailRegex = RegExp(
   /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
@@ -35,7 +36,11 @@ class Register extends Component {
 
   handleChange = (event) => {
     event.preventDefault();
+    console.log('handlechange')
     const { name, value } = event.target;
+    this.setState({[event.target.name]: event.target.value}, () => {
+      console.log(this.state)
+    })
     let errors = this.state.errors;
 
     switch (name) {
@@ -60,6 +65,14 @@ class Register extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    console.log("handle submit")
+    const userInfo = {
+      name: this.state.name, 
+      email: this.state.email,
+      password: this.state.password
+    }
+    console.log(userInfo)
+    API.createUser(userInfo)
     this.setState({ formValid: validateForm(this.state.errors) });
     this.setState({ errorCount: countErrors(this.state.errors) });
     this.setState({ name: "", email: "", password: "" });
