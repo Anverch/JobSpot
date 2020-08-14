@@ -5,6 +5,7 @@ const testUser = {
   email: "whoisryan@btag.com",
   jobs: [
     {
+      id: Math.floor(Math.random() * 1000000),
       companyName: "Google",
       positionTitle: "president",
       salary: 500000000,
@@ -14,6 +15,7 @@ const testUser = {
       jobNotes: "sounds pretty good",
     },
     {
+      id: Math.floor(Math.random() * 1000000),
       companyName: "Twitter",
       positionTitle: "software engineer",
       salary: 100000,
@@ -23,6 +25,7 @@ const testUser = {
       jobNotes: "moving expenses covered",
     },
     {
+      id: Math.floor(Math.random() * 1000000),
       companyName: "Postmates",
       positionTitle: "project manager",
       salary: 125000,
@@ -32,6 +35,7 @@ const testUser = {
       jobNotes: "4 direct reports",
     },
     {
+      id: Math.floor(Math.random() * 1000000),
       companyName: "Microsoft",
       positionTitle: "bing consultant",
       salary: 100000,
@@ -43,6 +47,7 @@ const testUser = {
   ],
   filteredJobs: [
     {
+      id: Math.floor(Math.random() * 1000000),
       companyName: "Google",
       positionTitle: "president",
       salary: 500000000,
@@ -52,6 +57,7 @@ const testUser = {
       jobNotes: "sounds pretty good",
     },
     {
+      id: Math.floor(Math.random() * 1000000),
       companyName: "Twitter",
       positionTitle: "software engineer",
       salary: 100000,
@@ -61,6 +67,7 @@ const testUser = {
       jobNotes: "moving expenses covered",
     },
     {
+      id: Math.floor(Math.random() * 1000000),
       companyName: "Postmates",
       positionTitle: "project manager",
       salary: 125000,
@@ -70,6 +77,7 @@ const testUser = {
       jobNotes: "4 direct reports",
     },
     {
+      id: Math.floor(Math.random() * 1000000),
       companyName: "Microsoft",
       positionTitle: "bing consultant",
       salary: 100000,
@@ -81,6 +89,7 @@ const testUser = {
   ],
   filter: "All",
   loggedIn: true,
+  currentView: {},
   handleInputChange: (e) => {
     console.log(`e.target:>>`, e.target);
     const { name, value } = e.target;
@@ -100,6 +109,7 @@ const UserContext = createContext({
   filteredJobs: [],
   filter: ["All", "Interested", "Applied", "In Process", "Closed"],
   loggedIn: true,
+  currentView: {},
   addJob: (job) => {},
   handleInputChange: () => {},
   handleSubmit: () => {},
@@ -113,6 +123,9 @@ const reducer = (state, action) => {
     }
     case "all": {
       return { ...state, filteredJobs: action.allJobs };
+    }
+    case "view": {
+      return { ...state, currentView: action.view };
     }
     default:
       return { ...state };

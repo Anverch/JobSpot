@@ -10,8 +10,8 @@ import { useUserContext } from "../../utils/GlobalState";
 
 export default function Details() {
   // invokes useUserContext(),
-  const [job, dispatch] = useUserContext();
-  console.log(`job:>>`, job);
+  const [state, dispatch] = useUserContext();
+  console.log(`state:>>`, state);
 
   return (
     <>

@@ -5,7 +5,8 @@ import { useUserContext } from "../../utils/GlobalState";
 export default function JobsFilter() {
   const inputRef = useRef();
   const [state, dispatch] = useUserContext();
-  const handleFilter = (data) => {
+  const handleFilter = (event, data) => {
+    console.log(`data:>>`, data);
     if (data.value !== "All") {
       const filteredJobs = state.jobs.filter(
         (job) => job.currentStatus === data.value
