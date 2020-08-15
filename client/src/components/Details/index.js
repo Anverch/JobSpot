@@ -3,7 +3,7 @@
 //use reducer to filter
 
 //importing dependencies
-import React from "react";
+import React, { useEffect } from "react";
 import { Header, Form, Grid, TextArea } from "semantic-ui-react";
 import UpdateButton from "../UpdateButton";
 import { useUserContext } from "../../utils/GlobalState";
@@ -17,12 +17,12 @@ export default function Details() {
       <Grid rows={5}>
         <Grid.Row columns={2} id="meta-row">
           <Grid.Column textAlign="left">
-            <Header as="h3">Facebook</Header>
-            <span>Backend Developer</span>
+            <Header as="h3">{state.activeJob.companyName}</Header>
+            <span>{state.activeJob.positionTitle}</span>
           </Grid.Column>
           <Grid.Column textAlign="right">
-            <Header as="h4">$95,000</Header>
-            <Header sub>Current status: In Process</Header>
+            <Header as="h4">{state.activeJob.salary}</Header>
+            <Header sub>Current status: {state.activeJob.currentStatus}</Header>
           </Grid.Column>
         </Grid.Row>
         <Grid.Row columns={3} id="details1-row">
@@ -38,10 +38,10 @@ export default function Details() {
         </Grid.Row>
         <Grid.Row id="details2-row" columns={3}>
           <Grid.Column>
-            <Header sub>Full benefits: yes</Header>
+            <Header sub>Full benefits: {state.activeJob.fullBenefits}</Header>
           </Grid.Column>
           <Grid.Column>
-            <Header sub>Location: Remote</Header>
+            <Header sub>Location: {state.activeJob.location}</Header>
           </Grid.Column>
           <Grid.Column>
             <Header sub></Header>
