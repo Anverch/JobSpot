@@ -4,7 +4,7 @@ import JobsCounter from "../../components/JobsCounter";
 import { useUserContext } from "../../utils/GlobalState";
 import API from "../../utils/API";
 import "semantic-ui-css/semantic.min.css";
-import "../../styles.css";
+import "./styles.css";
 
 export default function Dashboard() {
   const [state, _] = useUserContext();
@@ -16,18 +16,15 @@ export default function Dashboard() {
   return (
     <>
       <Container>
-        <Segment raised centered="true" padded="very">
-          <Header
+        <Segment className="header-segment">
+          <Header className="greetings-header"
             as="h1"
-            color="orange"
-            textAlign="center"
-            id="greeting-header"
           >
             Hello, {state.name}
           </Header>
         </Segment>
-        <Segment raised id="jobs-header">
-          <Header as="h3" color="orange" textAlign="center">
+        <Segment className="jobs-header">
+          <Header as="h3" className="jobs-header">
             You have {filteredJobs.length > 0 ? filteredJobs.length : 0} open
             jobs, click below to filter by status
           </Header>

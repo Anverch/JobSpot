@@ -1,0 +1,15 @@
+.header-segment {
+    text-align: center;
+    padding: 20px;
+    
+}
+h1.header.greetings-header {
+    text-align: center;
+    padding: 20px;
+    color: orange;
+}
+h3.header.jobs-header {
+    text-align: center;
+    color: orange;
+    padding: 10px;
+}
