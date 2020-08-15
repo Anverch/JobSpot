@@ -2,8 +2,9 @@
   color: orange;
 }
 
-#nav {
+.nav-gridRow {
   height: 100px;
+  vertical-align: bottom;
 }
 
 #nav-logo {

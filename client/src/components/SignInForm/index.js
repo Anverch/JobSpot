@@ -10,7 +10,7 @@ export default function SignInForm() {
   return (
     <>
       <Form className="login">
-        <Segment stacked>
+        <Segment className="login-segment" stacked>
           <Form.Input
             fluid
             icon="user"

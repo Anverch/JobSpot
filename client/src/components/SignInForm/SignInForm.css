@@ -1,5 +1,5 @@
 /* LOGIN INPUTS */
-.login {
+.stacked.segment {
   position: absolute;
   top: calc(50% - 75px);
   left: calc(50% - 50px);
@@ -8,7 +8,7 @@
   padding: 10px;
   z-index: 2;
 }
-.login input[type="text"] {
+.stacked.segment input[type="text"] {
   width: 250px;
   height: 30px;
   background: transparent;
@@ -20,7 +20,7 @@
   font-weight: 400;
   padding: 4px;
 }
-.login input[type="password"] {
+.stacked.segment input[type="password"] {
   width: 250px;
   height: 30px;
   background: transparent;

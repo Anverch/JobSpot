@@ -13,3 +13,6 @@ h3.header.jobs-header {
     color: orange;
     padding: 10px;
 }
+.container-header {
+    width: auto!important;
+}

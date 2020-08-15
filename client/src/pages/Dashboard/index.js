@@ -15,23 +15,21 @@ export default function Dashboard() {
 
   return (
     <>
-      <Container>
-        <Segment className="header-segment">
-          <Header className="greetings-header"
-            as="h1"
-          >
-            Hello, {state.name}
-          </Header>
-        </Segment>
-        <Segment className="jobs-header">
-          <Header as="h3" className="jobs-header">
-            You have {filteredJobs.length > 0 ? filteredJobs.length : 0} open
-            jobs, click below to filter by status
-          </Header>
-          <Divider />
-          <JobsCounter />
-        </Segment>
-      </Container>
+      <Segment className="header-segment">
+        <Header className="greetings-header"
+          as="h1"
+        >
+          Hello, {state.name}
+        </Header>
+      </Segment>
+      <Segment className="jobs-header">
+        <Header as="h3" className="jobs-header">
+          You have {filteredJobs.length > 0 ? filteredJobs.length : 0} open
+          jobs, click below to filter by status
+        </Header>
+        <Divider />
+        <JobsCounter />
+      </Segment>
     </>
   );
 }
