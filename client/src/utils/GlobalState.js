@@ -1,111 +1,25 @@
 import React, { createContext, useReducer, useContext } from "react";
+// import user from "../../../controllers/user";
 
 const testUser = {
-  name: "who is ryan",
-  email: "whoisryan@btag.com",
-  jobs: [
-    {
-      id: 1,
-      companyName: "Google",
-      positionTitle: "president",
-      salary: 500000000,
-      currentStatus: "Applied",
-      fullBenefits: "Yes",
-      location: "remote",
-      jobNotes: "sounds pretty good",
-    },
-    {
-      id: 2,
-      companyName: "Twitter",
-      positionTitle: "software engineer",
-      salary: 100000,
-      currentStatus: "Interested",
-      fullBenefits: "Yes",
-      location: "SF",
-      jobNotes: "moving expenses covered",
-    },
-    {
-      id: 3,
-      companyName: "Postmates",
-      positionTitle: "project manager",
-      salary: 125000,
-      currentStatus: "Interested",
-      fullBenefits: "Yes",
-      location: "LA",
-      jobNotes: "4 direct reports",
-    },
-    {
-      id: 4,
-      companyName: "Microsoft",
-      positionTitle: "bing consultant",
-      salary: 100000,
-      currentStatus: "Closed",
-      fullBenefits: "No",
-      location: "remote",
-      jobNotes: "bing no",
-    },
-  ],
-  filteredJobs: [
-    {
-      id: 1,
-      companyName: "Google",
-      positionTitle: "president",
-      salary: 500000000,
-      currentStatus: "Applied",
-      fullBenefits: "Yes",
-      location: "remote",
-      jobNotes: "sounds pretty good",
-    },
-    {
-      id: 2,
-      companyName: "Twitter",
-      positionTitle: "software engineer",
-      salary: 100000,
-      currentStatus: "Interested",
-      fullBenefits: "Yes",
-      location: "SF",
-      jobNotes: "moving expenses covered",
-    },
-    {
-      id: 3,
-      companyName: "Postmates",
-      positionTitle: "project manager",
-      salary: 125000,
-      currentStatus: "Interested",
-      fullBenefits: "Yes",
-      location: "LA",
-      jobNotes: "4 direct reports",
-    },
-    {
-      id: 4,
-      companyName: "Microsoft",
-      positionTitle: "bing consultant",
-      salary: 100000,
-      currentStatus: "Closed",
-      fullBenefits: "No",
-      location: "remote",
-      jobNotes: "bing no",
-    },
-  ],
-  filter: "All",
+  name: "",
+  email: "",
+  password: "",
+  Jobs: [],
+  filteredJobs: [],
+  filter: ["All", "Interested", "Applied", "In Process", "Closed"],
   loggedIn: true,
   activeJob: {},
-  handleInputChange: (e) => {
-    console.log(`e.target:>>`, e.target);
-    const { name, value } = e.target;
-    // setUser({ [name]: value });
-  },
-  handleSubmit: (e) => {
-    e.preventDefault();
-    console.log(`e:>>`, e);
-  },
+  addJob: (job) => {},
+  handleInputChange: () => {},
+  handleSubmit: () => {},
 };
 
 const UserContext = createContext({
   name: "",
   email: "",
   password: "",
-  jobs: [],
+  Jobs: [],
   filteredJobs: [],
   filter: ["All", "Interested", "Applied", "In Process", "Closed"],
   loggedIn: true,
@@ -127,8 +41,14 @@ const reducer = (state, action) => {
     case "view": {
       return {
         ...state,
-        activeJob: state.jobs.find((job) => job.id === action.id),
+        activeJob: state.Jobs.find((job) => job.id === action.id),
       };
+    }
+    case "login" : {
+      const data = action.user.data
+      return {
+        ...data
+      }
     }
     default:
       return { ...state };

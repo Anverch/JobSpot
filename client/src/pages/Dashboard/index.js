@@ -8,11 +8,16 @@ import "../../styles.css";
 
 export default function Dashboard() {
   const [state, _] = useUserContext();
+  // const [user, setUser] = useState("");
 
-  const filteredJobs = state.jobs.filter(
+  console.log(state)
+  const filteredJobs = state.Jobs.filter(
     (job) => job.currentStatus !== "Closed"
   );
-
+  // function userData() {
+  //   const userData = API.getUserData
+  //   return userData
+  // }
   return (
     <>
       <Container>
