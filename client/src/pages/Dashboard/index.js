@@ -15,7 +15,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <Segment className="header-segment">
+      <Segment id="header-segment">
         <Header className="greetings-header"
           as="h1"
         >

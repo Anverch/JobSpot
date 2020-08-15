@@ -18,10 +18,10 @@ export default function SignIn() {
   const handleInputChange = (event) => setUser(event.target.value);
 
   return (
-    <Grid id="styleGrid" id="styleGrid">
+    <Grid id="styleGrid">
       <div className="body" />
       <div className="grad" />
-      <Grid.Column className="colStyle">
+      <Grid.Column id="colStyle">
         <Header className="title-header" as="h2">
           <div>
             Job<span>Spot</span>

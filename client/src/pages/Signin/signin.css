@@ -6,7 +6,7 @@
   vertical-align: middle;
   display: table-cell;
 }
-.colStyle {
+#colStyle {
   max-width: 450px;
 }
 .body {

@@ -2,7 +2,7 @@ p,
 div {
   font-family: Lato;
 }
-.sign-upWrapper {
+#sign-upWrapper {
   position: absolute;
   top: -20px;
   left: -20px;
@@ -17,7 +17,7 @@ div {
   background-image: url(https://www.freedomleaf.com/wp-content/uploads/2017/04/KansasCityHeader-672x353.png);
   background-size: cover;
 }
-.form-wrapper {
+#form-wrapper {
   display: flex;
   flex-direction: column;
   width: 280px;
@@ -27,7 +27,7 @@ div {
   background-color: #fefefe;
 }
 
-.form-wrapper > h2 {
+#form-wrapper > h2 {
   display: flex;
   text-align: center;
   justify-content: center;
