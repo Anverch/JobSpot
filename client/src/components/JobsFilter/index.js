@@ -19,14 +19,14 @@ export default function JobsFilter() {
     return;
   };
 
-  useEffect(()=>{
-    let search = window.location.search;
-    let params = new URLSearchParams(search);
-    let filterQuery = params.get("filter");
-    if (filterQuery) {
-      handleFilter(null, {value: filterQuery.replace("-"," ")})
-    }
-  }, {})
+  // useEffect(()=>{
+  //   let search = window.location.search;
+  //   let params = new URLSearchParams(search);
+  //   let filterQuery = params.get("filter");
+  //   if (filterQuery) {
+  //     handleFilter(null, {value: filterQuery.replace("-"," ")})
+  //   }
+  // }, {})
 
   const filterOptions = [
     {
