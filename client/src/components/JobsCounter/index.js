@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Label, Menu } from "semantic-ui-react";
 import { useUserContext } from "../../utils/GlobalState";
 
 export default function JobsCounter() {
+  const history = useHistory();
   const [state, dispatch] = useUserContext();
   console.log(`state>>`, state);
 
@@ -45,12 +47,17 @@ export default function JobsCounter() {
     activeItem: "",
   });
 
+  const handleClick = ({activeItem}) =>{
+    setActiveItem(activeItem);
+    history.push(`/view?filter=${activeItem.replace(" ","-")}`);
+  }
+
   return (
     <Menu fluid vertical inverted color="yellow">
       <Menu.Item
         name="All"
         active={activeItem === "All"}
-        onClick={() => setActiveItem({ activeItem: "All" })}
+        onClick={() => handleClick({ activeItem: "All" })}
       >
         <Label color="purple">{filterJobs("All")}</Label>
         All
@@ -58,7 +65,7 @@ export default function JobsCounter() {
       <Menu.Item
         name="Interested"
         active={activeItem === "Interested"}
-        onClick={() => setActiveItem({ activeItem: "Interested" })}
+        onClick={() => handleClick({ activeItem: "Interested" })}
       >
         <Label color="teal">{filterJobs("Interested")}</Label>
         Interested
@@ -66,7 +73,7 @@ export default function JobsCounter() {
       <Menu.Item
         name="Applied"
         active={activeItem === "Applied"}
-        onClick={() => setActiveItem({ activeItem: "Applied" })}
+        onClick={() => handleClick({ activeItem: "Applied" })}
       >
         <Label color="blue">{filterJobs("Applied")}</Label>
         Applied
@@ -74,7 +81,7 @@ export default function JobsCounter() {
       <Menu.Item
         name="In Process"
         active={activeItem === "In Process"}
-        onClick={() => setActiveItem({ activeItem: "In Process" })}
+        onClick={() => handleClick({ activeItem: "In Process" })}
       >
         <Label color="green">{filterJobs("In Process")}</Label>
         In Process
@@ -82,7 +89,7 @@ export default function JobsCounter() {
       <Menu.Item
         name="Closed"
         active={activeItem === "Closed"}
-        onClick={() => setActiveItem({ activeItem: "Closed" })}
+        onClick={() => handleClick({ activeItem: "Closed" })}
       >
         <Label color="grey">{filterJobs("Closed")}</Label>
         Closed
@@ -90,7 +97,7 @@ export default function JobsCounter() {
       <Menu.Item
         name="Create"
         active={activeItem === "Create"}
-        onClick={() => setActiveItem({ activeItem: "Create" })}
+        onClick={() => history.push("/create-job")}
       >
         <Label color="orange">Add</Label>
         Add a new job
