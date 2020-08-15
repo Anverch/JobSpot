@@ -10,7 +10,7 @@ module.exports = {
 
     if (user_id){
       await queryInterface.bulkInsert('jobs', [{
-        user_id: user_id,
+        UserId: user_id,
         company: 'Google',
         job_title: 'Software Engineer',
         salary: 250000,
@@ -24,7 +24,7 @@ module.exports = {
         createdAt: new Date(Date.now()),
         updatedAt: new Date(Date.now())
       },{
-        user_id: user_id,
+        UserId: user_id,
         company: 'Taco Bell',
         job_title: 'Cashier',
         salary: 28000,

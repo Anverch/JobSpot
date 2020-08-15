@@ -23,8 +23,8 @@ router
 router
   .route("/login")
   .post(passport.authenticate("local"), isAuthenticated, (req, res) => {
-    const { email, id, name } = req.user || {};
-    res.json({ email, id, name });
+    const { email, id, name, Jobs } = req.user || {};
+    res.json({ email, id, name, Jobs });
   })
 // Matches with "/api/users/logout"
 router

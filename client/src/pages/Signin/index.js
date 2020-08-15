@@ -6,9 +6,10 @@ import API from "../../utils/API";
 
 import { Link, useHistory } from "react-router-dom";
 import { Form, Segment, Button, Message } from "semantic-ui-react";
+import { useUserContext } from "../../utils/GlobalState";
 
 export default function SignIn() {
-  const [user, setUser] = useState("");
+  const [state, dispatch] = useUserContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory()
@@ -20,8 +21,9 @@ export default function SignIn() {
       password: password
     }
     try {
-      await API.login(userInfo)
-    history.push("/home")
+      const user = await API.login(userInfo)
+      dispatch({type: "login", user})
+      history.push("/home")
     } catch (e) {
       console.log("Error", e)
     }

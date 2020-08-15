@@ -11,29 +11,29 @@ export default function JobsCounter() {
   const filterJobs = (filter) => {
     switch (filter) {
       case "All": {
-        return state.jobs.length;
+        return state.Jobs.length;
       }
 
       case "Interested": {
-        const interested = state.jobs.filter(
+        const interested = state.Jobs.filter(
           (job) => job.currentStatus === "Interested"
         );
         return interested.length;
       }
       case "Applied": {
-        const applied = state.jobs.filter(
+        const applied = state.Jobs.filter(
           (job) => job.currentStatus === "Applied"
         );
         return applied.length;
       }
       case "In Process": {
-        const inProcess = state.jobs.filter(
+        const inProcess = state.Jobs.filter(
           (job) => job.currentStatus === "In Process"
         );
         return inProcess.length;
       }
       case "Closed": {
-        const closed = state.jobs.filter(
+        const closed = state.Jobs.filter(
           (job) => job.currentStatus === "Closed"
         );
         return closed.length;
