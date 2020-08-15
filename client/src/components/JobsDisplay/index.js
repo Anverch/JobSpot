@@ -7,12 +7,15 @@ import { useUserContext } from "../../utils/GlobalState";
 
 export default function JobsDisplay() {
   const [state] = useUserContext();
-  console.log(`state:>>`, state);
+  const noFilteredJobs =
+    !state.filteredJobs ||
+    (state.filteredJobs && state.filteredJobs.length === 0);
 
   return (
     <>
       <Segment id="jobs-segment" centered="true" raised>
         <List divided verticalAlign="middle" size="large">
+          {noFilteredJobs && <h2>No jobs with that status!</h2>}
           {state.filteredJobs.length > 0 &&
             state.filteredJobs.map((job, i) => {
               return (

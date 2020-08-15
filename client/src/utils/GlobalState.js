@@ -109,7 +109,7 @@ const UserContext = createContext({
   filteredJobs: [],
   filter: ["All", "Interested", "Applied", "In Process", "Closed"],
   loggedIn: true,
-  currentView: {},
+  activeJob: {},
   addJob: (job) => {},
   handleInputChange: () => {},
   handleSubmit: () => {},
@@ -125,7 +125,10 @@ const reducer = (state, action) => {
       return { ...state, filteredJobs: action.allJobs };
     }
     case "view": {
-      return { ...state, currentView: action.view };
+      return {
+        ...state,
+        activeJob: state.jobs.find((job) => job.id === action.id),
+      };
     }
     default:
       return { ...state };

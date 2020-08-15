@@ -5,8 +5,6 @@ import "./SignInForm.css";
 import { useUserContext } from "../../utils/GlobalState";
 
 export default function SignInForm() {
-  // console.log(`handleInputChange:>>`, handleInputChange);
-  // console.log(`user:>>`, user);
   const [state, dispatch] = useUserContext();
 
   return (

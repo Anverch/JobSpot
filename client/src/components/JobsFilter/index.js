@@ -1,9 +1,8 @@
-import React, { useRef } from "react";
-import { Container, Header, Dropdown } from "semantic-ui-react";
+import React from "react";
+import { Container, Header, Dropdown, Icon } from "semantic-ui-react";
 import { useUserContext } from "../../utils/GlobalState";
 
 export default function JobsFilter() {
-  const inputRef = useRef();
   const [state, dispatch] = useUserContext();
   const handleFilter = (event, data) => {
     console.log(`data:>>`, data);
@@ -49,19 +48,15 @@ export default function JobsFilter() {
 
   return (
     <Container>
-      <Header as="h4">
-        <Header.Content>
-          Filter jobs
-          <Dropdown
-            floating
-            ref={inputRef}
-            options={filterOptions}
-            id="status-filter"
-            defaultValue="All"
-            onChange={handleFilter}
-          ></Dropdown>
-        </Header.Content>
-      </Header>
+      <Icon name="filter" />
+      <Dropdown
+        floating
+        inline
+        options={filterOptions}
+        id="status-filter"
+        defaultValue="All"
+        onChange={handleFilter}
+      ></Dropdown>
     </Container>
   );
 }

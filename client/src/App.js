@@ -12,9 +12,9 @@ import { UserProvider } from "./utils/GlobalState";
 
 function App() {
   return (
-    <Router>
-      <div className="app">
-        <UserProvider>
+    <UserProvider>
+      <Router>
+        <div className="app">
           <Nav />
           <Switch>
             <Route exact path="/">
@@ -29,17 +29,18 @@ function App() {
             <Route exact path="/view">
               <JobsView />
             </Route>
-            <Route path="/job/">
+            <Route path="/jobs/">
               <JobDetail />
             </Route>
             <Route path="/create-job">
               <CreateJob />
             </Route>
           </Switch>
-        </UserProvider>
-        <Footer />
-      </div>
-    </Router>
+
+          <Footer />
+        </div>
+      </Router>
+    </UserProvider>
   );
 }
 
