@@ -11,7 +11,6 @@ import { useUserContext } from "../../utils/GlobalState";
 export default function Details() {
   // invokes useUserContext(),
   const [state, dispatch] = useUserContext();
-  console.log(`state:>>`, state);
 
   return (
     <>

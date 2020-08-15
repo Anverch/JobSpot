@@ -89,7 +89,7 @@ const testUser = {
   ],
   filter: "All",
   loggedIn: true,
-  currentView: {},
+  activeJob: {},
   handleInputChange: (e) => {
     console.log(`e.target:>>`, e.target);
     const { name, value } = e.target;
