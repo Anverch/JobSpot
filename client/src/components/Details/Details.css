@@ -1,3 +1,6 @@
 .header {
   color: white;
 }
+#detail-grid {
+  display: flex;
+}

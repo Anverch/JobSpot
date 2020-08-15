@@ -6,7 +6,9 @@
   height: 100px;
   vertical-align: bottom;
 }
-
 #nav-logo {
   font-size: 4rem;
+}
+#nav-grid {
+  display: table-cell;
 }

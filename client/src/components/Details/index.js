@@ -15,7 +15,7 @@ export default function Details() {
 
   return (
     <>
-      <Grid rows={5}>
+      <Grid id="detail-grid">
         <Grid.Row columns={2} id="meta-row">
           <Grid.Column textAlign="left">
             <Header as="h3">Facebook</Header>

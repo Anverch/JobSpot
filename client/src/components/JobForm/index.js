@@ -31,7 +31,7 @@ const jobStatusOptions = [
 
 export default function JobForm() {
   return (
-    <Grid className="job-formGrid" rows={4}>
+    <Grid id="job-formGrid" rows={4}>
       <Form className="create-jobForm">
         <Grid.Row>
           <Form.Group className="form-group">

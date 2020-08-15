@@ -15,7 +15,7 @@ export default function Nav() {
 
   return (
     <>
-      <Grid className="nav-grid">
+      <Grid id="nav-grid">
         <Grid.Row className="nav-gridRow">
 
           <Grid.Column textAlign="center">

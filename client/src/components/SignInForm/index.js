@@ -11,7 +11,7 @@ export default function SignInForm() {
     <>
       <Form className="login">
         <Segment className="login-segment" stacked>
-          <Form.Input
+          <Form.Input className=""
             fluid
             icon="user"
             value=''

@@ -1,9 +1,13 @@
 /* Table of Contents */
 /* BACKGROUND */
-.styleGrid {
+#styleGrid {
   text-align: center;
   height: 100vh;
   vertical-align: middle;
+  display: table-cell;
+}
+.colStyle {
+  max-width: 450px;
 }
 .body {
   position: absolute;

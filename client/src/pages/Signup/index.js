@@ -82,7 +82,7 @@ class Register extends Component {
     const { errors, formValid } = this.state;
     const { name, email, password } = this.state;
     return (
-      <Grid className="wrapper">
+      <Grid className="sign-upWrapper">
         <Grid.Column className="form-wrapper">
           <Header className="form-header" as="h2">
             Create an account with us!
