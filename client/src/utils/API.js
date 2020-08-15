@@ -41,10 +41,7 @@ export default {
   },
   // Login to Application
   login: function (userInfo) {
-    console.log("login route", (userInfo))
-    return axios.post("/api/users/login", userInfo).then(res => {
-      console.log("axios", res.data)    
-    });
+    return axios.post("/api/users/login", userInfo);
   },
   getUserData: function () {
     return axios.get("/api/users/user_data");

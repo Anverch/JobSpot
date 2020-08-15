@@ -19,7 +19,6 @@ export default function SignIn() {
       email: email,
       password: password
     }
-    console.log(userInfo)
     try {
       await API.login(userInfo)
     history.push("/home")
