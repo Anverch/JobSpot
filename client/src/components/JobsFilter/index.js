@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Header, Dropdown, Icon } from "semantic-ui-react";
+
 import { useUserContext } from "../../utils/GlobalState";
 
 export default function JobsFilter() {
@@ -17,6 +18,15 @@ export default function JobsFilter() {
     dispatch({ type: "all", allJobs });
     return;
   };
+
+  useEffect(()=>{
+    let search = window.location.search;
+    let params = new URLSearchParams(search);
+    let filterQuery = params.get("filter");
+    if (filterQuery) {
+      handleFilter(null, {value: filterQuery.replace("-"," ")})
+    }
+  }, {})
 
   const filterOptions = [
     {

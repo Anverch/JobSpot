@@ -22,9 +22,21 @@ router
 // Matches with "/api/users/login"
 router
   .route("/login")
-  .post(passport.authenticate("local"), isAuthenticated, (req,res) => {
+  .post(passport.authenticate("local"), isAuthenticated, (req, res) => {
     const { email, id, name } = req.user || {};
-    res.json({email, id, name });
+    res.json({ email, id, name });
+  })
+// Matches with "/api/users/logout"
+router
+  .route("/logout")
+  .post((req, res) => {
+    if (req.user) {
+      req.session.destroy();
+      res.clearCookie('connect.sid');
+      return res.json({ msg: "you logged out successfully!"})
+    } else {
+      return res.json({ msg: "no user to logout."})
+    }
   })
 
 module.exports = router;
