@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Header, Dropdown, Icon } from "semantic-ui-react";
 
 import { useUserContext } from "../../utils/GlobalState";
