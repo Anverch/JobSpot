@@ -31,10 +31,10 @@ const jobStatusOptions = [
 
 export default function JobForm() {
   return (
-    <Grid rows={4}>
-      <Form>
-        <Grid.Row columns={4}>
-          <Form.Group widths="3">
+    <Grid className="job-formGrid" rows={4}>
+      <Form className="create-jobForm">
+        <Grid.Row>
+          <Form.Group className="form-group">
             <Form.Input fluid label="Company name" />
             <Form.Input
               fluid

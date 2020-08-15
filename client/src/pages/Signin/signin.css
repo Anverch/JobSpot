@@ -1,5 +1,10 @@
 /* Table of Contents */
 /* BACKGROUND */
+.styleGrid {
+  text-align: center;
+  height: 100vh;
+  vertical-align: middle;
+}
 .body {
   position: absolute;
   top: -20px;
