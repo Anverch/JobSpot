@@ -5,8 +5,8 @@ import "./Footer.css";
 export default function Footer() {
   return (
     <Container id="footer-container">
-      <List horizontal divided link size="medium">
-        <List.Item
+      <List id="footer-list">
+        <List.Item id="github"
           as="a"
           href="https://github.com/anverch/jobspot"
           target="_blank"

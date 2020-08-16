@@ -7,7 +7,13 @@
   width: 100%!important;
   margin: 0px!important;
   display: inline-block;
+  clear: both;
 }
-a.item {
+a#github.item {
   color: rgb(201, 201, 201);
+}
+@media (min-width: 768px) and (max-width: 979px) {
+  #footer-container.container {
+    width: 100%;
+  }
 }
