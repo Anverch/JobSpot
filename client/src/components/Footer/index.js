@@ -1,10 +1,10 @@
 import React from "react";
-import { Segment, List, Container } from "semantic-ui-react";
+import { Container, List } from "semantic-ui-react";
 import "./Footer.css";
 
 export default function Footer() {
   return (
-    <Segment id="footer">
+    <Container id="footer-container">
       <List horizontal divided link size="medium">
         <List.Item
           as="a"
@@ -19,6 +19,6 @@ export default function Footer() {
         Schutz
         </p>
 
-    </Segment>
+    </Container>
   );
 }

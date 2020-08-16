@@ -23,10 +23,14 @@ export default function Dashboard() {
           You have {filteredJobs.length > 0 ? filteredJobs.length : 0} open
             jobs, click below to filter by status
         </p>
-        <Divider />
-        <JobsCounter />
-
+        <Divider className="divider" />
       </Container>
+      <Container id="jobs-counter-container">
+        <JobsCounter />
+      </Container>
+
+        
+
     </>
 
   );

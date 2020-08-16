@@ -1,4 +1,4 @@
-.container#header-container, .header.greetings-header {
+.container#header-container, .header.greetings-header, .container#jobs-counter-container {
     text-align: center;
     padding: 10px;
     color: black;
@@ -16,4 +16,10 @@ p.jobs-header {
     text-align: center;
     color: black;
     font-weight: bold;
+}
+.divider.divider {
+    box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgb(0 0 0 / 99%);
+}
+.container#jobs-container {
+    width: auto;
 }
