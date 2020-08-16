@@ -1,41 +1,49 @@
-import React, { useState } from "react";
+import React, { Component, useState } from "react";
 
 import { Header, Grid, Menu, Container } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
 
-export default function Nav() {
-  const [activeItem, setActiveItem] = useState({ activeItem: "home" });
+export default class Nav extends Component {
+  // const [activeItem, setActiveItem] = useState({ activeItem: "home" });
 
-  const handleItemClick = (e, { name }) => {
-    console.log(`e.target:>>`, e.target.value);
-    setActiveItem({ name });
-    console.log(`activeItem:>>`, activeItem);
-  };
-
-  return (
-    <>
-      <Container id="nav-container">
-        <Header as="h2" id="nav-logo">
-          <span id="job">Job</span>Spot
-        </Header>
-        <Menu id="nav-menu">
-          <Menu.Item id="dashboard-item" name="dashboard"
-            active={activeItem === "dashboard"}
-            onClick={handleItemClick}
-          />
-          <Menu.Item id="job-item" name="Add New Job"
-            active={activeItem === "Add New Job"}
-            onClick={handleItemClick}
-          />
-          <Menu.Menu id="logout-btn">
-            <Menu.Item name="Logout"
-              active={activeItem === "Logout"}
-              onClick={handleItemClick}
+  // const handleItemClick = (e, { name }) => {
+  //   console.log(`e.target:>>`, e.target.value);
+  //   setActiveItem({ name });
+  //   console.log(`activeItem:>>`, activeItem);
+  // };
+  state = { activeItem: "dashboard" }
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  render() {
+    const { activeItem } = this.state
+    return (
+      <>
+        <Container id="nav-container">
+          <Header as="h2" id="nav-logo">
+            <span id="job">Job</span>Spot
+          </Header>
+          <Menu id="nav-menu">
+            <Menu.Item id="dashboard-item" name="dashboard"
+              active={activeItem === "dashboard"}
+              onClick={this.handleItemClick}
             />
-          </Menu.Menu>
-        </Menu>
-      </Container>
+            <Menu.Item id="job-item" name="Add New Job"
+              active={activeItem === "Add New Job"}
+              onClick={this.handleItemClick}
+            />
+            <Menu.Menu id="logout-btn">
+              <Menu.Item name="Logout"
+                active={activeItem === "Logout"}
+                onClick={this.handleItemClick}
+              />
+            </Menu.Menu>
+          </Menu>
+        </Container>
+      </>
+    );
+  }
+
+}
 
 
       {/* <Grid id="nav-grid">
@@ -78,6 +86,3 @@ export default function Nav() {
         </Grid.Row>
       </Grid> */}
 
-    </>
-  );
-}
