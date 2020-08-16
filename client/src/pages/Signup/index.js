@@ -103,7 +103,7 @@ class Register extends Component {
             </div>
             <div id="signup-email">
               <label htmlFor="email">Email</label>
-              <Form.Input id="input-email"
+              <Form.Input id="input-newEmail"
                 type="email"
                 name="email"
                 value={email}

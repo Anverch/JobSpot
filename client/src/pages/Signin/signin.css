@@ -26,7 +26,7 @@
   padding: 4px;
 } */
 input#input-username[type="text"] {
-  width: 250px;
+  width: 330px;
   height: 30px;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.6);
@@ -38,7 +38,7 @@ input#input-username[type="text"] {
   padding: 4px;
 }
 input#input-password[type="password"] {
-  width: 250px;
+  width: 330px;
   height: 30px;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.6);
@@ -96,8 +96,8 @@ h2#title-header.header div {
 h2#title-header.header div span {
   color: #5379fa !important;
 }
-button#signinBtn {
-  width: 260px;
+button#signinBtn.button {
+  width: 330px;
   height: 35px;
   background: #fff;
   border: 1px solid #fff;
@@ -110,10 +110,10 @@ button#signinBtn {
   padding: 6px;
   margin-top: 10px;
 }
-button#signinBtn:hover {
+button#signinBtn.button:hover {
   opacity: 0.8;
 }
-#signinBtn:active {
+button#signinBtn.button:active {
   opacity: 0.6;
 }
 .login input[type="text"]:focus {
@@ -124,7 +124,7 @@ button#signinBtn:hover {
   outline: none;
   border: 1px solid rgba(255, 255, 255, 0.9);
 }
-#signinBtn:focus {
+button#signinBtn.button:focus {
   outline: none;
 }
 ::-webkit-input-placeholder {
@@ -133,8 +133,8 @@ button#signinBtn:hover {
 ::-moz-input-placeholder {
   color: rgba(255, 255, 255, 0.6);
 }
-#signup {
-  width: 250px;
+.message#signup.message {
+  width: 330px;
   height: 30px;
   border-radius: 2px;
   color: #fff;
@@ -142,6 +142,7 @@ button#signinBtn:hover {
   font-size: 16px;
   padding: 10px;
   text-align: center;
+  background: transparent;
 }
 a#signup-link {
   width: 250px;

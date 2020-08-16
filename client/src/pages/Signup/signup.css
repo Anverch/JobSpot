@@ -58,7 +58,7 @@ label {
   font-weight: lighter;
 }
 
-#input-email, #input-name, #input-newPassword {
+#input-newEmail, #input-name, #input-newPassword {
   width: 260px;
   padding: 10px 10px;
   border-radius: 5px;
