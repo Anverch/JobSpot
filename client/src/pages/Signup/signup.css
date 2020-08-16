@@ -2,7 +2,7 @@ p,
 div {
   font-family: Lato;
 }
-#sign-upWrapper {
+#sign-upWrapper.grid {
   position: absolute;
   top: -20px;
   left: -20px;
@@ -20,7 +20,7 @@ div {
 #form-wrapper {
   display: flex;
   flex-direction: column;
-  width: 280px;
+  width: 390px;
   padding: 20px 40px;
   border-radius: 6px;
   box-shadow: 0px 8px 36px #222;
