@@ -3,12 +3,17 @@
     padding: 20px;
     
 }
-h1.header.greetings-header {
+.container#header-container, .header.greetings-header {
     text-align: center;
     padding: 20px;
     color: orange;
+    font-size: 24px;
+    background-color: burlywood;
+    width: 100%!important;
+    margin: 0px!important;
+    justify-content: center;
 }
-h3.header.jobs-header {
+p.jobs-header {
     text-align: center;
     color: orange;
     padding: 10px;

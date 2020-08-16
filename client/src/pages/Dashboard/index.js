@@ -15,21 +15,19 @@ export default function Dashboard() {
 
   return (
     <>
-      <Segment id="header-segment">
-        <Header className="greetings-header"
-          as="h1"
-        >
+      <Container id="header-container">
+        <Header className="greetings-header">
           Hello, {state.name}
         </Header>
-      </Segment>
-      <Segment className="jobs-header">
-        <Header as="h3" className="jobs-header">
+        <p className="jobs-header">
           You have {filteredJobs.length > 0 ? filteredJobs.length : 0} open
-          jobs, click below to filter by status
-        </Header>
+            jobs, click below to filter by status
+        </p>
         <Divider />
         <JobsCounter />
-      </Segment>
+
+      </Container>
     </>
+
   );
 }

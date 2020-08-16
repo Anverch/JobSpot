@@ -20,8 +20,9 @@
   width: 100%!important;
   margin: 0px!important;
   background-color: burlywood;
-  border: none;
   justify-content: center;
+  border-bottom-color: black;
+  border-top-color: burlywood;
 }
 a#dashboard-item.item, a#job-item.item, a#logout-btn.item {
   color: black;
@@ -29,6 +30,7 @@ a#dashboard-item.item, a#job-item.item, a#logout-btn.item {
   font-size: 18px;
   border-radius: 2px;
   font-family: "Exo", sans-serif;
+  
 }
 a#nav-link-home, a#nav-link-create, a#nav-link-logout {
   color: black;
@@ -36,4 +38,5 @@ a#nav-link-home, a#nav-link-create, a#nav-link-logout {
   font-size: 18px;
   border-radius: 2px;
   font-family: "Exo", sans-serif;
+  
 }
