@@ -27,7 +27,7 @@
 } */
 input#input-username[type="text"] {
   width: 330px;
-  height: 30px;
+  height: 50px;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 2px;
@@ -39,7 +39,7 @@ input#input-username[type="text"] {
 }
 input#input-password[type="password"] {
   width: 330px;
-  height: 30px;
+  height: 50px;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 2px;
