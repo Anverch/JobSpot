@@ -5,5 +5,9 @@
   background-image: url("./tweed.png"); 
   font-size: 1.0em;
   width: 100%!important;
-  margin: 0px!important;  
+  margin: 0px!important;
+  display: inline-block;
+}
+a.item {
+  color: rgb(201, 201, 201);
 }
