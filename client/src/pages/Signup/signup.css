@@ -59,7 +59,7 @@ label {
 }
 
 #input-newEmail, #input-name, #input-newPassword {
-  width: 260px;
+  width: 310px;
   padding: 10px 10px;
   border-radius: 5px;
   outline: none;
