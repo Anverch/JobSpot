@@ -15,7 +15,17 @@ export default function Nav() {
 
   return (
     <>
-      <Grid id="nav-grid">
+      <Header as="h2" id="nav-logo">
+        <span id="job">Job</span>Spot
+      </Header>
+      <Menu id="nav-menu">
+        <Menu.Item name="dashboard"
+          active={activeItem === "dashboard"}
+          onClick={handleItemClick}
+        />
+          
+      </Menu>
+      {/* <Grid id="nav-grid">
         <Grid.Row className="nav-gridRow">
 
           <Grid.Column textAlign="center">
@@ -48,12 +58,12 @@ export default function Nav() {
                   active={activeItem === "logout"}
                   onClick={handleItemClick}
                 />
-                {/* <a>Logout</a> */}
+                <a>Logout</a>
               </Menu.Menu>
             </Menu>
           </Grid.Column>
         </Grid.Row>
-      </Grid>
+      </Grid> */}
 
     </>
   );
