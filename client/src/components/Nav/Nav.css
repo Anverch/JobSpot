@@ -6,7 +6,6 @@
 #job {
   color: orange;
 }
-
 .nav-gridRow {
   height: 100px;
   vertical-align: bottom;
@@ -21,5 +20,19 @@
   width: 100%!important;
   margin: 0px!important;
   background-color: burlywood;
+  border: none;
+  justify-content: center;
 }
-
+#nav-menu2.menu {
+  columns: 1;
+}
+a#dashboard-item, a#job-item, a#logout-btn.item {
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 2px;
+  font-family: "Exo", sans-serif;
+}
+#nav-menu2.menu {
+  padding-right: 10px;
+}

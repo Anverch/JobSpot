@@ -31,11 +31,13 @@ export default class Nav extends Component {
               active={activeItem === "Add New Job"}
               onClick={this.handleItemClick}
             />
-            <Menu.Menu id="logout-btn">
-              <Menu.Item name="Logout"
+            <Menu.Menu id="nav-menu2">
+              <Menu.Item id="logout-btn"
+                name="Logout"
                 active={activeItem === "Logout"}
                 onClick={this.handleItemClick}
               />
+
             </Menu.Menu>
           </Menu>
         </Container>
