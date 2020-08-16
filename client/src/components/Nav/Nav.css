@@ -17,8 +17,11 @@
 /* #nav-grid {
   display: table-cell;
 } */
-.container#nav-container {
+.container#nav-container, #nav-menu.menu {
   width: 100%!important;
   margin: 0px!important;
   background-color: burlywood;
+}
+#nav-menu.menu {
+  font-weight: bold;
 }
