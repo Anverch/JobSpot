@@ -1,10 +1,8 @@
 #footer-container.container {
   text-align: center;
-  background-color: #FFC675;
-  text-align: center;
   padding: 10px;
   color: black;
-  background-color: #FFC675;
+  background-image: url("./tweed.png"); 
   font-size: 1.0em;
   width: 100%!important;
   margin: 0px!important;  

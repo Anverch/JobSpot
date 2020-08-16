@@ -19,7 +19,8 @@ h2#nav-logo.header {
 .container#nav-container, #nav-menu.menu {
   width: 100%!important;
   margin: 0px!important;
-  background-color: #FFC675;
+  background-image: url("./tweed.png");
+  /* background-color: #FFC675; */
   justify-content: center;
   box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgb(0 0 0 / 99%);
   border-bottom-color: black;
@@ -33,7 +34,7 @@ a#dashboard-item.item, a#job-item.item, a#logout-btn.item {
   
 }
 a#nav-link-home, a#nav-link-create, a#nav-link-logout {
-  color: black;
+  color: goldenrod;
   font-weight: bold;
   font-size: 18px;
   border-radius: 2px;
