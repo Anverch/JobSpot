@@ -21,8 +21,8 @@ h2#nav-logo.header {
   margin: 0px!important;
   background-color: #FFC675;
   justify-content: center;
+  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgb(0 0 0 / 99%);
   border-bottom-color: black;
-  border-top-color: #FFC675;
 }
 a#dashboard-item.item, a#job-item.item, a#logout-btn.item {
   color: black;

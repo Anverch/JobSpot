@@ -53,7 +53,7 @@ export default function JobsCounter() {
   }
 
   return (
-    <Menu fluid vertical inverted color="yellow">
+    <Menu id="jobs-counter-menu" fluid vertical inverted color="yellow">
       <Menu.Item
         name="All"
         active={activeItem === "All"}
