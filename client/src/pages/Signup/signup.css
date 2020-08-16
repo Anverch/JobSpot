@@ -20,7 +20,7 @@ div {
 #form-wrapper {
   display: flex;
   flex-direction: column;
-  width: 390px;
+  width: 350px;
   padding: 20px 40px;
   border-radius: 6px;
   box-shadow: 0px 8px 36px #222;
@@ -33,7 +33,7 @@ div {
   justify-content: center;
   font-family: "Segoe UI", "Ubuntu", "Roboto", "Open Sans", "Helvetica Neue",
     sans-serif;
-  font-size: 2em;
+  font-size: 2.5em;
   font-weight: lighter;
   margin-top: 0.25em;
   color: #222;
@@ -59,7 +59,7 @@ label {
 }
 
 #input-newEmail, #input-name, #input-newPassword {
-  width: 310px;
+  width: 290px;
   padding: 10px 10px;
   border-radius: 5px;
   outline: none;
@@ -72,7 +72,7 @@ input::placeholder {
   color: #bbb;
 }
 
-#signupBtn {
+button#signupBtn.button {
   width: 100%;
   cursor: pointer;
   margin-right: 0.25em;
@@ -83,7 +83,7 @@ input::placeholder {
   background-color: #22223b;
   color: #fefefe;
 }
-#signupBtn:hover {
+button#signupBtn.button:hover {
   background-color: #4a4e69;
   color: #fefefe;
 }
@@ -102,15 +102,11 @@ input::placeholder {
   margin-bottom: 15px;
 }
 
-#signup-name {
-  width: 100%;
-}
-
-#email,
+/* #email,
 #password {
   width: 100%;
-}
-#login-link {
+} */
+link#login-link.link {
   justify-content: center;
 }
 #submit {
