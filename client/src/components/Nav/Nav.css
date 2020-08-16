@@ -7,13 +7,18 @@
   color: orange;
 }
 
-/* .nav-gridRow {
+.nav-gridRow {
   height: 100px;
   vertical-align: bottom;
 }
 #nav-logo {
   font-size: 4rem;
 }
-#nav-grid {
+/* #nav-grid {
   display: table-cell;
 } */
+.container#nav-container {
+  width: 100%!important;
+  margin: 0px!important;
+  background-color: burlywood;
+}

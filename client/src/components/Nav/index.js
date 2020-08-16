@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Header, Grid, Menu } from "semantic-ui-react";
+import { Header, Grid, Menu, Container } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
 
@@ -15,24 +15,29 @@ export default function Nav() {
 
   return (
     <>
-      <Header as="h2" id="nav-logo">
-        <span id="job">Job</span>Spot
-      </Header>
-      <Menu id="nav-menu">
-        <Menu.Item name="dashboard"
-          active={activeItem === "dashboard"}
-          onClick={handleItemClick}
-        />
-        <Menu.Item name="Add New Job"
-          active={activeItem === "Add New Job"}
-          onClick={handleItemClick}
-        />
-        <Menu.Item name="Logout"
-          active={activeItem === "Logout"}
-          onClick={handleItemClick}
-        />
-          
-      </Menu>
+      <Container id="nav-container">
+        <Header as="h2" id="nav-logo">
+          <span id="job">Job</span>Spot
+        </Header>
+        <Menu id="nav-menu">
+          <Menu.Item id="dashboard-item" name="dashboard"
+            active={activeItem === "dashboard"}
+            onClick={handleItemClick}
+          />
+          <Menu.Item id="job-item" name="Add New Job"
+            active={activeItem === "Add New Job"}
+            onClick={handleItemClick}
+          />
+          <Menu.Menu id="logout-btn">
+            <Menu.Item name="Logout"
+              active={activeItem === "Logout"}
+              onClick={handleItemClick}
+            />
+          </Menu.Menu>
+        </Menu>
+      </Container>
+
+
       {/* <Grid id="nav-grid">
         <Grid.Row className="nav-gridRow">
 
