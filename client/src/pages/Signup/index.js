@@ -143,7 +143,7 @@ class Register extends Component {
               "Form not submitted"
             )}
           </Form>
-          <Message>
+          <Message id="member-message">
             <Link id="login-link" to="/">
               Already a member?
             </Link>
