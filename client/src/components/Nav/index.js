@@ -23,6 +23,14 @@ export default function Nav() {
           active={activeItem === "dashboard"}
           onClick={handleItemClick}
         />
+        <Menu.Item name="Add New Job"
+          active={activeItem === "Add New Job"}
+          onClick={handleItemClick}
+        />
+        <Menu.Item name="Logout"
+          active={activeItem === "Logout"}
+          onClick={handleItemClick}
+        />
           
       </Menu>
       {/* <Grid id="nav-grid">

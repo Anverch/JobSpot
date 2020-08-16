@@ -1,8 +1,13 @@
+#nav-logo {
+  font-size: 4rem;
+  text-align: center;
+  padding: 20px;
+}
 #job {
   color: orange;
 }
 
-.nav-gridRow {
+/* .nav-gridRow {
   height: 100px;
   vertical-align: bottom;
 }
@@ -11,4 +16,4 @@
 }
 #nav-grid {
   display: table-cell;
-}
+} */
