@@ -1,5 +1,5 @@
-#nav-logo {
-  font-size: 4rem;
+h2#nav-logo.header {
+  font-size: 5rem;
   text-align: center;
   padding: 20px;
 }
@@ -19,10 +19,10 @@
 .container#nav-container, #nav-menu.menu {
   width: 100%!important;
   margin: 0px!important;
-  background-color: burlywood;
+  background-color: #FFC675;
   justify-content: center;
   border-bottom-color: black;
-  border-top-color: burlywood;
+  border-top-color: #FFC675;
 }
 a#dashboard-item.item, a#job-item.item, a#logout-btn.item {
   color: black;

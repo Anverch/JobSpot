@@ -1,23 +1,18 @@
-#header-segment {
-    text-align: center;
-    padding: 20px;
-    
-}
 .container#header-container, .header.greetings-header {
     text-align: center;
-    padding: 20px;
-    color: orange;
-    font-size: 24px;
-    background-color: burlywood;
+    padding: 10px;
+    color: black;
+    background-color: #FFC675;
+    font-size: 2.0em;
     width: 100%!important;
     margin: 0px!important;
     justify-content: center;
 }
+.header.greetings-header {
+    font-style: italic;
+}
 p.jobs-header {
     text-align: center;
-    color: orange;
-    padding: 10px;
-}
-.container-header {
-    width: auto!important;
+    color: black;
+    font-weight: bold;
 }
