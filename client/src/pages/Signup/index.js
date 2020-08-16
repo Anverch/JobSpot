@@ -114,8 +114,8 @@ class Register extends Component {
                 <span id="error">{errors.email}</span>
               )}
             </div>
-            <div id="password">
-              <label htmlFor="password">Password</label>
+            <div id="signup-password">
+              <label htmlFor="signup-password">Password</label>
               <Form.Input id="input-newPassword"
                 type="password"
                 name="password"

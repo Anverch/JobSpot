@@ -55,9 +55,11 @@ div {
 label {
   margin-bottom: 0.5em;
   color: #444;
-  font-weight: lighter;
+  font-weight: bold;
 }
-
+#signup-name, #signup-email, #signup-password {
+  padding: 5px;
+}
 #input-newEmail, #input-name, #input-newPassword {
   width: 290px;
   padding: 10px 10px;
