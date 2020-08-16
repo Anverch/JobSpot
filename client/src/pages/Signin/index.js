@@ -18,17 +18,9 @@ export default function SignIn() {
   const handleInputChange = (event) => setUser(event.target.value);
 
   return (
-    <Grid id="styleGrid">
-      <div className="body" />
-      <div className="grad" />
-      <Grid.Column id="colStyle">
-        <Header className="title-header" as="h2">
-          <div>
-            Job<span>Spot</span>
-          </div>
-        </Header>
-        <SignInForm handleInputChange={handleInputChange} user={user} />
-      </Grid.Column>
-    </Grid>
+    <>
+      <SignInForm handleInputChange={handleInputChange} user={user} />
+    </>
+     
   );
 }

@@ -84,13 +84,13 @@ class Register extends Component {
     return (
       <Grid id="sign-upWrapper">
         <Grid.Column id="form-wrapper">
-          <Header className="form-header" as="h2">
+          <Header id="form-header" as="h2">
             Create an account with us!
           </Header>
-          <Form onSubmit={this.handleSubmit} noValidate>
-            <div className="name">
+          <Form id="signup-form" onSubmit={this.handleSubmit} noValidate>
+            <div id="signup-name">
               <label htmlFor="name">Full Name</label>
-              <Form.Input
+              <Form.Input id="input-name"
                 type="text"
                 name="name"
                 value={name}
@@ -98,12 +98,12 @@ class Register extends Component {
                 noValidate
               />
               {errors.name.length > 0 && (
-                <span className="error">{errors.name}</span>
+                <span id="error">{errors.name}</span>
               )}
             </div>
-            <div className="email">
+            <div id="signup-email">
               <label htmlFor="email">Email</label>
-              <Form.Input
+              <Form.Input id="input-email"
                 type="email"
                 name="email"
                 value={email}
@@ -111,12 +111,12 @@ class Register extends Component {
                 noValidate
               />
               {errors.email.length > 0 && (
-                <span className="error">{errors.email}</span>
+                <span id="error">{errors.email}</span>
               )}
             </div>
-            <div className="password">
+            <div id="password">
               <label htmlFor="password">Password</label>
-              <Form.Input
+              <Form.Input id="input-newPassword"
                 type="password"
                 name="password"
                 value={password}
@@ -124,19 +124,19 @@ class Register extends Component {
                 noValidate
               />
               {errors.password.length > 0 && (
-                <span className="error">{errors.password}</span>
+                <span id="error">{errors.password}</span>
               )}
             </div>
-            <div className="info">
+            <div id="info">
               <small>
                 Password must be at least eight characters in length.
               </small>
             </div>
-            <div className="submit">
-              <Button className="signupBtn">Create</Button>
+            <div id="submit">
+              <Button id="signupBtn">Create</Button>
             </div>
             {this.state.errorCount !== null ? (
-              <p className="form-status">
+              <p id="form-status">
                 Form is {formValid ? "valid ✅" : "invalid ❌"}
               </p>
             ) : (
@@ -144,7 +144,7 @@ class Register extends Component {
             )}
           </Form>
           <Message>
-            <Link className="login-link" to="/">
+            <Link id="login-link" to="/">
               Already a member?
             </Link>
           </Message>

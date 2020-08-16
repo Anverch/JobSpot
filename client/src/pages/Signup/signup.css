@@ -39,13 +39,13 @@ div {
   color: #222;
 }
 
-Form {
+#signup-form {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
 
-.info {
+#info {
   text-align: center;
   padding-bottom: 1em;
   padding-left: 0.5em;
@@ -58,7 +58,7 @@ label {
   font-weight: lighter;
 }
 
-Form Input {
+#input-email, #input-name, #input-newPassword {
   width: 260px;
   padding: 10px 10px;
   border-radius: 5px;
@@ -72,7 +72,7 @@ input::placeholder {
   color: #bbb;
 }
 
-.signupBtn {
+#signupBtn {
   width: 100%;
   cursor: pointer;
   margin-right: 0.25em;
@@ -83,37 +83,37 @@ input::placeholder {
   background-color: #22223b;
   color: #fefefe;
 }
-.signupBtn:hover {
+#signupBtn:hover {
   background-color: #4a4e69;
   color: #fefefe;
 }
 
-.error {
+#error {
   color: #db2269;
   font-size: 1em;
   display: relative;
 }
 
-.name,
-.email,
-.password {
+#name,
+#email,
+#password {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
 }
 
-.name {
+#signup-name {
   width: 100%;
 }
 
-.email,
-.password {
+#email,
+#password {
   width: 100%;
 }
-.login-link {
+#login-link {
   justify-content: center;
 }
-.submit {
+#submit {
   width: 100%;
   display: flex;
   flex-wrap: wrap;

@@ -4,7 +4,7 @@ import "./Footer.css";
 
 export default function Footer() {
   return (
-    <Segment className="footer">
+    <Segment id="footer">
       <List horizontal divided link size="medium">
         <List.Item
           as="a"
