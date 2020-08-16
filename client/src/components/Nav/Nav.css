@@ -23,16 +23,17 @@
   border: none;
   justify-content: center;
 }
-#nav-menu2.menu {
-  columns: 1;
-}
-a#dashboard-item, a#job-item, a#logout-btn.item {
+a#dashboard-item.item, a#job-item.item, a#logout-btn.item {
   color: black;
   font-weight: bold;
   font-size: 18px;
   border-radius: 2px;
   font-family: "Exo", sans-serif;
 }
-#nav-menu2.menu {
-  padding-right: 10px;
+a#nav-link-home, a#nav-link-create, a#nav-link-logout {
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 2px;
+  font-family: "Exo", sans-serif;
 }

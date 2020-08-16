@@ -26,19 +26,25 @@ export default class Nav extends Component {
             <Menu.Item id="dashboard-item" name="dashboard"
               active={activeItem === "dashboard"}
               onClick={this.handleItemClick}
-            />
+            >
+              <Link to="/home" id="nav-link-home">Dashboard</Link>
+            </Menu.Item>
             <Menu.Item id="job-item" name="Add New Job"
               active={activeItem === "Add New Job"}
               onClick={this.handleItemClick}
-            />
+            >
+              <Link to="/create-job" id="nav-link-create">Add New Job</Link>
+            </Menu.Item>
             <Menu.Menu id="nav-menu2">
               <Menu.Item id="logout-btn"
                 name="Logout"
                 active={activeItem === "Logout"}
                 onClick={this.handleItemClick}
-              />
+              >
+                <Link to="/" id="nav-link-logout">Logout</Link>
+              </Menu.Item>
 
-            </Menu.Menu>
+              </Menu.Menu>
           </Menu>
         </Container>
       </>
@@ -48,7 +54,7 @@ export default class Nav extends Component {
 }
 
 
-      {/* <Grid id="nav-grid">
+        {/* <Grid id="nav-grid">
         <Grid.Row className="nav-gridRow">
 
           <Grid.Column textAlign="center">
