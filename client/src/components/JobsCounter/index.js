@@ -39,7 +39,7 @@ export default function JobsCounter() {
         return closed.length;
       }
       default:
-        return state.jobs.length;
+        return state.Jobs.length;
     }
   };
 
@@ -47,10 +47,10 @@ export default function JobsCounter() {
     activeItem: "",
   });
 
-  const handleClick = ({activeItem}) =>{
+  const handleClick = ({ activeItem }) => {
     setActiveItem(activeItem);
-    history.push(`/view?filter=${activeItem.replace(" ","-")}`);
-  }
+    history.push(`/view?filter=${activeItem.replace(" ", "-")}`);
+  };
 
   return (
     <Menu fluid vertical inverted color="yellow">

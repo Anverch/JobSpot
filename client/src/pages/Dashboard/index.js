@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Container, Header, Segment, Divider } from "semantic-ui-react";
 import JobsCounter from "../../components/JobsCounter";
 import { useUserContext } from "../../utils/GlobalState";
-import API from "../../utils/API";
+// import API from "../../utils/API";
 import "semantic-ui-css/semantic.min.css";
 import "../../styles.css";
 

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Container, Header, Dropdown, Icon } from "semantic-ui-react";
+import { Container, Dropdown, Icon } from "semantic-ui-react";
 
 import { useUserContext } from "../../utils/GlobalState";
 
@@ -8,13 +8,13 @@ export default function JobsFilter() {
   const handleFilter = (event, data) => {
     console.log(`data:>>`, data);
     if (data.value !== "All") {
-      const filteredJobs = state.jobs.filter(
+      const filteredJobs = state.Jobs.filter(
         (job) => job.currentStatus === data.value
       );
       dispatch({ type: "filter", filteredJobs });
       return;
     }
-    const allJobs = state.jobs;
+    const allJobs = state.Jobs;
     dispatch({ type: "all", allJobs });
     return;
   };
@@ -26,7 +26,7 @@ export default function JobsFilter() {
     if (filterQuery) {
       handleFilter(null, { value: filterQuery.replace("-", " ") });
     }
-  }, {});
+  }, []);
 
   const filterOptions = [
     {

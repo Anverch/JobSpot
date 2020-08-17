@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
-import { Header, Form, Grid, TextArea } from "semantic-ui-react";
+import React from "react";
+import { Header, Form, Button } from "semantic-ui-react";
+import "./JobForm.css";
 
 const yesNoOptions = [
   { key: "y", text: "Yes", value: "yes" },
@@ -31,59 +32,37 @@ const jobStatusOptions = [
 
 export default function JobForm() {
   return (
-    <Grid rows={4}>
-      <Form>
-        <Grid.Row columns={4}>
-          <Form.Group widths="3">
-            <Form.Input fluid label="Company name" />
-            <Form.Input
-              fluid
-              label="Position title"
-              placeholder="e.g. React Developer"
-            />
-            <Form.Input fluid label="Annual salary" />
-            <Form.Select
-              fluid
-              label="Job Status"
-              options={jobStatusOptions}
-              placeholder="Select Job Status"
-            />
-          </Form.Group>
-        </Grid.Row>
-        <Grid.Row columns={2}>
-          <Header as="h3">Interview Dates</Header>
-          <Form.Group widths="2">
-            <Form.Input
-              fluid
-              label="Phone Interview"
-              placeholder="e.g. 6/30/2020"
-            />
-            <Form.Input
-              fluid
-              label="In-Person Interview"
-              placeholder="e.g. 7/10/2020"
-            />
-          </Form.Group>
-        </Grid.Row>
-        <Grid.Row columns={2}>
-          <Form.Select
-            fluid
-            label="Full Benefits Offered?"
-            options={yesNoOptions}
-          />
-          <Form.Input
-            fluid
-            label="Location"
-            placeholder="e.g. San Francisco, CA; Remote"
-          />
-        </Grid.Row>
-        <Grid.Row columns={1}>
-          <Form.TextArea
-            label="Notes"
-            placeholder="e.g. Long commute, 4 direct reports, Commuter benefits, Catered lunches"
-          />
-        </Grid.Row>
+    <div>
+      <Header as="h1">Job Info</Header>
+      <Form id="jobForm">
+        <Form.Input label="Company name" />
+        <Form.Input label="Job title" placeholder="e.g. React Developer" />
+        <Form.Input label="Annual salary" />
+
+        <Form.Select
+          label="Job Status"
+          options={jobStatusOptions}
+          placeholder="Select Job Status"
+        />
+
+        <Form.Select label="Full Benefits Offered?" options={yesNoOptions} />
+        <Form.Input
+          label="Location"
+          placeholder="e.g. San Francisco, CA; Remote"
+        />
+        <Header as="h3">Interview Dates</Header>
+        <Form.Input label="Phone Interview" placeholder="e.g. 6/30/2020" />
+        <Form.Input label="In-Person Interview" placeholder="e.g. 7/10/2020" />
+
+        <Form.TextArea
+          label="Notes"
+          rows="3"
+          placeholder="e.g. Long commute, 4 direct reports, Commuter benefits, Catered lunches"
+        />
+        <Button type="submit" color="yellow" size="large">
+          Submit
+        </Button>
       </Form>
-    </Grid>
+    </div>
   );
 }

@@ -1,31 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Grid, Header } from "semantic-ui-react";
 import "./signin.css";
 // import SignInForm from "../../components/SignInForm";
 import API from "../../utils/API";
-
+import { useUserContext } from "../../utils/GlobalState";
 import { Link, useHistory } from "react-router-dom";
 import { Form, Segment, Button, Message } from "semantic-ui-react";
-import { useUserContext } from "../../utils/GlobalState";
 
 export default function SignIn() {
   const [state, dispatch] = useUserContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const history = useHistory()
+  const history = useHistory();
 
   async function handleSubmit(e) {
     e.preventDefault();
     const userInfo = {
       email: email,
-      password: password
-    }
+      password: password,
+    };
     try {
-      const user = await API.login(userInfo)
-      dispatch({type: "login", user})
-      history.push("/home")
+      const user = await API.login(userInfo);
+      dispatch({ type: "login", user });
+      history.push("/home");
     } catch (e) {
-      console.log("Error", e)
+      console.log("Error", e);
     }
   }
 
@@ -45,7 +44,7 @@ export default function SignIn() {
               fluid
               icon="user"
               value={email}
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               iconPosition="left"
               placeholder="E-mail Address"
               type="text"
@@ -58,27 +57,17 @@ export default function SignIn() {
               placeholder="Password"
               type="password"
               id="password"
-              onChange={e => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </Segment>
-          {/* <Link
-          to={{
-            pathname: "/home",
-            data: user,
-          }}
-        > */}
-          <Button
-            className="signinBtn"
-            value="Login"
-            type="submit"
-          >
+          <Button className="signinBtn" value="Login" type="submit">
             Login
-        </Button>
+          </Button>
           <Message className="signup">
             New to us?
-          <Link className="signup-link" to="/index">
+            <Link className="signup-link" to="/index">
               Sign Up
-          </Link>
+            </Link>
           </Message>
         </Form>
       </Grid.Column>

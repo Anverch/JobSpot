@@ -1,4 +1,20 @@
-.landing-image {
+/* .landing-image {
   background-image: url("./background1.jpg") !important;
   background-size: cover !important;
+} */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.wrapping {
+  min-height: 100%;
+  margin-bottom: -50px;
+}
+
+.footer,
+.push {
+  height: 50px;
 }

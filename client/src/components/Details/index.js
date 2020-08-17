@@ -18,19 +18,23 @@ export default function Details() {
         <Grid.Row columns={2} id="meta-row">
           <Grid.Column textAlign="left">
             <Header as="h3">{state.activeJob.companyName}</Header>
-            <span>{state.activeJob.positionTitle}</span>
+            <span>{state.activeJob.jobTitle}</span>
           </Grid.Column>
           <Grid.Column textAlign="right">
-            <Header as="h4">{state.activeJob.salary}</Header>
+            <Header as="h4">${state.activeJob.yearlySalary}</Header>
             <Header sub>Current status: {state.activeJob.currentStatus}</Header>
           </Grid.Column>
         </Grid.Row>
         <Grid.Row columns={3} id="details1-row">
           <Grid.Column>
-            <Header sub>Phone interview: 6/27/2020</Header>
+            <Header sub>
+              Phone interview: {state.activeJob.phoneInterview}
+            </Header>
           </Grid.Column>
           <Grid.Column>
-            <Header sub>In-Person Interview: 7/3/2020</Header>
+            <Header sub>
+              In-Person Interview: {state.activeJob.inPersonInterview}
+            </Header>
           </Grid.Column>
           <Grid.Column>
             <Header sub></Header>
