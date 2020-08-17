@@ -4,18 +4,63 @@
 
 //importing dependencies
 import React from "react";
-import { Header, Form, Grid, TextArea, Segment } from "semantic-ui-react";
+import { Header, Form, Grid, TextArea } from "semantic-ui-react";
 import UpdateButton from "../UpdateButton";
 import { useUserContext } from "../../utils/GlobalState";
 
 export default function Details() {
   // invokes useUserContext(),
   const [state, dispatch] = useUserContext();
-  console.log(`state:>>`, state);
 
   return (
     <>
-      <Grid celled id="detail-grid">
+      <Grid rows={5}>
+        <Grid.Row columns={2} id="meta-row">
+          <Grid.Column textAlign="left">
+            <Header as="h3">{state.activeJob.companyName}</Header>
+            <span>{state.activeJob.jobTitle}</span>
+          </Grid.Column>
+          <Grid.Column textAlign="right">
+            <Header as="h4">${state.activeJob.yearlySalary}</Header>
+            <Header sub>Current status: {state.activeJob.currentStatus}</Header>
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row columns={3} id="details1-row">
+          <Grid.Column>
+            <Header sub>
+              Phone interview: {state.activeJob.phoneInterview}
+            </Header>
+          </Grid.Column>
+          <Grid.Column>
+            <Header sub>
+              In-Person Interview: {state.activeJob.inPersonInterview}
+            </Header>
+          </Grid.Column>
+          <Grid.Column>
+            <Header sub></Header>
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row id="details2-row" columns={3}>
+          <Grid.Column>
+            <Header sub>Full benefits: {state.activeJob.fullBenefits}</Header>
+          </Grid.Column>
+          <Grid.Column>
+            <Header sub>Location: {state.activeJob.location}</Header>
+          </Grid.Column>
+          <Grid.Column>
+            <Header sub></Header>
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row id="notes-row">
+          <Form>
+            <TextArea placeholder="Job notes" rows={5} />
+          </Form>
+        </Grid.Row>
+        <Grid.Row columns={1}>
+          <UpdateButton />
+        </Grid.Row>
+      </Grid>
+      {/* <Grid celled id="detail-grid">
         <Header as="h1" id="myjobs-header">
           My Jobs
       </Header>
@@ -46,7 +91,7 @@ export default function Details() {
             </Segment>
           </Grid.Column>
         </Grid.Row>
-      </Grid>
+      </Grid> */}
 
 
     </>
