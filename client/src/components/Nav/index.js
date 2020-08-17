@@ -1,8 +1,8 @@
 import React, { Component, useState } from "react";
-
 import { Header, Grid, Menu, Container } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
+import API from "../../utils/API";
 
 export default class Nav extends Component {
   // const [activeItem, setActiveItem] = useState({ activeItem: "home" });
@@ -13,7 +13,7 @@ export default class Nav extends Component {
   //   console.log(`activeItem:>>`, activeItem);
   // };
   state = { activeItem: "dashboard" }
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  handleItemClick = (e, { name }) =>  this.setState({ activeItem: name })
   render() {
     const { activeItem } = this.state
     return (
@@ -41,7 +41,9 @@ export default class Nav extends Component {
                 active={activeItem === "Logout"}
                 onClick={this.handleItemClick}
               >
-                <Link to="/" id="nav-link-logout">Logout</Link>
+                <Link to="/"
+                 id="nav-link-logout"
+                 onClick={API.logout}>Logout</Link>
               </Menu.Item>
 
               </Menu.Menu>
