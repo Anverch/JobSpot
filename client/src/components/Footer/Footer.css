@@ -8,6 +8,7 @@
   margin: 0px!important;
   display: inline-block;
   clear: both;
+  /* position: absolute; */
 }
 a#github.item {
   color: rgb(201, 201, 201);

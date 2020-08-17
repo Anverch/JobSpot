@@ -1,5 +1,4 @@
 .container#header-container, .header.greetings-header, .container#jobs-counter-container {
-    text-align: center;
     padding: 10px;
     color: rgb(201, 201, 201);
     /* background-color: #FFC675; */
@@ -10,8 +9,13 @@
     justify-content: center;
     
 }
+#jobs-counter.ui.container {
+    justify-content: center;
+    width: 550px;
+}
 .header.greetings-header {
     font-style: italic;
+    text-align: center;
 }
 p.jobs-header {
     text-align: center;
@@ -21,6 +25,15 @@ p.jobs-header {
 .divider.divider {
     box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgb(0 0 0 / 99%);
 }
-/* .container#jobs-container {
-    width: 
-} */
+
+a#job-status.item {
+    color: black;
+    font-weight: bold;
+}
+#jobs-counter-menu.ui.vertical.menu {
+    background: #F27405;
+    font-size: .70em;
+    margin: auto;
+}
+
+/* Background pattern from Toptal Subtle Patterns */
