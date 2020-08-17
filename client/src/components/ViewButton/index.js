@@ -10,7 +10,7 @@ export default function ViewButton(props) {
   const onClick = (event) => {
     console.log(`props>>`, props);
     const id = props.id;
-    const activeJob = state.jobs.find((job) => job.id === id);
+    const activeJob = state.Jobs.find((job) => job.id === id);
     console.log(`activeJob:>>`, activeJob);
     dispatch({ type: "view", id });
     console.log(`state:>>`, state);

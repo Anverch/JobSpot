@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import JobsDisplay from "../../components/JobsDisplay";
 import JobsFilter from "../../components/JobsFilter";
 import Wrapper from "../../components/Wrapper";
