@@ -9,6 +9,7 @@ import CreateJob from "./pages/CreateJob";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import { UserProvider } from "./utils/GlobalState";
+import "./styles.css";
 
 function App() {
   return (

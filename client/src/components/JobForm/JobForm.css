@@ -1,0 +1,12 @@
+#jobForm {
+  padding: 5px;
+}
+
+form.ui.form {
+  display: block;
+}
+
+div.ui.div {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Grid, Header } from "semantic-ui-react";
 import "./signin.css";
-// import SignInForm from "../../components/SignInForm";
 import API from "../../utils/API";
 import { useUserContext } from "../../utils/GlobalState";
 import { Link, useHistory } from "react-router-dom";
@@ -64,6 +63,7 @@ export default function SignIn() {
           <Message id="signup">
             New to us?
             <Link id="signup-link" to="/index">
+
               Sign Up
             </Link>
           </Message>

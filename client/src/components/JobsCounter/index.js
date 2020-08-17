@@ -50,8 +50,8 @@ export default function JobsCounter() {
   const handleClick = ({ activeItem }) => {
     setActiveItem(activeItem);
     history.push(`/view?filter=${activeItem.replace(" ", "-")}`);
-  }
-
+  };
+  
   return (
 
     <Menu vertical id="jobs-counter-menu">
@@ -94,61 +94,5 @@ export default function JobsCounter() {
       </Menu.Item>
 
     </Menu>
-
-
-
-
-
-
-    //       name="All"
-    //       active={activeItem === "All"}
-    //       onClick={() => handleClick({ activeItem: "All" })}
-    //     >
-    //       <Label color="purple">{filterJobs("All")}</Label>
-    //       All
-    //     </Menu.Item>
-    //     <Menu.Item
-    //       name="Interested"
-    //       active={activeItem === "Interested"}
-    //       onClick={() => handleClick({ activeItem: "Interested" })}
-    //     >
-    //       <Label color="teal">{filterJobs("Interested")}</Label>
-    //       Interested
-    //     </Menu.Item>
-    //     <Menu.Item
-    //       name="Applied"
-    //       active={activeItem === "Applied"}
-    //       onClick={() => handleClick({ activeItem: "Applied" })}
-    //     >
-    //       <Label color="blue">{filterJobs("Applied")}</Label>
-    //       Applied
-    //     </Menu.Item>
-    //     <Menu.Item
-    //       name="In Process"
-    //       active={activeItem === "In Process"}
-    //       onClick={() => handleClick({ activeItem: "In Process" })}
-    //     >
-    //       <Label color="green">{filterJobs("In Process")}</Label>
-    //       In Process
-    //     </Menu.Item>
-    //     <Menu.Item
-    //       name="Closed"
-    //       active={activeItem === "Closed"}
-    //       onClick={() => handleClick({ activeItem: "Closed" })}
-    //     >
-    //       <Label color="grey">{filterJobs("Closed")}</Label>
-    //       Closed
-    //     </Menu.Item>
-    //     <Menu.Item
-    //       name="Create"
-    //       active={activeItem === "Create"}
-    //       onClick={() => history.push("/create-job")}
-    //     >
-    //       <Label color="orange">Add</Label>
-    //       Add a new job
-    //     </Menu.Item>
-    //   </Menu>
-
-    // </Container>
   );
 }

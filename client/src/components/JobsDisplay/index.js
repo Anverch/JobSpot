@@ -1,5 +1,5 @@
 import React from "react";
-import { Segment, List, Button } from "semantic-ui-react";
+import { Segment, List } from "semantic-ui-react";
 import "./JobsDisplay.css";
 import UpdateButton from "../UpdateButton";
 import ViewButton from "../ViewButton";
@@ -25,7 +25,7 @@ export default function JobsDisplay() {
                     <UpdateButton />
                   </List.Content>
                   <List.Header>{job.companyName}</List.Header>
-                  <List.Content>{job.positionTitle}</List.Content>
+                  <List.Content>{job.jobTitle}</List.Content>
                   <List.Content>Last updated: yesterday</List.Content>
                 </List.Item>
               );

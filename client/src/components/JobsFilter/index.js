@@ -1,5 +1,5 @@
-import React from "react";
-import { Container, Header, Dropdown, Icon } from "semantic-ui-react";
+import React, { useEffect } from "react";
+import { Container, Dropdown, Icon } from "semantic-ui-react";
 
 import { useUserContext } from "../../utils/GlobalState";
 
@@ -19,14 +19,14 @@ export default function JobsFilter() {
     return;
   };
 
-  // useEffect(()=>{
-  //   let search = window.location.search;
-  //   let params = new URLSearchParams(search);
-  //   let filterQuery = params.get("filter");
-  //   if (filterQuery) {
-  //     handleFilter(null, {value: filterQuery.replace("-"," ")})
-  //   }
-  // }, {})
+  useEffect(() => {
+    let search = window.location.search;
+    let params = new URLSearchParams(search);
+    let filterQuery = params.get("filter");
+    if (filterQuery) {
+      handleFilter(null, { value: filterQuery.replace("-", " ") });
+    }
+  }, []);
 
   const filterOptions = [
     {

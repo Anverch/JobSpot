@@ -48,20 +48,6 @@ module.exports = {
                 res.json(dbUser)
             })
     },
-    login(req, res) {
-        db.User
-            .findOne({
-                where: {
-                    email: req.body.email,
-                    password: req.body.password
-                }
-            })
-            .then(function (dbUser) {
-                console.log("that", dbUser)
-                res.json(dbUser);
-            })
-            .catch(err => res.status(500).json(err));
-    },
     getUserData(req, res) {
         const { password, ...user } = req.user || {};
         res.json(user);

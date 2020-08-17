@@ -3,7 +3,7 @@
 //use reducer to filter
 
 //importing dependencies
-import React from "react";
+import React, { useEffect } from "react";
 import { Header, Form, Grid, TextArea } from "semantic-ui-react";
 import UpdateButton from "../UpdateButton";
 import { useUserContext } from "../../utils/GlobalState";
