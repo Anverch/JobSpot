@@ -12,36 +12,70 @@ import { UserProvider } from "./utils/GlobalState";
 
 function App() {
   return (
-    <UserProvider>
-      <Router>
-        <div className="app">
-          <Nav />
-          <Switch>
-            <Route exact path="/">
-              <SignIn />
-            </Route>
-            <Route exact path="/index">
-              <Register />
-            </Route>
-            <Route exact path="/home">
-              <Dashboard />
-            </Route>
-            <Route exact path="/view">
-              <JobsView />
-            </Route>
-            <Route path="/jobs/">
-              <JobDetail />
-            </Route>
-            <Route path="/create-job">
-              <CreateJob />
-            </Route>
-          </Switch>
-
-          <Footer />
-        </div>
-      </Router>
-    </UserProvider>
+    <div className="app">
+      <div className="wrapping">
+        <UserProvider>
+          <Router>
+            <Nav />
+            <Switch>
+              <Route exact path="/">
+                <SignIn />
+              </Route>
+              <Route exact path="/index">
+                <Register />
+              </Route>
+              <Route exact path="/home">
+                <Dashboard />
+              </Route>
+              <Route exact path="/view">
+                <JobsView />
+              </Route>
+              <Route path="/jobs/">
+                <JobDetail />
+              </Route>
+              <Route path="/create-job">
+                <CreateJob />
+              </Route>
+            </Switch>
+            <div className="push"></div>
+          </Router>
+        </UserProvider>
+      </div>
+      <Footer className="footer" />
+    </div>
   );
 }
+// function App() {
+//   return (
+//     <UserProvider>
+//       <Router>
+//         <div className="app">
+//           <Nav />
+//           <Switch>
+//             <Route exact path="/">
+//               <SignIn />
+//             </Route>
+//             <Route exact path="/index">
+//               <Register />
+//             </Route>
+//             <Route exact path="/home">
+//               <Dashboard />
+//             </Route>
+//             <Route exact path="/view">
+//               <JobsView />
+//             </Route>
+//             <Route path="/jobs/">
+//               <JobDetail />
+//             </Route>
+//             <Route path="/create-job">
+//               <CreateJob />
+//             </Route>
+//           </Switch>
 
-export default App;
+//           <Footer />
+//         </div>
+//       </Router>
+//     </UserProvider>
+//   );
+// }
+ export default App;
