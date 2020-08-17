@@ -67,6 +67,12 @@ export default function JobsCounter() {
           >Interested
           <Label color="purple">{filterJobs("Interested")}</Label>
         </Menu.Item>
+        <Menu.Item id="job-status" name="Applied"
+          active={activeItem === "Applied"}
+          onClick={() => handleClick({ activeItem: "Applied" })}
+          >Applied
+          <Label color="blue">{filterJobs("Applied")}</Label>
+        </Menu.Item>
       
       </Menu>
 
