@@ -77,7 +77,13 @@ export default function JobsCounter() {
           active={activeItem === "In Process"}
           onClick={() => handleClick({ activeItem: "In Process" })}
           >In Process
-          <Label color="blue">{filterJobs("In Process")}</Label>
+          <Label color="green">{filterJobs("In Process")}</Label>
+        </Menu.Item>
+        <Menu.Item id="job-status" name="Closed"
+          active={activeItem === "Closed"}
+          onClick={() => handleClick({ activeItem: "Closed" })}
+          >Closed
+          <Label color="red">{filterJobs("Closed")}</Label>
         </Menu.Item>
       
       </Menu>
