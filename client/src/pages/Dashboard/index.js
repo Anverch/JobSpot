@@ -62,7 +62,7 @@ export default function Dashboard() {
     <>
       <Container id="header-container">
         <Header className="greetings-header">
-          Hello, {state.name}
+          Hello {state.name},
         </Header>
         <p className="jobs-header">
           You have {filteredJobs.length > 0 ? filteredJobs.length : 0} open

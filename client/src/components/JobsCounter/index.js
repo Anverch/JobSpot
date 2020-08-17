@@ -90,7 +90,7 @@ export default function JobsCounter() {
         active={activeItem === "Create"}
         onClick={() => history.push("/create-job")}
       >New Job
-          <Label color="orange">Add</Label>
+          <Label color="brown">Add</Label>
       </Menu.Item>
 
     </Menu>
