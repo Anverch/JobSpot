@@ -1,0 +1,7 @@
+#add-job-container.container {
+  width: 100% !important;
+  margin: 0px !important;
+  justify-content: center;
+  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgb(0 0 0 / 99%);
+  border-bottom-color: black;
+}
