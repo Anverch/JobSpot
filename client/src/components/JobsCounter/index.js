@@ -86,6 +86,13 @@ export default function JobsCounter() {
           <Label color="red">{filterJobs("Closed")}</Label>
         </Menu.Item>
       
+        <Menu.Item id="job-status" name="Create"
+          active={activeItem === "Create"}
+          onClick={() => history.push("/create-job")}
+          >Closed
+          <Label color="red">{filterJobs("Closed")}</Label>
+        </Menu.Item>
+      
       </Menu>
 
 
