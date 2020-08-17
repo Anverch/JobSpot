@@ -1,7 +1,7 @@
 {
     "development": {
       "username": "root",
-      "password": "Untitled1229",
+      "password": "password",
       "database": "jobspot_db",
       "host": "127.0.0.1",
       "dialect": "mysql"
