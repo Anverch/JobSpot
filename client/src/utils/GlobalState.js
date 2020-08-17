@@ -1,6 +1,7 @@
 import React, { createContext, useReducer, useContext } from "react";
 // import user from "../../../controllers/user";
 
+
 const testUser = {
   name: "",
   email: "",
@@ -191,7 +192,7 @@ const reducer = (state, action) => {
   }
 };
 
-const UserProvider = ({ value = emily, ...props }) => {
+const UserProvider = ({ value = testUser, ...props }) => {
   const [state, dispatch] = useReducer(reducer, value);
   return <UserContext.Provider value={[state, dispatch]} {...props} />;
 };

@@ -4,8 +4,8 @@ import Wrapper from "../../components/Wrapper";
 
 export default function CreateJob() {
   return (
-    <Wrapper>
+    <>
       <JobForm />
-    </Wrapper>
+    </>
   );
 }
