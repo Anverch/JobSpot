@@ -1,29 +1,3 @@
-// import React, { useState, useEffect } from "react";
-// import { Grid, Header } from "semantic-ui-react";
-// import "./signin.css";
-// import SignInForm from "../../components/SignInForm";
-// import API from "../../utils/API";
-
-// export default function SignIn() {
-//   const [user, setUser] = useState("");
-
-//   // useEffect(() => {
-//   //   if(!user) {
-//   //     return;
-//   //   }
-
-//   //   API.getUser
-//   // })
-
-//   const handleInputChange = (event) => setUser(event.target.value);
-
-//   return (
-//     <>
-//       <SignInForm handleInputChange={handleInputChange} user={user} />
-//     </>
-     
-//   );
-// }
 import React, { useState } from "react";
 import { Grid, Header } from "semantic-ui-react";
 import "./signin.css";
@@ -64,7 +38,7 @@ export default function SignIn() {
             Job<span>Spot</span>
           </div>
         </Header>
-        <Form className="login" onSubmit={handleSubmit}>
+        <Form id="login" onSubmit={handleSubmit}>
           <Form.Input
             fluid
             icon="user"
@@ -84,7 +58,6 @@ export default function SignIn() {
             id="input-password"
             onChange={(e) => setPassword(e.target.value)}
           />
-    
           <Button id="signinBtn" value="Login" type="submit">
             Login
           </Button>
@@ -99,3 +72,5 @@ export default function SignIn() {
     </Grid>
   );
 }
+          
+          
