@@ -63,7 +63,6 @@ export default function SignIn() {
           <Message id="signup">
             New to us?
             <Link id="signup-link" to="/index">
-
               Sign Up
             </Link>
           </Message>

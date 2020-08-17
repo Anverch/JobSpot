@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Grid, Header, Message, Form, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-// import SignUpForm from '../../components/SignUpForm'
 import "./signup.css";
 import API from "../../utils/API";
 
@@ -31,10 +30,9 @@ class Register extends Component {
         name: "",
         email: "",
         password: "",
-      }
-    };
+      } 
+     };
   }
-
 
   handleChange = (event) => {
     event.preventDefault();
@@ -71,7 +69,7 @@ class Register extends Component {
       password: this.state.password
     }
     API.createUser(userInfo)
-    .then(res => 
+    .then(res =>
     this.setState({ formValid: validateForm(this.state.errors) }),
     this.setState({ errorCount: countErrors(this.state.errors) }),
     this.setState({ name: "", email: "", password: "" })
@@ -82,6 +80,7 @@ class Register extends Component {
   render() {
     const { errors, formValid } = this.state;
     const { name, email, password } = this.state;
+
     return (
       <Grid id="sign-upWrapper">
         <Grid.Column id="form-wrapper">
