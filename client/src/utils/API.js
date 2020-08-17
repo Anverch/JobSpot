@@ -33,7 +33,6 @@ export default {
   },
   //Saves a new user to the database
   createUser: function (userInfo) {
-    console.log("create user", (userInfo))
     return axios.post("/api/users", userInfo);
   },
   deleteUser: function (id) {

@@ -21,6 +21,7 @@ const countErrors = (errors) => {
 };
 
 class Register extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -30,16 +31,15 @@ class Register extends Component {
         name: "",
         email: "",
         password: "",
-      },
+      }
     };
   }
 
+
   handleChange = (event) => {
     event.preventDefault();
-    console.log('handlechange')
     const { name, value } = event.target;
     this.setState({[event.target.name]: event.target.value}, () => {
-      console.log(this.state)
     })
     let errors = this.state.errors;
 
@@ -65,17 +65,18 @@ class Register extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log("handle submit")
     const userInfo = {
       name: this.state.name, 
       email: this.state.email,
       password: this.state.password
     }
-    console.log(userInfo)
     API.createUser(userInfo)
-    this.setState({ formValid: validateForm(this.state.errors) });
-    this.setState({ errorCount: countErrors(this.state.errors) });
-    this.setState({ name: "", email: "", password: "" });
+    .then(res => 
+    this.setState({ formValid: validateForm(this.state.errors) }),
+    this.setState({ errorCount: countErrors(this.state.errors) }),
+    this.setState({ name: "", email: "", password: "" })
+    )
+    .catch (err => console.log(err))
   };
 
   render() {
