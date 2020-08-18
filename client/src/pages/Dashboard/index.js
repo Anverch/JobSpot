@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Header, Segment, Divider } from "semantic-ui-react";
 import JobsCounter from "../../components/JobsCounter";
 import { useUserContext } from "../../utils/GlobalState";
@@ -8,6 +8,8 @@ import "./styles.css";
 export default function Dashboard() {
   const [state, _] = useUserContext();
   // const [user, setUser] = useState("");
+
+  useEffect(() => console.log(state));
   const filteredJobs = state.Jobs.filter(
     (job) => job.currentStatus !== "Closed"
   );

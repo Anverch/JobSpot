@@ -6,19 +6,31 @@
 
 // export default function SignInForm() {
 //   const [state, dispatch] = useUserContext();
-
-//   return (
-//     <>
-//       <Grid id="styleGrid">
-//         <div className="body" />
-//         <div className="grad" />
-//         <Grid.Column id="colStyle">
-//           <Header id="title-header" as="h2">
-//             <div>
-//               Job<span>Spot</span>
-//             </div>
-//           </Header>
-//           <Form className="login">
+  return (
+    <>
+      <Form className="login">
+        <Segment stacked>
+          <Form.Input
+            fluid
+            icon="user"
+            value=""
+            onChange={state.handleInputChange}
+            onSubmit={state.handleSubmit}
+            iconPosition="left"
+            placeholder="E-mail Address"
+            type="text"
+            id="username"
+          />
+          <Form.Input
+            fluid
+            icon="lock"
+            iconPosition="left"
+            placeholder="Password"
+            type="password"
+            id="password"
+          />
+        </Segment>
+        {/* <Link
 
 //             <Form.Input
 //               fluid

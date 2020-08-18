@@ -12,6 +12,9 @@ export default function Details() {
   // invokes useUserContext(),
   const [state, dispatch] = useUserContext();
 
+  useEffect(() => {
+    console.log(`state.activeJob:>>`, state.activeJob);
+  });
   return (
     <>
       <Grid rows={5}>
@@ -21,19 +24,17 @@ export default function Details() {
             <span>{state.activeJob.jobTitle}</span>
           </Grid.Column>
           <Grid.Column textAlign="right">
-            <Header as="h4">${state.activeJob.yearlySalary}</Header>
+            <Header as="h4">${state.activeJob.salary}</Header>
             <Header sub>Current status: {state.activeJob.currentStatus}</Header>
           </Grid.Column>
         </Grid.Row>
         <Grid.Row columns={3} id="details1-row">
           <Grid.Column>
-            <Header sub>
-              Phone interview: {state.activeJob.phoneInterview}
-            </Header>
+            <Header sub>Phone interview: {state.activeJob.phoneInt}</Header>
           </Grid.Column>
           <Grid.Column>
             <Header sub>
-              In-Person Interview: {state.activeJob.inPersonInterview}
+              In-Person Interview: {state.activeJob.inPersonInt}
             </Header>
           </Grid.Column>
           <Grid.Column>
