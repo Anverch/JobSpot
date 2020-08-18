@@ -1,0 +1,155 @@
+/* Table of Contents */
+/* BACKGROUND */
+#styleGrid {
+  text-align: center;
+  vertical-align: middle;
+}
+#colStyle.column, form.form.login {
+  position: absolute;
+  top: calc(50% - 75px);
+  left: calc(50% - 50px);
+  height: 150px;
+  width: 350px;
+  padding: 10px;
+  z-index: 2;
+}
+/* #login-segment.stacked.segment {
+  width: 250px;
+  height: 30px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+  color: #fff;
+  font-family: "Exo", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 4px;
+} */
+input#input-username[type="text"] {
+  width: 330px;
+  height: 50px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+  color: #fff;
+  font-family: "Exo", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 4px;
+}
+input#input-password[type="password"] {
+  width: 330px;
+  height: 50px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+  color: #fff;
+  font-family: "Exo", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 4px;
+  margin-top: 10px;
+}
+.body {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -40px;
+  bottom: -40px;
+  width: auto;
+  height: auto;
+  background-image: url(https://www.muralsyourway.com/media/catalog/product/cache/1/base/1200x/040ec09b1e35df139433887a97daa66f/k/a/kansas-city-skyline-wallpaper-mural.jpg);
+  background-size: cover;
+  filter: blur(5px);
+  z-index: 0;
+}
+.grad {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -40px;
+  bottom: -40px;
+  width: auto;
+  height: auto;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, rgba(0, 0, 0, 0)),
+    color-stop(100%, rgba(0, 0, 0, 0.65))
+  );
+}
+/* HEADER */
+h2#title-header.header {
+  position: absolute;
+  top: calc(50% - 35px);
+  left: calc(50% - 255px);
+  z-index: 2;
+}
+h2#title-header.header div {
+  float: left;
+  color: #F27405;
+  font-family: "Exo", sans-serif;
+  font-size: 45px;
+  font-weight: bold;
+}
+h2#title-header.header div span {
+  color: black !important;
+}
+button#signinBtn.button {
+  width: 330px;
+  height: 35px;
+  background: #fff;
+  border: 1px solid #fff;
+  cursor: pointer;
+  border-radius: 2px;
+  color: #a18d6c;
+  font-family: "Exo", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 6px;
+  margin-top: 10px;
+}
+button#signinBtn.button:hover {
+  opacity: 0.8;
+}
+button#signinBtn.button:active {
+  opacity: 0.6;
+}
+.login input[type="text"]:focus {
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+.login input[type="password"]:focus {
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+button#signinBtn.button:focus {
+  outline: none;
+}
+::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+::-moz-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.message#signup.message {
+  width: 330px;
+  height: 30px;
+  border-radius: 2px;
+  color: #fff;
+  font-family: "Exo", sans-serif;
+  font-size: 16px;
+  padding: 10px;
+  text-align: center;
+  background: transparent;
+}
+a#signup-link {
+  width: 250px;
+  height: 30px;
+  border-radius: 2px;
+  color: #F27405;
+  font-family: "Exo", sans-serif;
+  font-size: 16px;
+  padding: 10px;
+}
