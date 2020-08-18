@@ -1,0 +1,16 @@
+.header {
+  position: absolute;
+  top: calc(50% - 35px);
+  left: calc(50% - 255px);
+  z-index: 2;
+}
+.header div {
+  float: left;
+  color: #f27405;
+  font-family: "Exo", sans-serif;
+  font-size: 45px;
+  font-weight: bold;
+}
+.header div span {
+  color: black !important;
+}
