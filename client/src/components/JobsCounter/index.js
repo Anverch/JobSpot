@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Label, Menu } from "semantic-ui-react";
+import { Label, Menu, Container, Grid } from "semantic-ui-react";
 import { useUserContext } from "../../utils/GlobalState";
 
 export default function JobsCounter() {
@@ -51,57 +51,48 @@ export default function JobsCounter() {
     setActiveItem(activeItem);
     history.push(`/view?filter=${activeItem.replace(" ", "-")}`);
   };
-
+  
   return (
-    <Menu fluid vertical inverted color="yellow">
-      <Menu.Item
-        name="All"
+
+    <Menu vertical id="jobs-counter-menu">
+      <Menu.Item id="job-status" name="All"
         active={activeItem === "All"}
         onClick={() => handleClick({ activeItem: "All" })}
-      >
-        <Label color="purple">{filterJobs("All")}</Label>
-        All
+      >All
+          <Label color="teal">{filterJobs("All")}</Label>
       </Menu.Item>
-      <Menu.Item
-        name="Interested"
+      <Menu.Item id="job-status" name="Interested"
         active={activeItem === "Interested"}
         onClick={() => handleClick({ activeItem: "Interested" })}
-      >
-        <Label color="teal">{filterJobs("Interested")}</Label>
-        Interested
+      >Interested
+          <Label color="purple">{filterJobs("Interested")}</Label>
       </Menu.Item>
-      <Menu.Item
-        name="Applied"
+      <Menu.Item id="job-status" name="Applied"
         active={activeItem === "Applied"}
         onClick={() => handleClick({ activeItem: "Applied" })}
-      >
-        <Label color="blue">{filterJobs("Applied")}</Label>
-        Applied
+      >Applied
+          <Label color="blue">{filterJobs("Applied")}</Label>
       </Menu.Item>
-      <Menu.Item
-        name="In Process"
+      <Menu.Item id="job-status" name="In Process"
         active={activeItem === "In Process"}
         onClick={() => handleClick({ activeItem: "In Process" })}
-      >
-        <Label color="green">{filterJobs("In Process")}</Label>
-        In Process
+      >In Process
+          <Label color="green">{filterJobs("In Process")}</Label>
       </Menu.Item>
-      <Menu.Item
-        name="Closed"
+      <Menu.Item id="job-status" name="Closed"
         active={activeItem === "Closed"}
         onClick={() => handleClick({ activeItem: "Closed" })}
-      >
-        <Label color="grey">{filterJobs("Closed")}</Label>
-        Closed
+      >Closed
+          <Label color="red">{filterJobs("Closed")}</Label>
       </Menu.Item>
-      <Menu.Item
-        name="Create"
+
+      <Menu.Item id="job-status" name="Create"
         active={activeItem === "Create"}
         onClick={() => history.push("/create-job")}
-      >
-        <Label color="orange">Add</Label>
-        Add a new job
+      >New Job
+          <Label color="brown">Add</Label>
       </Menu.Item>
+
     </Menu>
   );
 }

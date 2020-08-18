@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Header, Form, Button } from "semantic-ui-react";
 import "./JobForm.css";
@@ -5,31 +6,31 @@ import { useUserContext } from "../../utils/GlobalState";
 import { useHistory } from "react-router-dom";
 
 const yesNoOptions = [
-  { key: "y", text: "Yes", value: "yes" },
-  { key: "n", text: "No", value: "no" },
+    { key: "y", text: "Yes", value: "yes" },
+    { key: "n", text: "No", value: "no" },
 ];
 
 const jobStatusOptions = [
-  {
-    key: "Interested",
-    text: "Interested",
-    value: "Interested",
-  },
-  {
-    key: "Applied",
-    text: "Applied",
-    value: "Applied",
-  },
-  {
-    key: "In Process",
-    text: "In Process",
-    value: "In Process",
-  },
-  {
-    key: "Closed",
-    text: "Closed",
-    value: "Closed",
-  },
+    {
+        key: "Interested",
+        text: "Interested",
+        value: "Interested",
+    },
+    {
+        key: "Applied",
+        text: "Applied",
+        value: "Applied",
+    },
+    {
+        key: "In Process",
+        text: "In Process",
+        value: "In Process",
+    },
+    {
+        key: "Closed",
+        text: "Closed",
+        value: "Closed",
+    },
 ];
 
 export default function JobForm() {

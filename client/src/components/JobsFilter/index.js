@@ -57,7 +57,7 @@ export default function JobsFilter() {
   ];
 
   return (
-    <Container>
+    <Container className="jobsFilter-Container">
       <Icon name="filter" />
       <Dropdown
         floating

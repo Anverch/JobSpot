@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Grid, Header } from "semantic-ui-react";
 import "./signin.css";
-// import SignInForm from "../../components/SignInForm";
 import API from "../../utils/API";
 import { useUserContext } from "../../utils/GlobalState";
 import { Link, useHistory } from "react-router-dom";
@@ -29,43 +28,41 @@ export default function SignIn() {
   }
 
   return (
-    <Grid className="styleGrid">
+    <Grid id="styleGrid">
       <div className="body" />
       <div className="grad" />
-      <Grid.Column className="colStyle">
-        <Header className="title-header" as="h2">
+      <Grid.Column id="colStyle">
+        <Header id="title-header" as="h2">
           <div>
             Job<span>Spot</span>
           </div>
         </Header>
-        <Form className="login" onSubmit={handleSubmit}>
-          <Segment stacked>
-            <Form.Input
-              fluid
-              icon="user"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              iconPosition="left"
-              placeholder="E-mail Address"
-              type="text"
-              id="username"
-            />
-            <Form.Input
-              fluid
-              icon="lock"
-              iconPosition="left"
-              placeholder="Password"
-              type="password"
-              id="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Segment>
-          <Button className="signinBtn" value="Login" type="submit">
+        <Form id="login" onSubmit={handleSubmit}>
+          <Form.Input
+            fluid
+            icon="user"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            iconPosition="left"
+            placeholder="E-mail Address"
+            type="text"
+            id="input-username"
+          />
+          <Form.Input
+            fluid
+            icon="lock"
+            iconPosition="left"
+            placeholder="Password"
+            type="password"
+            id="input-password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Button id="signinBtn" value="Login" type="submit">
             Login
           </Button>
-          <Message className="signup">
+          <Message id="signup">
             New to us?
-            <Link className="signup-link" to="/index">
+            <Link id="signup-link" to="/index">
               Sign Up
             </Link>
           </Message>
@@ -74,3 +71,5 @@ export default function SignIn() {
     </Grid>
   );
 }
+          
+          

@@ -5,9 +5,9 @@ import Wrapper from "../../components/Wrapper";
 
 export default function JobsView() {
   return (
-    <Wrapper>
+    <>
       <JobsFilter />
       <JobsDisplay />
-    </Wrapper>
+    </>
   );
 }
