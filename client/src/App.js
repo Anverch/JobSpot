@@ -9,38 +9,41 @@ import CreateJob from "./pages/CreateJob";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import { UserProvider } from "./utils/GlobalState";
+import { Container } from "semantic-ui-react";
 import "./styles.css";
 
 function App() {
   return (
     <div className="app">
       <div className="wrapping">
-        <UserProvider>
-          <Router>
-            <Nav />
-            <Switch>
-              <Route exact path="/">
-                <SignIn />
-              </Route>
-              <Route exact path="/index">
-                <Register />
-              </Route>
-              <Route exact path="/home">
-                <Dashboard />
-              </Route>
-              <Route exact path="/view">
-                <JobsView />
-              </Route>
-              <Route path="/jobs/">
-                <JobDetail />
-              </Route>
-              <Route path="/create-job">
-                <CreateJob />
-              </Route>
-            </Switch>
-            <div className="push"></div>
-          </Router>
-        </UserProvider>
+        <Container textAlign="left">
+          <UserProvider>
+            <Router>
+              <Nav />
+              <Switch>
+                <Route exact path="/">
+                  <SignIn />
+                </Route>
+                <Route exact path="/index">
+                  <Register />
+                </Route>
+                <Route exact path="/home">
+                  <Dashboard />
+                </Route>
+                <Route exact path="/view">
+                  <JobsView />
+                </Route>
+                <Route path="/jobs/">
+                  <JobDetail />
+                </Route>
+                <Route path="/create-job">
+                  <CreateJob />
+                </Route>
+              </Switch>
+              <div className="push"></div>
+            </Router>
+          </UserProvider>
+        </Container>
       </div>
       <Footer className="footer" />
     </div>

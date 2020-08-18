@@ -14,7 +14,7 @@ export default function SignInForm() {
           <Form.Input
             fluid
             icon="user"
-            value=''
+            value=""
             onChange={state.handleInputChange}
             onSubmit={state.handleSubmit}
             iconPosition="left"
