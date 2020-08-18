@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { Grid, Header } from "semantic-ui-react";
 import "./signin.css";
 import API from "../../utils/API";
@@ -10,7 +10,12 @@ export default function SignIn() {
   const [state, dispatch] = useUserContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [serverError, setServerError] = useState(false);
   const history = useHistory();
+
+  const error = (e) => {
+    setServerError(true)
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -18,14 +23,18 @@ export default function SignIn() {
       email: email,
       password: password,
     };
+    console.log(serverError)
     try {
       const user = await API.login(userInfo);
       dispatch({ type: "login", user });
       history.push("/home");
     } catch (e) {
-      console.log("Error", e);
+      console.log("Error", e)
+      setServerError(serverError => !serverError )
+      console.log(serverError)
     }
   }
+
 
   return (
     <Grid id="styleGrid">
@@ -53,10 +62,14 @@ export default function SignIn() {
             icon="lock"
             iconPosition="left"
             placeholder="Password"
+            value={password}
             type="password"
             id="input-password"
             onChange={(e) => setPassword(e.target.value)}
           />
+          {/* new stuff */}
+          {{serverError} && <div>Invalid Email or Password</div>}
+          
           <Button id="signinBtn" value="Login" type="submit">
             Login
           </Button>
