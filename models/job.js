@@ -12,6 +12,11 @@ module.exports = (sequelize, DataTypes) => {
             job_title: DataTypes.STRING,
             salary: DataTypes.INTEGER,
             status: DataTypes.STRING,
+            phone: DataTypes.BIGINT,
+            in_person_interview_date: DataTypes.DATE,
+            benefits: DataTypes.STRING,
+            location: DataTypes.STRING,
+            source: DataTypes.STRING,
             notes: DataTypes.STRING
         }
     );
@@ -20,7 +25,6 @@ module.exports = (sequelize, DataTypes) => {
         Job.belongsTo(models.User, {
             onDelete: "cascade",
             foreignKey: {
-                name: 'user_id',
                 allowNull: false
             }
         });

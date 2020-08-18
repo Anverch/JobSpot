@@ -2,7 +2,7 @@ p,
 div {
   font-family: Lato;
 }
-.wrapper {
+#sign-upWrapper.grid {
   position: absolute;
   top: -20px;
   left: -20px;
@@ -17,35 +17,35 @@ div {
   background-image: url(https://www.freedomleaf.com/wp-content/uploads/2017/04/KansasCityHeader-672x353.png);
   background-size: cover;
 }
-.form-wrapper {
+#form-wrapper {
   display: flex;
   flex-direction: column;
-  width: 280px;
+  width: 370px;
   padding: 20px 40px;
   border-radius: 6px;
   box-shadow: 0px 8px 36px #222;
   background-color: #fefefe;
 }
 
-.form-wrapper > h2 {
+#form-wrapper > h2 {
   display: flex;
   text-align: center;
   justify-content: center;
   font-family: "Segoe UI", "Ubuntu", "Roboto", "Open Sans", "Helvetica Neue",
     sans-serif;
-  font-size: 2em;
+  font-size: 2.5em;
   font-weight: lighter;
   margin-top: 0.25em;
   color: #222;
 }
 
-Form {
+#signup-form {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
 }
 
-.info {
+#info {
   text-align: center;
   padding-bottom: 1em;
   padding-left: 0.5em;
@@ -55,11 +55,13 @@ Form {
 label {
   margin-bottom: 0.5em;
   color: #444;
-  font-weight: lighter;
+  font-weight: bold;
 }
-
-Form Input {
-  width: 260px;
+#signup-name, #signup-email, #signup-password {
+  padding: 5px;
+}
+#input-newEmail, #input-name, #input-newPassword {
+  width: 290px;
   padding: 10px 10px;
   border-radius: 5px;
   outline: none;
@@ -72,8 +74,8 @@ input::placeholder {
   color: #bbb;
 }
 
-.signupBtn {
-  width: 100%;
+button#signupBtn.button {
+  width: 300px;
   cursor: pointer;
   margin-right: 0.25em;
   margin-top: 0.5em;
@@ -83,38 +85,54 @@ input::placeholder {
   background-color: #22223b;
   color: #fefefe;
 }
-.signupBtn:hover {
+button#signupBtn.button:hover {
   background-color: #4a4e69;
   color: #fefefe;
 }
 
-.error {
+#error {
   color: #db2269;
   font-size: 1em;
   display: relative;
 }
 
-.fullName,
-.email,
-.password {
+/* #name,
+#email,
+#password {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
-}
+} */
 
-.fullName {
+/* #email,
+#password {
   width: 100%;
-}
-
-.email,
-.password {
-  width: 100%;
-}
-.login-link {
+} */
+/* link#login-link.link {
   justify-content: center;
+} */
+.message#member-message.message {
+  padding: 0%;
+  margin: 0%;
+  width: 330px;
+  height: 30px;
+  border-radius: 2px;
+  font-family: "Exo", sans-serif;
+  font-size: 16px;
+  box-shadow: none;
+  
 }
-.submit {
-  width: 100%;
+a#login-link {
+  color: #4a4e69;
+  padding: 0%;
+  width: 250px;
+  height: 30px;
+  border-radius: 2px;
+  color: #5379fa;
+  font-family: "Exo", sans-serif;
+  font-size: 16px;
+}
+#submit {
   display: flex;
   flex-wrap: wrap;
 }

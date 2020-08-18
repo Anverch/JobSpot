@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Grid, Header, Message, Form, Button} from "semantic-ui-react";
+import { Grid, Header, Message, Form, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import "./signup.css";
+import API from "../../utils/API";
 
 const validEmailRegex = RegExp(
   /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
@@ -19,28 +20,30 @@ const countErrors = (errors) => {
 };
 
 class Register extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
       formValid: false,
       errorCount: null,
       errors: {
-        fullName: "",
+        name: "",
         email: "",
         password: "",
-      },
-    };
+      } 
+     };
   }
 
   handleChange = (event) => {
     event.preventDefault();
     const { name, value } = event.target;
+    this.setState({[event.target.name]: event.target.value}, () => {
+    })
     let errors = this.state.errors;
 
     switch (name) {
-      case "fullName":
-        errors.fullName =
-          value.length < 5 ? "Please enter your full name." : "";
+      case "name":
+        errors.name = value.length < 5 ? "Please enter your full name." : "";
         break;
       case "email":
         errors.email = validEmailRegex.test(value) ? "" : "Email is not valid!";
@@ -60,37 +63,47 @@ class Register extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.setState({ formValid: validateForm(this.state.errors) });
-    this.setState({ errorCount: countErrors(this.state.errors) });
-    this.setState({ fullName: "", email: "", password: "" });
+    const userInfo = {
+      name: this.state.name, 
+      email: this.state.email,
+      password: this.state.password
+    }
+    API.createUser(userInfo)
+    .then(res =>
+    this.setState({ formValid: validateForm(this.state.errors) }),
+    this.setState({ errorCount: countErrors(this.state.errors) }),
+    this.setState({ name: "", email: "", password: "" })
+    )
+    .catch (err => console.log(err))
   };
 
   render() {
     const { errors, formValid } = this.state;
-    const { fullName, email, password } = this.state;
+    const { name, email, password } = this.state;
+
     return (
-      <Grid className="wrapper">
-        <Grid.Column className="form-wrapper">
-          <Header className="form-header" as="h2">
+      <Grid id="sign-upWrapper">
+        <Grid.Column id="form-wrapper">
+          <Header id="form-header" as="h2">
             Create an account with us!
           </Header>
-          <Form onSubmit={this.handleSubmit} noValidate>
-            <div className="fullName">
-              <label htmlFor="fullName">Full Name</label>
-              <Form.Input
+          <Form id="signup-form" onSubmit={this.handleSubmit} noValidate>
+            <div id="signup-name">
+              <label htmlFor="name">Full Name</label>
+              <Form.Input id="input-name"
                 type="text"
-                name="fullName"
-                value={fullName}
+                name="name"
+                value={name}
                 onChange={this.handleChange}
                 noValidate
               />
-              {errors.fullName.length > 0 && (
-                <span className="error">{errors.fullName}</span>
+              {errors.name.length > 0 && (
+                <span id="error">{errors.name}</span>
               )}
             </div>
-            <div className="email">
+            <div id="signup-email">
               <label htmlFor="email">Email</label>
-              <Form.Input
+              <Form.Input id="input-newEmail"
                 type="email"
                 name="email"
                 value={email}
@@ -98,12 +111,12 @@ class Register extends Component {
                 noValidate
               />
               {errors.email.length > 0 && (
-                <span className="error">{errors.email}</span>
+                <span id="error">{errors.email}</span>
               )}
             </div>
-            <div className="password">
-              <label htmlFor="password">Password</label>
-              <Form.Input
+            <div id="signup-password">
+              <label htmlFor="signup-password">Password</label>
+              <Form.Input id="input-newPassword"
                 type="password"
                 name="password"
                 value={password}
@@ -111,27 +124,27 @@ class Register extends Component {
                 noValidate
               />
               {errors.password.length > 0 && (
-                <span className="error">{errors.password}</span>
+                <span id="error">{errors.password}</span>
               )}
             </div>
-            <div className="info">
+            <div id="info">
               <small>
                 Password must be at least eight characters in length.
               </small>
             </div>
-            <div className="submit">
-              <Button className="signupBtn">Create</Button>
+            <div id="submit">
+              <Button id="signupBtn">Create</Button>
             </div>
             {this.state.errorCount !== null ? (
-              <p className="form-status">
+              <p id="form-status">
                 Form is {formValid ? "valid ✅" : "invalid ❌"}
               </p>
             ) : (
               "Form not submitted"
             )}
           </Form>
-          <Message>
-            <Link className="login-link" to="/">
+          <Message id="member-message">
+            <Link id="login-link" to="/">
               Already a member?
             </Link>
           </Message>

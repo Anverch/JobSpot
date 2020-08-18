@@ -1,0 +1,29 @@
+/* .header {
+  color: white;
+}
+#detail-grid {
+  display: flex;
+}
+#details-column {
+  text-align: left;
+}
+#meta-row {
+  grid-row: 2;
+} */
+#detail-grid {
+  justify-content: center;
+}
+#details-column {
+  text-align: center;
+}
+#myjobs-header {
+  text-align: center;
+}
+#job-details {
+  text-align: center;
+  display: table-cell;
+}
+#details-header {
+  font-weight: bold;
+  color: orange;
+}
