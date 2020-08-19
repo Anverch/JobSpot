@@ -16,9 +16,9 @@ const styles = {
         bottom: -40,
         width: "auto",
         height: "auto",
-        backgroundImage: "url(https://www.muralsyourway.com/media/catalog/product/cache/1/base/1200x/040ec09b1e35df139433887a97daa66f/k/a/kansas-city-skyline-wallpaper-mural.jpg)",
-        backgroundSize: "cover",
-        filter: "blur(5px)",
+        // backgroundImage: "url(https://www.muralsyourway.com/media/catalog/product/cache/1/base/1200x/040ec09b1e35df139433887a97daa66f/k/a/kansas-city-skyline-wallpaper-mural.jpg)",
+        // backgroundSize: "cover",
+        // filter: "blur(5px)",
         zIndex: 0
     },
     gradStyle: {
@@ -100,7 +100,7 @@ export default function LoginForm() {
     }
     return (
         <>
-            <div style={styles.bodyStyle} />
+            <div style={styles.bodyStyle} className="bodyImg" />
             <div style={styles.gradStyle} className="grad-l" />
 
             <Form style={styles.loginForm} onSubmit={handleSubmit}>

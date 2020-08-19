@@ -1,9 +1,9 @@
-/* p,
+/* /* p,
 div {
   font-family: Lato;
-}
-.signup {
-  position: absolute;
+} */
+.backgroundImg {
+  /* position: absolute;
   top: -20px;
   left: -20px;
   right: -40px;
@@ -13,7 +13,7 @@ div {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   background-image: url(https://www.freedomleaf.com/wp-content/uploads/2017/04/KansasCityHeader-672x353.png);
   background-size: cover;
 } */

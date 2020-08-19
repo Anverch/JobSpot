@@ -18,17 +18,17 @@ const styles = {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        backgroundImage: "url(https://www.freedomleaf.com/wp-content/uploads/2017/04/KansasCityHeader-672x353.png)",
-        backgroundSize: "cover"
+        // backgroundImage: "url(https://www.freedomleaf.com/wp-content/uploads/2017/04/KansasCityHeader-672x353.png)",
+        // backgroundSize: "cover"
     },
     formWrapper: {
         display: "flex",
         flexDirection: "column",
-        textAlign: "center",
-        width: 270,
+        // textAlign: "center",
+        width: 280,
         padding: "20px 40px",
         borderRadius: 6,
-        boxShadow: "0px 8px 36px #222",
+        // boxShadow: "0px 8px 36px #222",
         backgroundColor: "#fefefe"
     },
     // formStyle: {
@@ -38,7 +38,7 @@ const styles = {
     // },
     signupHeader: {
         display: "flex",
-        flex: "column",
+        // flex: "column",
         textAlign: "center",
         justifyContent: "center",
         fontFamily: "Times New Roman",
@@ -109,6 +109,10 @@ const styles = {
         justifyContent: "center"
     },
     labelStyle: {
+        display: "flex",
+        flexDirection: "column",
+        marginBottom: 15,
+        width: "100%",
         fontWeight: "bold",
         color: "red"
     },
@@ -200,15 +204,15 @@ class SignupForm extends Component {
 
         return (
             <>
-                <Grid style={styles.gridStyle}>
-                    <Grid.Column style={styles.formWrapper}>
+                <Grid className="backgroundImg" style={styles.gridStyle}>
+                    <Grid.Column className="column" style={styles.formWrapper}>
                         <Header style={styles.signupHeader}>
                             <div>
                                 Create an account with us!
                             </div>
                         </Header>
                         <Form style={styles.signupForm} onSubmit={this.handleSubmit} /*noValidate*/>
-                            <Label htmlFor="name" style={styles.Label}>Full Name</Label>
+                            <Label htmlFor="name" style={styles.labelStyle}>Full Name</Label>
                             <Form.Input style={styles.signupFormInput}
                                 fluid
                                 value={name}
