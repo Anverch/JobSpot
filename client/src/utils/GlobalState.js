@@ -1,7 +1,6 @@
 import React, { createContext, useReducer, useContext } from "react";
 // import user from "../../../controllers/user";
 
-
 const testUser = {
   id: Math.floor(Math.random() * 1000),
   name: "",
@@ -12,9 +11,6 @@ const testUser = {
   filter: ["All", "Interested", "Applied", "In Process", "Closed"],
   loggedIn: true,
   activeJob: {},
-  addJob: (job) => {},
-  handleInputChange: () => {},
-  handleSubmit: () => {},
 };
 
 const emily = {

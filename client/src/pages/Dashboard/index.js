@@ -10,27 +10,23 @@ export default function Dashboard() {
   // const [user, setUser] = useState("");
 
   useEffect(() => console.log(state));
+
   const filteredJobs = state.Jobs.filter(
     (job) => job.status !== "Closed"
   );
 
+
   return (
     <>
       <Container id="header-container">
-        <Header className="greetings-header">
-          Hello {state.name},
-        </Header>
+        <Header className="greetings-header">Hello {state.name},</Header>
         <p className="jobs-header">
           You have {filteredJobs.length > 0 ? filteredJobs.length : 0} open
-            jobs, click below to filter by status
+          jobs, click below to filter by status
         </p>
         <Divider className="divider" />
         <JobsCounter />
-        
       </Container>
-        
-
     </>
-
   );
 }

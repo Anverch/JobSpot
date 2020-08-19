@@ -35,6 +35,7 @@ export default function Details() {
           </Grid.Column>
           <Grid.Column>
             <Header sub>
+
               In-Person Interview: {moment(state.activeJob.in_person_interview_date).local().format('MMMM Do YYYY, h:mm a')}
             </Header>
           </Grid.Column>
@@ -50,52 +51,17 @@ export default function Details() {
             <Header sub>Location: {state.activeJob.location}</Header>
           </Grid.Column>
           <Grid.Column>
-            <Header sub></Header>
+            <Header sub>Source: {state.activeJob.source}</Header>
           </Grid.Column>
         </Grid.Row>
         <Grid.Row id="notes-row">
-          <div>
-            {state.activeJob.notes}
-          </div>
+          <div>{state.activeJob.notes}</div>
+
         </Grid.Row>
         <Grid.Row columns={1}>
           <UpdateButton />
         </Grid.Row>
       </Grid>
-      {/* <Grid celled id="detail-grid">
-        <Header as="h1" id="myjobs-header">
-          My Jobs
-      </Header>
-        <Grid.Row id="details-row">
-          <Grid.Column id="details-column">
-            <Segment id="job-details">
-              <Header id="details-header" as="h2">
-                Facebook
-            </Header>
-              <p id="job-title">Backend Developer</p>
-              <Header id="income-header" as="h4">
-                $95,000
-            </Header>
-              <Header id="status" as="h4">
-                Current Status: In process
-            </Header>
-              <Header id="interview1">Phone Interview: 06/27/2020</Header>
-              <Header id="interview2">In-Person Interview: 07/03/2020</Header>
-              <Header id="benefits" as="h4">
-                Full Benefits: Yes
-            </Header>
-              <Header id="location" as="h4">
-                Location: Remote
-            </Header>
-              <Form id="notes">
-                <TextArea placeholder="Job Notes" />
-              </Form>
-            </Segment>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid> */}
-
-
     </>
   );
 }

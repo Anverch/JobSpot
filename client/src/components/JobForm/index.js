@@ -1,37 +1,37 @@
-
 import React, { useState } from "react";
 import { Header, Form, Button } from "semantic-ui-react";
 import "./JobForm.css";
 import { useUserContext } from "../../utils/GlobalState";
 import { useHistory } from "react-router-dom";
-import API from "../../utils/API"
+import API from "../../utils/API";
+
 
 const yesNoOptions = [
-    { key: "y", text: "Yes", value: "yes" },
-    { key: "n", text: "No", value: "no" },
+  { key: "y", text: "Yes", value: "yes" },
+  { key: "n", text: "No", value: "no" },
 ];
 
 const jobStatusOptions = [
-    {
-        key: "Interested",
-        text: "Interested",
-        value: "Interested",
-    },
-    {
-        key: "Applied",
-        text: "Applied",
-        value: "Applied",
-    },
-    {
-        key: "In Process",
-        text: "In Process",
-        value: "In Process",
-    },
-    {
-        key: "Closed",
-        text: "Closed",
-        value: "Closed",
-    },
+  {
+    key: "Interested",
+    text: "Interested",
+    value: "Interested",
+  },
+  {
+    key: "Applied",
+    text: "Applied",
+    value: "Applied",
+  },
+  {
+    key: "In Process",
+    text: "In Process",
+    value: "In Process",
+  },
+  {
+    key: "Closed",
+    text: "Closed",
+    value: "Closed",
+  },
 ];
 
 export default function JobForm() {
@@ -42,23 +42,28 @@ export default function JobForm() {
     time: 0
   })
   const [newJob, setNewJob] = useState({
+
     company: "",
     job_title: "",
     salary: 0,
     status: "interested",
     phone: "",
+
     in_person_interview_date: "2020-08-19 04:57:09",
     benefits: "",
     location: "",
     source: "",
     notes: "",
     UserId: state.id,
+
   });
 
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch({ type: "submit", newJob });
+
     API.saveJob(newJob)
+
     history.push("/home");
   };
 
@@ -89,7 +94,9 @@ export default function JobForm() {
       <Form id="jobForm" onSubmit={handleSubmit}>
         <Form.Input
           label="Company name"
+
           name="company"
+
           onChange={handleInputChange}
           required
         />
@@ -130,15 +137,20 @@ export default function JobForm() {
         />
         <Header as="h3">Interview Dates</Header>
         <Form.Input
+
           label="Phone Number for Interviewer (optional)"
           placeholder=""
+
           name="phone"
           onChange={handleInputChange}
         />
         <Form.Input
           label="Interview Date"
           placeholder="e.g. 7/10/2020"
-          name="date"
+
+          name="in_person_interview_date"
+
+      
           type="date"
           onChange={handleInputChange}
         />
@@ -147,6 +159,7 @@ export default function JobForm() {
           placeholder=""
           name="time"
           type="time"
+
           onChange={handleInputChange}
         />
         <Form.TextArea
@@ -154,12 +167,14 @@ export default function JobForm() {
           rows="3"
           placeholder="e.g. Long commute, 4 direct reports, Commuter benefits, Catered lunches"
           name="notes"
+
           onChange={handleInputChange}
         />
         <Form.Input
           label="Source"
           placeholder="e.g. Indeed, JobMonster"
           name="source"
+
           onChange={handleInputChange}
         />
         <Button type="submit" color="yellow" size="large">

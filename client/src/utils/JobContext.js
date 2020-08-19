@@ -8,7 +8,10 @@ export const JobModel = {
   in_person_interview_date: new Date(),
   benefits: "",
   location: "",
+  source: "",
   notes: [],
+  Userid: "",
+
 };
 
 const JobContext = createContext(JobModel);
