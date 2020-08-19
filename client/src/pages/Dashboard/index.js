@@ -11,7 +11,7 @@ export default function Dashboard() {
 
   useEffect(() => console.log(state));
   const filteredJobs = state.Jobs.filter(
-    (job) => job.currentStatus !== "Closed"
+    (job) => job.status !== "Closed"
   );
 
   return (

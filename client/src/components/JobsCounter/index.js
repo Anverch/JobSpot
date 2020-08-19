@@ -16,25 +16,25 @@ export default function JobsCounter() {
 
       case "Interested": {
         const interested = state.Jobs.filter(
-          (job) => job.currentStatus === "Interested"
+          (job) => job.status === "Interested"
         );
         return interested.length;
       }
       case "Applied": {
         const applied = state.Jobs.filter(
-          (job) => job.currentStatus === "Applied"
+          (job) => job.status === "Applied"
         );
         return applied.length;
       }
       case "In Process": {
         const inProcess = state.Jobs.filter(
-          (job) => job.currentStatus === "In Process"
+          (job) => job.status === "In Process"
         );
         return inProcess.length;
       }
       case "Closed": {
         const closed = state.Jobs.filter(
-          (job) => job.currentStatus === "Closed"
+          (job) => job.status === "Closed"
         );
         return closed.length;
       }
