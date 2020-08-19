@@ -1,14 +1,16 @@
 import React, { createContext, useContext } from "react";
 export const JobModel = {
-  companyName: "",
-  jobTitle: "",
+  company: "",
+  job_title: "",
   salary: 0,
-  currentStatus: "interested",
-  phoneInt: new Date(),
-  inPersonInt: new Date(),
-  fullBenefits: "",
+  status: "interested",
+  phone: new Date(),
+  in_person_interview_date: new Date(),
+  benefits: "",
   location: "",
-  jobNotes: [],
+  source: "",
+  notes: [],
+  Userid: "",
 };
 
 const JobContext = createContext(JobModel);
