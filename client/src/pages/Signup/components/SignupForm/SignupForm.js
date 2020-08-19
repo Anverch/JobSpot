@@ -28,8 +28,10 @@ const styles = {
         width: 370,
         padding: "20px 20px",
         borderRadius: 6,
+        border: "1px solid black",
+
         // boxShadow: "0px 8px 36px #222",
-        backgroundColor: "rgb(202 190 190)"
+        backgroundColor: "rgb(66 65 89 / 88%)"
     },
     // formStyle: {
     //     width: "100%",
@@ -44,7 +46,7 @@ const styles = {
         fontFamily: "Times New Roman",
         fontSize: 45,
         marginTop: "0.25em",
-        color: "#a333c8",
+        color: "rgb(135 166 232)",
         textShadow: "2px 2px 0 rgba(0,0,0,.95), -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000"
 
     },
@@ -56,8 +58,7 @@ const styles = {
         // border: "1px solid",
         borderRadius: 5,
         outline: "none",
-        fontStyle: "italic"
-
+        fontStyle: "italic",
         // flexDirection: "column",
         // width: "100%",
         // paddingTop: 20,
@@ -69,7 +70,7 @@ const styles = {
     },
     signupFormInput: {
         width: "100%",
-        border: "solid #5c177d45",
+        border: "solid rgb(100 122 171 / 24%)",
         borderRadius: 5,
         outline: "none",
         display: "flex",
@@ -82,7 +83,9 @@ const styles = {
     //     color: "#bbb"
     // },
     info: {
-        paddingBottom: "0.5em"
+        paddingBottom: "0.5em",
+        fontSize: 16,
+        fontWeight: "bold"
     },
     signupBtn: {
         width: "100%",
@@ -90,12 +93,14 @@ const styles = {
         marginRight: "0.25em",
         marginTop: "0.5em",
         padding: "0.938em",
-        border: "none",
+        border: "1px solid black",
         borderRadius: 4,
-        backgroundColor: "#22223b",
-        color: "white",
+        backgroundColor: "rgb(96 127 176)",
+        color: "black",
         fontSize: 20,
-        fontFamily: "Times New Roman"
+        fontFamily: "Times New Roman",
+        // textShadow: "2px 2px 0 rgba(0,0,0,.95), -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000"
+
     },
     error: {
         color: "red",
@@ -110,12 +115,13 @@ const styles = {
         display: "flex",
         flexDirection: "column",
         width: "100%",
-        fontWeight: "bold",
+        fontWeight: "bolder",
         color: "black",
         background: "transparent",
         fontSize: 16,
         padding: 1,
-        fontFamily: "Times New Roman"
+        fontFamily: "Times New Roman",
+        fontStyle: "normal"
     },
     createButton: {
         width: "100%",
@@ -135,7 +141,7 @@ const styles = {
         padding: "0%",
         width: 330,
         fontFamily: "Times New Roman",
-        color: "teal",
+        color: "black",
         fontWeight: "bold",
         textDecorationStyle: "underline",
         fontStyle: "italic",
@@ -224,7 +230,8 @@ class SignupForm extends Component {
 
         return (
             <>
-                <Grid className="backgroundImg" style={styles.gridStyle}>
+                <div style={styles.gridStyle} className="backgroundImg"/>
+                <Grid style={styles.gridStyle}>
                     <Grid.Column className="column" style={styles.formWrapper}>
                         <Header style={styles.signupHeader}>
                             <div>
