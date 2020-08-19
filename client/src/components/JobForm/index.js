@@ -4,6 +4,7 @@ import { Header, Form, Button } from "semantic-ui-react";
 import "./JobForm.css";
 import { useUserContext } from "../../utils/GlobalState";
 import { useHistory } from "react-router-dom";
+import API from "../../utils/API"
 
 const yesNoOptions = [
     { key: "y", text: "Yes", value: "yes" },
@@ -36,38 +37,50 @@ const jobStatusOptions = [
 export default function JobForm() {
   const history = useHistory();
   const [state, dispatch] = useUserContext();
+  const [dateTime, setDateTime] = useState({
+    date: 0,
+    time: 0
+  })
   const [newJob, setNewJob] = useState({
-    id: Math.floor(Math.random() * 1000),
-    companyName: "",
-    jobTitle: "",
+    company: "",
+    job_title: "",
     salary: 0,
-    currentStatus: "interested",
-    phoneInt: "",
-    inPersonInt: "",
-    fullBenefits: "",
+    status: "interested",
+    phone: "",
+    in_person_interview_date: "2020-08-19 04:57:09",
+    benefits: "",
     location: "",
-    jobNotes: [],
-    user_id: state.id,
+    source: "",
+    notes: "",
+    UserId: state.id,
   });
 
-  const handleSubmit = () => {
-    console.log(`newJob:>>`, newJob);
+  const handleSubmit = (event) => {
+    event.preventDefault();
     dispatch({ type: "submit", newJob });
+    API.saveJob(newJob)
     history.push("/home");
   };
 
   const handleInputChange = (event) => {
-    console.log(`event.target:>>`, event.target);
     const { name, value } = event.target;
+    if (name === "time"){
+      setNewJob({ ...newJob, in_person_interview_date: `${dateTime.date} ${value}:00` });
+      setDateTime({...dateTime, time: value});
+      return;
+    }
+    if (name === "date"){
+      setNewJob({ ...newJob, in_person_interview_date: `${value} ${dateTime.time}` });
+      setDateTime({...dateTime, date: value});
+      return;
+    }
     setNewJob({ ...newJob, [name]: value });
-    console.log(`newJob:>>`, newJob);
   };
 
   const handleDropdownChange = (event) => {
     const label = event.nativeEvent.target.parentElement.parentElement.id;
     const choice = event.nativeEvent.target.children[0].textContent;
     setNewJob({ ...newJob, [label]: choice });
-    console.log(`newJob:>>`, newJob);
   };
 
   return (
@@ -76,14 +89,14 @@ export default function JobForm() {
       <Form id="jobForm" onSubmit={handleSubmit}>
         <Form.Input
           label="Company name"
-          name="companyName"
+          name="company"
           onChange={handleInputChange}
           required
         />
         <Form.Input
           label="Job title"
           placeholder="e.g. React Developer"
-          name="jobTitle"
+          name="job_title"
           required
           onChange={handleInputChange}
         />
@@ -92,21 +105,20 @@ export default function JobForm() {
           name="salary"
           onChange={handleInputChange}
           required
+          maxLength="7"
         />
-
         <Form.Select
           label="Job Status"
           options={jobStatusOptions}
           placeholder="Select Job Status"
-          id="currentStatus"
+          id="status"
           required
           onChange={handleDropdownChange}
         />
-
         <Form.Select
           label="Full Benefits Offered?"
           options={yesNoOptions}
-          id="fullBenefits"
+          id="benefits"
           onChange={handleDropdownChange}
         />
         <Form.Input
@@ -118,23 +130,36 @@ export default function JobForm() {
         />
         <Header as="h3">Interview Dates</Header>
         <Form.Input
-          label="Phone Interview"
-          placeholder="e.g. 6/30/2020"
-          name="phoneInt"
+          label="Phone Number for Interviewer (optional)"
+          placeholder=""
+          name="phone"
           onChange={handleInputChange}
         />
         <Form.Input
-          label="In-Person Interview"
+          label="Interview Date"
           placeholder="e.g. 7/10/2020"
-          name="inPersonInt"
+          name="date"
+          type="date"
           onChange={handleInputChange}
         />
-
+        <Form.Input
+          label="Interview Time"
+          placeholder=""
+          name="time"
+          type="time"
+          onChange={handleInputChange}
+        />
         <Form.TextArea
           label="Notes"
           rows="3"
           placeholder="e.g. Long commute, 4 direct reports, Commuter benefits, Catered lunches"
-          name="jobNotes"
+          name="notes"
+          onChange={handleInputChange}
+        />
+        <Form.Input
+          label="Source"
+          placeholder="e.g. Indeed, JobMonster"
+          name="source"
           onChange={handleInputChange}
         />
         <Button type="submit" color="yellow" size="large">

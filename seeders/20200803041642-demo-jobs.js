@@ -2,15 +2,15 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const user_id = await queryInterface.rawSelect('users', {
+    const UserId = await queryInterface.rawSelect('users', {
       where: {
         email: 'test@test.com',
       },
     }, ['id']);
 
-    if (user_id){
+    if (UserId){
       await queryInterface.bulkInsert('jobs', [{
-        UserId: user_id,
+        UserId: UserId,
         company: 'Google',
         job_title: 'Software Engineer',
         salary: 250000,
@@ -24,7 +24,7 @@ module.exports = {
         createdAt: new Date(Date.now()),
         updatedAt: new Date(Date.now())
       },{
-        UserId: user_id,
+        UserId: UserId,
         company: 'Taco Bell',
         job_title: 'Cashier',
         salary: 28000,
