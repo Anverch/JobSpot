@@ -30,16 +30,14 @@ class Register extends Component {
         name: "",
         email: "",
         password: "",
-
-      },
-      serverError: false
-    };
+      } 
+     };
   }
 
   handleChange = (event) => {
     event.preventDefault();
     const { name, value } = event.target;
-    this.setState({ [event.target.name]: event.target.value }, () => {
+    this.setState({[event.target.name]: event.target.value}, () => {
     })
     let errors = this.state.errors;
 
@@ -66,21 +64,17 @@ class Register extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const userInfo = {
-      name: this.state.name,
+      name: this.state.name, 
       email: this.state.email,
       password: this.state.password
     }
     API.createUser(userInfo)
-      .then(res =>
-        this.setState({ formValid: validateForm(this.state.errors) }),
-        this.setState({ errorCount: countErrors(this.state.errors) }),
-        this.setState({ name: "", email: "", password: "" })
-      )
-      .catch(err => {
-        this.setState({ serverError: true })
-        console.log(err)
-      }
-      )
+    .then(res =>
+    this.setState({ formValid: validateForm(this.state.errors) }),
+    this.setState({ errorCount: countErrors(this.state.errors) }),
+    this.setState({ name: "", email: "", password: "" })
+    )
+    .catch (err => console.log(err))
   };
 
   render() {
@@ -146,11 +140,8 @@ class Register extends Component {
                 Form is {formValid ? "valid ✅" : "invalid ❌"}
               </p>
             ) : (
-                "Form not submitted"
-              )}
-            {
-              this.state.serverError && <div>Email already in use!</div>
-            }
+              "Form not submitted"
+            )}
           </Form>
           <Message id="member-message">
             <Link id="login-link" to="/">
