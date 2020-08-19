@@ -16,7 +16,7 @@ div {
   align-items: center; */
   background-image: url(https://www.freedomleaf.com/wp-content/uploads/2017/04/KansasCityHeader-672x353.png);
   background-size: cover;
-} */
+}
 /* .something {
   display: flex;
   flex-direction: column;
@@ -111,7 +111,7 @@ button#signupBtn.button:hover {
 /* link#login-link.link {
   justify-content: center;
 } */
-.message#member-message.message {
+/* .message#member-message.message {
   padding: 0%;
   margin: 0%;
   width: 330px;
@@ -121,8 +121,8 @@ button#signupBtn.button:hover {
   font-size: 16px;
   box-shadow: none;
   
-}
-a#login-link {
+} */
+/* a#login-link {
   color: #4a4e69;
   padding: 0%;
   width: 250px;
@@ -131,8 +131,8 @@ a#login-link {
   color: #5379fa;
   font-family: "Exo", sans-serif;
   font-size: 16px;
-}
-#submit {
+} */
+/* #submit {
   display: flex;
   flex-wrap: wrap;
-}
+} */

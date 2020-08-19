@@ -42,20 +42,21 @@ const styles = {
         textAlign: "center",
         justifyContent: "center",
         fontFamily: "Times New Roman",
-        fontSize: "2.5em",
-        fontWeight: "bold",
+        fontSize: 45,
         marginTop: "0.25em",
-        color: "darkcyan"
+        color: "#a333c8",
+        textShadow: "2px 2px 0 rgba(0,0,0,.95), -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000"
 
     },
     signupForm: {
         display: "flex",
         width: "100%",
         flexWrap: "wrap",
-        padding: "10px",
-        border: "1px solid",
+        padding: "10px 20px 0px 20px",
+        // border: "1px solid",
         borderRadius: 5,
-        outline: "none"
+        outline: "none",
+        fontStyle: "italic"
 
         // flexDirection: "column",
         // width: "100%",
@@ -68,7 +69,7 @@ const styles = {
     },
     signupFormInput: {
         width: "100%",
-        border: "solid #d6d1d5",
+        border: "solid #5c177d45",
         borderRadius: 5,
         outline: "none",
         display: "flex",
@@ -92,8 +93,8 @@ const styles = {
         border: "none",
         borderRadius: 4,
         backgroundColor: "#22223b",
-        color: "#fefefe",
-        fontSize: 18,
+        color: "white",
+        fontSize: 20,
         fontFamily: "Times New Roman"
     },
     error: {
@@ -113,7 +114,8 @@ const styles = {
         color: "black",
         background: "transparent",
         fontSize: 16,
-        padding: 1
+        padding: 1,
+        fontFamily: "Times New Roman"
     },
     createButton: {
         width: "100%",
@@ -121,12 +123,28 @@ const styles = {
         flexWrap: "wrap"
     },
     messageStyle: {
-        background: "transparent"
+        background: "transparent",
+        boxShadow: "none",
+        fontFamily: "Times New Roman",
+        borderRadius: 2,
+        margin: "0%",
+        justifyContent: "center"
+    },
+    linkStyle: {
+        fontSize: 18,
+        padding: "0%",
+        width: 330,
+        fontFamily: "Times New Roman",
+        color: "teal",
+        fontWeight: "bold",
+        textDecorationStyle: "underline",
+        fontStyle: "italic",
+        justifyContent: "center"
     }
-
-
-
 }
+
+
+
 const validEmailRegex = RegExp(
     /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 );
@@ -273,7 +291,7 @@ class SignupForm extends Component {
                                     "Form not submitted"
                                 )
                             }
-                            <Message>
+                            <Message style={styles.messageStyle}>
                                 <Link style={styles.linkStyle} to="/">
                                     Already a member?
                                 </Link>

@@ -79,12 +79,12 @@ const styles = {
         fontWeight: "bold",
         textDecorationStyle: "underline",
         fontStyle: "italic"
-        
     }
-
-
-
 }
+        
+
+
+
 
 export default function LoginForm() {
     const [state, dispatch] = useUserContext();
