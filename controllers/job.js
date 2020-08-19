@@ -39,8 +39,13 @@ module.exports = {
         job_title: req.body.job_title,
         salary: req.body.salary,
         status: req.body.status,
+        phone: req.body.phone,
+        in_person_interview_date: req.body.in_person_interview_date,
+        benefits: req.body.benefits,
+        location: req.body.location,
+        source: req.body.source,
         notes: req.body.notes,
-        UserId: req.body.UserId,
+        UserId: req.body.UserId
       },
       {
         where: {
