@@ -8,11 +8,11 @@
   padding: 10px;
   z-index: 2;
 } */
-div.field {
+/* div.field { */
   /* width: 250px;
     height: 30px; */
   /* background: transparent; */
-  border: 1px solid black;
+  /* border: 1px solid black; */
   /* border-radius: 2px;
   color: #fff;
   font-family: "Exo", sans-serif;
@@ -21,7 +21,7 @@ div.field {
   padding: 4px; */
   /* margin-top: 10px;
     margin: 0 0 1em; */
-}
+/* } */
 /* input.ui.input-username {
   background: transparent;
   color: #fff;
@@ -40,14 +40,16 @@ input#input-password:focus {
   outline: none;
   border: none;
 }
-::-webkit-input-placeholder {
+/* ::-webkit-input-placeholder {
   color: #f27405;
 }
 ::-moz-input-placeholder {
   color: #f27405;
-}
+} */
 .ui.form .field .ui.input input {
     background: transparent;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
 }
 /* button.ui.button {
   width: 100%;
@@ -83,7 +85,7 @@ div.ui.message {
   color: white;
   background-color: transparent;
 } */
-link {
+/* link {
   color: #f27405;
-}
-@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+} */
+/* @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap'); */

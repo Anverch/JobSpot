@@ -4,26 +4,73 @@ import { Link } from "react-router-dom";
 
 import { Button, Form, Message, Label } from 'semantic-ui-react';
 import "./styles.css";
+import Wrapper from "../../../../components/Wrapper";
 
 const styles = {
-    signupForm: {
+    wrapper: {
+        position: "absolute",
+        top: -20,
+        left: -20,
+        right: -40,
+        bottom: -40,
+        width: "auto",
+        height: "auto",
         display: "flex",
         flexDirection: "column",
-        width: 380,
-        paddingTop: 20,
-        paddingRight: 40,
-        paddingBottom: 40,
-        paddingLeft: 20,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundImage: "url(https://www.freedomleaf.com/wp-content/uploads/2017/04/KansasCityHeader-672x353.png)",
+        backgroundSize: "cover"
+    },
+    something: {
+        display: "flex",
+        flexDirection: "column",
+        textAlign: "center",
+        width: 270,
+        padding: "20px 40px",
         borderRadius: 6,
-        backgroundColor: "white"
+        boxShadow: "0px 8px 36px #222",
+        backgroundColor: "#fefefe"
+    },
+    formWrapper: {
+        width: "100%",
+        display: "flex",
+        flexWrap: "wrap"
+    },
+    signupForm: {
+        display: "flex",
+        width: "100%",
+        flexWrap: "wrap",
+        width: 260,
+        padding: "10px 10px",
+        border: "1px solid #d6d1d5",
+        borderRadius: 5,
+        outline: "none"
+
+        // flexDirection: "column",
+        // width: "100%",
+        // paddingTop: 20,
+        // paddingRight: 40,
+        // paddingBottom: 40,
+        // paddingLeft: 20,
+        // borderRadius: 6,
+        // backgroundColor: "white"
     },
     signupFormInput: {
         width: 260,
-        paddingTop: 10,
-        paddingRight: 10,
-        paddingBottom: 10,
-        paddingLeft: 10,
-        border: 1
+        padding: "10px 10px",
+        border: "1px solid #d6d1d5",
+        borderRadius: 5,
+        outline: "none",
+        display: "flex",
+        width: "100%",
+        flexWrap: "wrap",
+
+    },
+    inputPlaceholder: {
+        fontSize: "1.2em",
+        fontWeight: "lighter",
+        color: "#bbb"
     },
     info: {
         textAlign: "center",
@@ -53,6 +100,11 @@ const styles = {
     labelStyle: {
         fontWeight: "bold",
         color: "red"
+    },
+    createButton: {
+        width: "100%",
+        display: "flex",
+        flexWrap: "wrap"
     }
 
 
@@ -137,76 +189,84 @@ class Register extends Component {
 
         return (
             <>
-                <div className="signup" />
-                <div className="something" />
+                <div style={styles.wrapper}>
+                    <div style={styles.something}>
+                    
+                        <Wrapper style={styles.formWrapper}>
+                            <Form style={styles.signupForm} onSubmit={this.handleSubmit} /*noValidate*/>
+                                <Label style={styles.Label}>Full Name</Label>
+                                <Form.Input style={styles.signupFormInput}
+                                    fluid
+                                    value={name}
+                                    name="name"
+                                    onChange={this.handleChange}
+                                    // noValidate
+                                    // placeholder="Full Name"
+                                    type="text"
+                                    className="input-name"
+                                />
+                                {errors.name.length > 0 && (
+                                    <span style={styles.error}>{errors.name}</span>
+                                )}
+                                    
+                                
+                                <Form.Input style={styles.signupFormInput}
+                                    fluid
+                                    value={email}
+                                    name="email"
+                                    onChange={this.handleChange}
+                                    //noValidate
+                                    // placeholder="Email"
+                                    type="email"
+                                    className="input-newEmail"
+                                />
+                                {errors.email.length > 0 && (
+                                    <span style={styles.error}>{errors.email}</span>
+                                )}
+                                    
+                                
+                                <Form.Input style={styles.signupFormInput}
+                                    fluid
+                                    value={password}
+                                    name="password"
+                                    onChange={this.handleChange}
+                                    // noValidate
+                                    // placeholder="Password"
+                                    type="password"
+                                    className="input-newPassword"
+                                />
+                                {errors.password.length > 0 && (
+                                    <span style={styles.error}>{errors.password}</span>
+                                )}
+                                
+            
+                                <div style={styles.info}>
+                                    <small>
+                                        Password must be at least eight characters in length.
+                                    </small>
+                                </div>
 
-                <Form style={styles.signupForm} onSubmit={this.handleSubmit} /*noValidate*/>
-                    <Label style={styles.Label}>First Name</Label>
-                    <Form.Input style={styles.signupFormInput}
-                        fluid
-                        value={name}
-                        name="name"
-                        onChange={this.handleChange}
-                        // noValidate
-                        placeholder="Full Name"
-                        type="text"
-                        className="input-name"
-                    >
-                        <Label style={styles.Label}>First Name</Label>
-                    </Form.Input>
-                    {errors.name.length > 0 && (
-                        <span style={styles.error}>{errors.name}</span>
-                    )}
-                    <Form.Input style={styles.signupFormInput}
-                        fluid
-                        value={email}
-                        name="email"
-                        onChange={this.handleChange}
-                        //noValidate
-                        placeholder="Email"
-                        type="email"
-                        className="input-newEmail"
-                    />
-                    {errors.email.length > 0 && (
-                        <span style={styles.error}>{errors.email}</span>
-                    )}
-                    <Form.Input style={styles.signupFormInput}
-                        fluid
-                        value={password}
-                        name="password"
-                        onChange={this.handleChange}
-                        // noValidate
-                        placeholder="Password"
-                        type="password"
-                        className="input-newPassword"
-                    />
-                    {errors.password.length > 0 && (
-                        <span style={styles.error}>{errors.password}</span>
-                    )}
-                    <div style={styles.info}>
-                        <small>
-                            Password must be at least eight characters in length.
-                        </small>
+                                <div style={styles.createButton}>
+                                    <Button value="Sign Up" style={styles.signupBtn}>Create</Button>
+                                </div>
+                                {this.state.errorCount !== null ?
+                                    (
+                                        <p id="form-status">
+                                            Form is {formValid ? "valid ✅" : "invalid ❌"}
+                                        </p>
+                                    ) : (
+                                        "Form not submitted"
+                                    )
+                                }
+                                <Message>
+                                    <Link style={styles.linkStyle} to="/">
+                                        Already a member?
+                                    </Link>
+                                </Message>
+                            </Form>
+                        </Wrapper>
                     </div>
-
-                    <div >
-                        <Button value="Sign Up" style={styles.signupBtn}>Create</Button>
-                    </div>
-                    {this.state.errorCount !== null ?
-                        (
-                            <p id="form-status">
-                                Form is {formValid ? "valid ✅" : "invalid ❌"}
-                            </p>
-                        ) : (
-                            "Form not submitted"
-                        )
-                    }
-                    <Message>
-                        <Link style={styles.linkStyle} to="/">
-                            Already a member?
-                        </Link>
-                    </Message>
-                </Form>
+                </div>
 
             </>
         );

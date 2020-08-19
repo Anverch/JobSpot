@@ -4,7 +4,7 @@ import { useUserContext } from "../../../../utils/GlobalState";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import { Button, Form, Message } from 'semantic-ui-react';
+import { Button, Form, Message, Label } from 'semantic-ui-react';
 import "./styles.css";
 
 const styles = {
@@ -19,36 +19,36 @@ const styles = {
         zIndex: 2
     },
     loginFormInput: {
-        border: 1,
+        border: "1px solid black",
         borderRadius: 2,
         color: "black",
         fontFamily: "Times New Roman",
         fontSize: 18,
         fontWeight: 400,
-        padding: 4,
+        padding: 4
     },
 
     buttonStyle: {
         width: "100%",
         height: 35,
-        background: "black",
+        background: "teal",
         border: 1,
         cursor: "pointer",
         borderRadius: 2,
-        color: "#a18d6c",
-        fontFamily: "Exo",
+        color: "black",
+        fontFamily: "Times New Roman",
         fontSize: 18,
-        fontWeight: 500,
+        fontWeight: "bold",
         padding: 6,
         marginTop: 10
     },
     messageStyle: {
         width: "100%",
-        fontFamily: "Exo",
-        fontSize: 18,
-        padding: 10,
+        fontFamily: "Times New Roman",
+        fontSize: 24,
+        padding: 7,
         textAlign: "center",
-        color: "white",
+        color: "orange",
         backgroundColor: "transparent"
     }
 
@@ -90,7 +90,7 @@ export default function LoginForm() {
                     iconPosition="left"
                     placeholder="E-mail Address"
                     type="text"
-                    className="input-username"
+                    className="input-email"
 
                 />
                 <Form.Input style={styles.loginFormInput}

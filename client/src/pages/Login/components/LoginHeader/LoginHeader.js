@@ -7,8 +7,10 @@ const styles = {
         float: "left",
         color: "#f27405",
         fontFamily: "Times New Roman",
-        fontSize: 45,
-        fontWeight: "bold"
+        fontSize: 55,
+        fontWeight: "bold",
+        textShadow: "2px 2px 0 rgba(0,0,0,.95), -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000"
+
     },
     headerPosition: {
         position: "absolute",
@@ -17,7 +19,8 @@ const styles = {
         zIndex: 2
     },
     spanColor: {
-        color: "black"
+        color: "darkcyan",
+        textShadow: "2px 2px 0 rgba(0,0,0,.95), -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000"
     }
     
     
@@ -26,7 +29,7 @@ const styles = {
 const LoginHeader = () => (
     <Header style={styles.headerColor}>
         <div style={styles.headerPosition}>
-            Job<span style={styles.spanColor}>Spot</span>
+            job<span style={styles.spanColor}>Spot</span>
         </div>
     </Header>
 )
