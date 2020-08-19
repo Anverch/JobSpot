@@ -27,7 +27,7 @@ const styles = {
         fontWeight: 400,
         padding: 4,
     },
-    
+
     buttonStyle: {
         width: "100%",
         height: 35,
@@ -51,7 +51,7 @@ const styles = {
         color: "white",
         backgroundColor: "transparent"
     }
-      
+
 
 
 }
@@ -78,6 +78,9 @@ export default function LoginForm() {
     }
     return (
         <>
+            <div className="body-l" />
+            <div className="grad-l" />
+
             <Form style={styles.loginForm} onSubmit={handleSubmit}>
                 <Form.Input style={styles.loginFormInput}
                     fluid
@@ -88,6 +91,7 @@ export default function LoginForm() {
                     placeholder="E-mail Address"
                     type="text"
                     className="input-username"
+
                 />
                 <Form.Input style={styles.loginFormInput}
                     fluid

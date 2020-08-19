@@ -2,9 +2,62 @@ import React, { Component } from "react";
 import API from "../../../../utils/API";
 import { Link } from "react-router-dom";
 
-import { Button, Form, Message } from 'semantic-ui-react';
+import { Button, Form, Message, Label } from 'semantic-ui-react';
 import "./styles.css";
 
+const styles = {
+    signupForm: {
+        display: "flex",
+        flexDirection: "column",
+        width: 380,
+        paddingTop: 20,
+        paddingRight: 40,
+        paddingBottom: 40,
+        paddingLeft: 20,
+        borderRadius: 6,
+        backgroundColor: "white"
+    },
+    signupFormInput: {
+        width: 260,
+        paddingTop: 10,
+        paddingRight: 10,
+        paddingBottom: 10,
+        paddingLeft: 10,
+        border: 1
+    },
+    info: {
+        textAlign: "center",
+        paddingRight: "0.5em",
+        paddingBottom: "1em",
+        paddingLeft: "0.5em",
+    },
+    signupBtn: {
+        width: "100%",
+        cursor: "pointer",
+        marginRight: "0.25em",
+        marginTop: "0.5em",
+        padding: "0.938em",
+        border: "none",
+        borderRadius: 4,
+        backgroundColor: "#22223b",
+        color: "#fefefe"
+    },
+    error: {
+        color: "red",
+        fontSize: "1em",
+        display: "relative"
+    },
+    linkStyle: {
+        justifyContent: "center"
+    },
+    labelStyle: {
+        fontWeight: "bold",
+        color: "red"
+    }
+
+
+
+}
 const validEmailRegex = RegExp(
     /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 );
@@ -84,8 +137,12 @@ class Register extends Component {
 
         return (
             <>
-                <Form className="signupForm"onSubmit={this.handleSubmit} /*noValidate*/>
-                    <Form.Input
+                <div className="signup" />
+                <div className="something" />
+
+                <Form style={styles.signupForm} onSubmit={this.handleSubmit} /*noValidate*/>
+                    <Label style={styles.Label}>First Name</Label>
+                    <Form.Input style={styles.signupFormInput}
                         fluid
                         value={name}
                         name="name"
@@ -94,11 +151,13 @@ class Register extends Component {
                         placeholder="Full Name"
                         type="text"
                         className="input-name"
-                    />
+                    >
+                        <Label style={styles.Label}>First Name</Label>
+                    </Form.Input>
                     {errors.name.length > 0 && (
-                        <span id="error">{errors.name}</span>
+                        <span style={styles.error}>{errors.name}</span>
                     )}
-                    <Form.Input
+                    <Form.Input style={styles.signupFormInput}
                         fluid
                         value={email}
                         name="email"
@@ -109,9 +168,9 @@ class Register extends Component {
                         className="input-newEmail"
                     />
                     {errors.email.length > 0 && (
-                        <span id="error">{errors.email}</span>
+                        <span style={styles.error}>{errors.email}</span>
                     )}
-                    <Form.Input
+                    <Form.Input style={styles.signupFormInput}
                         fluid
                         value={password}
                         name="password"
@@ -122,28 +181,28 @@ class Register extends Component {
                         className="input-newPassword"
                     />
                     {errors.password.length > 0 && (
-                        <span id="error">{errors.password}</span>
+                        <span style={styles.error}>{errors.password}</span>
                     )}
-                    <div id="info">
+                    <div style={styles.info}>
                         <small>
                             Password must be at least eight characters in length.
                         </small>
                     </div>
-                    
-                    <div id="submit">
-                        <Button value="Sign Up" id="signupBtn">Create</Button>
+
+                    <div >
+                        <Button value="Sign Up" style={styles.signupBtn}>Create</Button>
                     </div>
                     {this.state.errorCount !== null ?
                         (
-                        <p id="form-status">
-                            Form is {formValid ? "valid ✅" : "invalid ❌"}
-                        </p>
+                            <p id="form-status">
+                                Form is {formValid ? "valid ✅" : "invalid ❌"}
+                            </p>
                         ) : (
                             "Form not submitted"
                         )
                     }
                     <Message>
-                        <Link id="login-link" to="/">
+                        <Link style={styles.linkStyle} to="/">
                             Already a member?
                         </Link>
                     </Message>

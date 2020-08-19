@@ -5,7 +5,7 @@ import "../Signup/SignupPage/signup.css";
 export default function Signup() {
   return (
     <>
-      <div className="signup" />
+      {/* <div className="signup" /> */}
       <div className="something"/>
       <SignupHeader />
       <SignupForm/>
