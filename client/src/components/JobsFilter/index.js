@@ -9,7 +9,7 @@ export default function JobsFilter() {
     console.log(`data:>>`, data);
     if (data.value !== "All") {
       const filteredJobs = state.Jobs.filter(
-        (job) => job.currentStatus === data.value
+        (job) => job.status === data.value
       );
       dispatch({ type: "filter", filteredJobs });
       return;

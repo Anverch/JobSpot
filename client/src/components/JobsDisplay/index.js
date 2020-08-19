@@ -24,8 +24,8 @@ export default function JobsDisplay() {
                     <ViewButton id={job.id} />
                     <UpdateButton />
                   </List.Content>
-                  <List.Header>{job.companyName}</List.Header>
-                  <List.Content>{job.jobTitle}</List.Content>
+                  <List.Header>{job.company}</List.Header>
+                  <List.Content>{job.job_title}</List.Content>
                   <List.Content>Last updated: yesterday</List.Content>
                 </List.Item>
               );
