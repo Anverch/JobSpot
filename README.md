@@ -3,32 +3,61 @@
 ## Table of Contents
 
 - [About](#about)
-- [User Story](#user-story)
 - [Technologies](#technologies)
 - [Installation](#installation)
 - [App](#app)
 - [Developer](#developer)
 - [Questions](#Questions)
 
-  ## About
+## About
 
-## User Story
+The need for job hunting tools is greater than ever with unemployment rates being at an all time high. When searching for a job, it can be difficult to keep track of interview dates, names, phone numbers, addresses, job details and all other information associated with the job searching process. JobSpot provides a central location for its users to organize this information and compare job opportunities.  
 
-## Technologies
+## Technologies  
 
-- Node
+### Server Side  
 
-- React
+- Node  
+- MySQL  
+- Passport  
+- Bcryptjs  
+- Express-Sessions   
 
-- HTML, CSS, & Javascript
+### Client Side   
 
-- Passport & B-Crypt
+- React  
+- Express  
+- Semantic UI  
+- React  
+- Axios  
 
-## Installation
 
-## App
+## Installation  
 
-### View [Demo]()
+To install necessary dependencies, run the following command in the root and client folders of this application  
+
+```
+npm i
+```
+
+To run the program, run
+
+```
+npm start
+```
+
+To seed the database, run
+
+```
+npm run seed:up
+```
+
+## App  
+
+
+### View [Demo](https://job-spot.herokuapp.com/)   
+
+
 
 ## Developers  
  
@@ -49,6 +78,8 @@
    Aleks Saiyan    
 
 
-## Questions
+## License  
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
 
 
