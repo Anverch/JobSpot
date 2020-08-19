@@ -1,4 +1,4 @@
-.header {
+header {
   position: absolute;
   top: calc(50% - 35px);
   left: calc(50% - 255px);
@@ -11,6 +11,6 @@
   font-size: 45px;
   font-weight: bold;
 }
-.header div span {
+header div span {
   color: black !important;
 }

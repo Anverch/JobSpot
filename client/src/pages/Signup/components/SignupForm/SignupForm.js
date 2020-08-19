@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import API from "../../utils/API";
+import API from "../../../../utils/API";
+import { Link } from "react-router-dom";
 
 import { Button, Form, Message } from 'semantic-ui-react';
 import "./styles.css";
@@ -83,55 +84,54 @@ class Register extends Component {
 
         return (
             <>
-                <Form onSubmit={this.handleSubmit} noValidate>
-                    <div id="signup-name">
-                        <label htmlFor="name">Full Name</label>
-                        <Form.Input
-                            name="name"
-                            value={name}
-                            onChange={this.handleChange}
-                            // noValidate
-                            type="text"
-                            id="input-name"
-                        />
-                        {errors.name.length > 0 && (
-                            <span id="error">{errors.name}</span>
-                        )}
-                    </div>
-                    <div id="signup-email">
-                        <label htmlFor="email">Email</label>
-                        <Form.Input
-                            name="email"
-                            value={email}
-                            onChange={this.handleChange}
-                            noValidate
-                            type="email"
-                            id="input-newEmail"
-                        />
-                        {errors.email.length > 0 && (
-                            <span id="error">{errors.email}</span>
-                        )}
-                    </div>
-                    <div id="signup-password">
-                        <label htmlFor="signup-password">Password</label>
-                        <Form.Input id="input-newPassword"
-                            type="password"
-                            name="password"
-                            value={password}
-                            onChange={this.handleChange}
-                            noValidate
-                        />
-                        {errors.password.length > 0 && (
-                            <span id="error">{errors.password}</span>
-                        )}
-                    </div>
+                <Form className="signupForm"onSubmit={this.handleSubmit} /*noValidate*/>
+                    <Form.Input
+                        fluid
+                        value={name}
+                        name="name"
+                        onChange={this.handleChange}
+                        // noValidate
+                        placeholder="Full Name"
+                        type="text"
+                        className="input-name"
+                    />
+                    {errors.name.length > 0 && (
+                        <span id="error">{errors.name}</span>
+                    )}
+                    <Form.Input
+                        fluid
+                        value={email}
+                        name="email"
+                        onChange={this.handleChange}
+                        //noValidate
+                        placeholder="Email"
+                        type="email"
+                        className="input-newEmail"
+                    />
+                    {errors.email.length > 0 && (
+                        <span id="error">{errors.email}</span>
+                    )}
+                    <Form.Input
+                        fluid
+                        value={password}
+                        name="password"
+                        onChange={this.handleChange}
+                        // noValidate
+                        placeholder="Password"
+                        type="password"
+                        className="input-newPassword"
+                    />
+                    {errors.password.length > 0 && (
+                        <span id="error">{errors.password}</span>
+                    )}
                     <div id="info">
                         <small>
                             Password must be at least eight characters in length.
                         </small>
                     </div>
+                    
                     <div id="submit">
-                        <Button id="signupBtn">Create</Button>
+                        <Button value="Sign Up" id="signupBtn">Create</Button>
                     </div>
                     {this.state.errorCount !== null ?
                         (
@@ -142,13 +142,13 @@ class Register extends Component {
                             "Form not submitted"
                         )
                     }
-                    <Message id="member-message">
+                    <Message>
                         <Link id="login-link" to="/">
                             Already a member?
                         </Link>
                     </Message>
-
                 </Form>
+
             </>
         );
     }

@@ -1,0 +1,50 @@
+form.ui.form.signupForm {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  padding: 20px 40px;
+  border-radius: 6px;
+  box-shadow: 0px 8px 36px #222;
+  background-color: #fefefe;
+}
+div.ui.fluid.input {
+  width: 260px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #d6d1d5;
+}
+input.input-name {
+  font-size: 1.2em;
+  font-weight: lighter;
+  color: #bbb;
+}
+#info {
+  text-align: center;
+  padding-bottom: 1em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+button#signupBtn {
+  width: 100%;
+  cursor: pointer;
+  margin-right: 0.25em;
+  margin-top: 0.5em;
+  padding: 0.938em;
+  border: none;
+  border-radius: 4px;
+  background-color: #22223b;
+  color: #fefefe;
+}
+button#signupBtn:hover {
+  background-color: #4a4e69;
+  color: #fefefe;
+}
+.error {
+  color: #db2269;
+  font-size: 1em;
+  display: relative;
+}
+link#login-link {
+  justify-content: center;
+}

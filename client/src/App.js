@@ -15,8 +15,8 @@ import "./styles.css";
 function App() {
   return (
     <div className="app">
-      <div className="wrapping">
-        <Container textAlign="left">
+      {/* <div className="wrapping"> */}
+        {/* <Container textAlign="left"> */}
           <UserProvider>
             <Router>
               {/* <Nav /> */}
@@ -43,8 +43,8 @@ function App() {
               <div className="push"></div>
             </Router>
           </UserProvider>
-        </Container>
-      </div>
+        {/* </Container> */}
+      {/* </div> */}
       <Footer className="footer" />
     </div>
   );

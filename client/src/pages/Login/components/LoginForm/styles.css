@@ -1,4 +1,4 @@
-.form.ui.form {
+/* form.ui.form.loginForm {
   position: absolute;
   background: transparent;
   top: calc(50% - 75px);
@@ -7,31 +7,31 @@
   width: 350px;
   padding: 10px;
   z-index: 2;
-}
-.field {
+} */
+div.field {
   /* width: 250px;
     height: 30px; */
   /* background: transparent; */
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 2px;
+  border: 1px solid black;
+  /* border-radius: 2px;
   color: #fff;
   font-family: "Exo", sans-serif;
   font-size: 16px;
   font-weight: 400;
-  padding: 4px;
+  padding: 4px; */
   /* margin-top: 10px;
     margin: 0 0 1em; */
 }
-input#input-username {
+/* input.ui.input-username {
   background: transparent;
   color: #fff;
   font-family: "Exo", sans-serif;
 }
-input#input-password {
+input.input-password {
   background: transparent;
   color: #fff;
   font-family: "Exo", sans-serif;
-}
+} */
 input#input-username:focus {
   outline: none;
   border: none;
@@ -46,7 +46,10 @@ input#input-password:focus {
 ::-moz-input-placeholder {
   color: #f27405;
 }
-button.ui.button {
+.ui.form .field .ui.input input {
+    background: transparent;
+}
+/* button.ui.button {
   width: 100%;
   height: 35px;
   background: #fff;
@@ -59,7 +62,7 @@ button.ui.button {
   font-weight: 400;
   padding: 6px;
   margin-top: 10px;
-}
+} */
 button.ui.button:hover {
   opacity: 0.8;
 }
@@ -69,7 +72,7 @@ button.ui.button:active {
 button.ui.button:focus {
   outline: none;
 }
-.ui.message {
+/* .ui.message {
   width: 100%;
   font-family: "Exo", sans-serif;
   font-size: 16px;
@@ -79,7 +82,8 @@ button.ui.button:focus {
 div.ui.message {
   color: white;
   background-color: transparent;
-}
+} */
 link {
   color: #f27405;
 }
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');

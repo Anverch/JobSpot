@@ -1,4 +1,4 @@
-.body {
+.body-l {
   position: absolute;
   top: -20px;
   left: -20px;
@@ -11,7 +11,7 @@
   filter: blur(5px);
   z-index: 0;
 }
-.grad {
+.grad-l {
   position: absolute;
   top: -20px;
   left: -20px;
