@@ -25,11 +25,11 @@ const styles = {
         display: "flex",
         flexDirection: "column",
         // textAlign: "center",
-        width: 280,
-        padding: "20px 40px",
+        width: 330,
+        padding: "20px 20px",
         borderRadius: 6,
         // boxShadow: "0px 8px 36px #222",
-        backgroundColor: "#fefefe"
+        backgroundColor: "rgb(202 190 190)"
     },
     // formStyle: {
     //     width: "100%",
@@ -52,9 +52,8 @@ const styles = {
         display: "flex",
         width: "100%",
         flexWrap: "wrap",
-        width: 260,
-        padding: "10px 10px",
-        border: "1px solid #d6d1d5",
+        padding: "10px",
+        border: "1px solid",
         borderRadius: 5,
         outline: "none"
 
@@ -68,15 +67,13 @@ const styles = {
         // backgroundColor: "white"
     },
     signupFormInput: {
-        width: 260,
-        padding: "10px 10px",
-        border: "1px solid #d6d1d5",
+        width: "100%",
+        border: "solid #d6d1d5",
         borderRadius: 5,
         outline: "none",
         display: "flex",
         width: "100%",
         flexWrap: "wrap",
-
     },
     inputPlaceholder: {
         fontSize: "1.2em",
@@ -111,10 +108,12 @@ const styles = {
     labelStyle: {
         display: "flex",
         flexDirection: "column",
-        marginBottom: 15,
         width: "100%",
         fontWeight: "bold",
-        color: "red"
+        color: "black",
+        background: "transparent",
+        fontSize: 16,
+        padding: 1
     },
     createButton: {
         width: "100%",

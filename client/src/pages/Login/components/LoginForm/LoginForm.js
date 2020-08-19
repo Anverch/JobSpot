@@ -4,7 +4,7 @@ import { useUserContext } from "../../../../utils/GlobalState";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import { Button, Form, Message, Label } from 'semantic-ui-react';
+import { Button, Form, Message } from 'semantic-ui-react';
 import "./styles.css";
 
 const styles = {
