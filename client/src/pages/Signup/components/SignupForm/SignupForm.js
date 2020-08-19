@@ -25,7 +25,7 @@ const styles = {
         display: "flex",
         flexDirection: "column",
         // textAlign: "center",
-        width: 330,
+        width: 370,
         padding: "20px 20px",
         borderRadius: 6,
         // boxShadow: "0px 8px 36px #222",
@@ -42,10 +42,10 @@ const styles = {
         textAlign: "center",
         justifyContent: "center",
         fontFamily: "Times New Roman",
-        fontSize: "2em",
+        fontSize: "2.5em",
         fontWeight: "bold",
         marginTop: "0.25em",
-        color: "black"
+        color: "darkcyan"
 
     },
     signupForm: {
@@ -75,16 +75,13 @@ const styles = {
         width: "100%",
         flexWrap: "wrap",
     },
-    inputPlaceholder: {
-        fontSize: "1.2em",
-        fontWeight: "lighter",
-        color: "#bbb"
-    },
+    // inputPlaceholder: {
+    //     fontSize: "1.2em",
+    //     fontWeight: "lighter",
+    //     color: "#bbb"
+    // },
     info: {
-        textAlign: "center",
-        paddingRight: "0.5em",
-        paddingBottom: "1em",
-        paddingLeft: "0.5em",
+        paddingBottom: "0.5em"
     },
     signupBtn: {
         width: "100%",
@@ -95,12 +92,15 @@ const styles = {
         border: "none",
         borderRadius: 4,
         backgroundColor: "#22223b",
-        color: "#fefefe"
+        color: "#fefefe",
+        fontSize: 18,
+        fontFamily: "Times New Roman"
     },
     error: {
         color: "red",
         fontSize: "1em",
-        display: "relative"
+        display: "relative",
+        margin: 2
     },
     linkStyle: {
         justifyContent: "center"
@@ -119,6 +119,9 @@ const styles = {
         width: "100%",
         display: "flex",
         flexWrap: "wrap"
+    },
+    messageStyle: {
+        background: "transparent"
     }
 
 
@@ -220,11 +223,12 @@ class SignupForm extends Component {
                                 // noValidate
                                 // placeholder="Full Name"
                                 type="text"
-                                className="input-name"
+                                className="inputs"
                             />
                             {errors.name.length > 0 && (
                                 <span style={styles.error}>{errors.name}</span>
                             )}
+                            <Label htmlFor="name" style={styles.labelStyle}>Email</Label>
                             <Form.Input style={styles.signupFormInput}
                                 fluid
                                 value={email}
@@ -233,11 +237,12 @@ class SignupForm extends Component {
                                 //noValidate
                                 // placeholder="Email"
                                 type="email"
-                                className="input-newEmail"
+                                className="inputs"
                             />
                             {errors.email.length > 0 && (
                                 <span style={styles.error}>{errors.email}</span>
                             )}
+                            <Label htmlFor="name" style={styles.labelStyle}>Password</Label>
                             <Form.Input style={styles.signupFormInput}
                                 fluid
                                 value={password}
@@ -246,7 +251,7 @@ class SignupForm extends Component {
                                 // noValidate
                                 // placeholder="Password"
                                 type="password"
-                                className="input-newPassword"
+                                className="inputs"
                             />
                             {errors.password.length > 0 && (
                                 <span style={styles.error}>{errors.password}</span>
@@ -261,9 +266,9 @@ class SignupForm extends Component {
                             </div>
                             {this.state.errorCount !== null ?
                                 (
-                                    <p id="form-status">
+                                    <div>
                                         Form is {formValid ? "valid ✅" : "invalid ❌"}
-                                    </p>
+                                    </div>
                                 ) : (
                                     "Form not submitted"
                                 )

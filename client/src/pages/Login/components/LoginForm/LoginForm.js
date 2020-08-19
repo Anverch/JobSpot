@@ -72,6 +72,14 @@ const styles = {
         textAlign: "center",
         color: "orange",
         backgroundColor: "transparent"
+    },
+    linkStyle: {
+        fontSize: 24,
+        color: "teal",
+        fontWeight: "bold",
+        textDecorationStyle: "underline",
+        fontStyle: "italic"
+        
     }
 
 
@@ -129,7 +137,7 @@ export default function LoginForm() {
                     Login
                 </Button>
                 <Message style={styles.messageStyle}>
-                    New to us? <Link to="/index">Sign up</Link>
+                    New to us? <Link style={styles.linkStyle} to="/index">Sign up</Link>
                 </Message>
             </Form>
 
