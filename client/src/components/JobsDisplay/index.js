@@ -16,7 +16,7 @@ export default function JobsDisplay() {
       <Segment id="jobs-segment" centered="true" raised>
         <List divided verticalAlign="middle" size="large">
           {noFilteredJobs && <h2>No jobs with that status!</h2>}
-          {state.filteredJobs.length > 0 &&
+          {!noFilteredJobs && state.filteredJobs.length > 0 &&
             state.filteredJobs.map((job, i) => {
               return (
                 <List.Item key={i}>

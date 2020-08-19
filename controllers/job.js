@@ -10,13 +10,14 @@ module.exports = {
     userId = req.params.id;
     db.Job.findAll({
       where: {
-        user_id: userId,
+        UserId: userId,
       },
     })
       .then((dbJob) => res.json(dbJob))
       .catch((err) => res.status(500).json(err));
   },
   createJob(req, res) {
+    console.log(req.body)
     db.Job.create(req.body)
       .then((dbJob) => res.json(dbJob))
       .catch((err) => res.status(500).json(err));
@@ -38,8 +39,13 @@ module.exports = {
         job_title: req.body.job_title,
         salary: req.body.salary,
         status: req.body.status,
+        phone: req.body.phone,
+        in_person_interview_date: req.body.in_person_interview_date,
+        benefits: req.body.benefits,
+        location: req.body.location,
+        source: req.body.source,
         notes: req.body.notes,
-        user_id: req.body.user_id,
+        UserId: req.body.UserId
       },
       {
         where: {

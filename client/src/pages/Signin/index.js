@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { Grid, Header } from "semantic-ui-react";
 import "./signin.css";
 import API from "../../utils/API";
@@ -11,6 +11,7 @@ export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
+ 
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -23,7 +24,8 @@ export default function SignIn() {
       dispatch({ type: "login", user });
       history.push("/home");
     } catch (e) {
-      console.log("Error", e);
+      console.log("Error", e)
+
     }
   }
 
@@ -53,6 +55,7 @@ export default function SignIn() {
             icon="lock"
             iconPosition="left"
             placeholder="Password"
+            value={password}
             type="password"
             id="input-password"
             onChange={(e) => setPassword(e.target.value)}

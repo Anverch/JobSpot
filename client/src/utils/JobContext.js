@@ -11,6 +11,7 @@ export const JobModel = {
   source: "",
   notes: [],
   Userid: "",
+
 };
 
 const JobContext = createContext(JobModel);

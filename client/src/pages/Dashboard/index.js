@@ -10,7 +10,11 @@ export default function Dashboard() {
   // const [user, setUser] = useState("");
 
   useEffect(() => console.log(state));
-  const filteredJobs = state.Jobs.filter((job) => job.status !== "Closed");
+
+  const filteredJobs = state.Jobs.filter(
+    (job) => job.status !== "Closed"
+  );
+
 
   return (
     <>
