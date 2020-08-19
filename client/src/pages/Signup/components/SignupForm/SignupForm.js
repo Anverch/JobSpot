@@ -46,8 +46,8 @@ const styles = {
         fontFamily: "Times New Roman",
         fontSize: 45,
         marginTop: "0.25em",
-        color: "rgb(135 166 232)",
-        textShadow: "2px 2px 0 rgba(0,0,0,.95), -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000"
+        color: "black",
+        // textShadow: "2px 2px 0 rgb(96, 127, 176), -1px -1px 0 rgb(96, 127, 176), 1px -1px 0 rgb(96, 127, 176), -1px 1px 0 rgb(96, 127, 176), 1px 1px 0 rgb(96, 127, 176)"
 
     },
     signupForm: {
@@ -99,7 +99,7 @@ const styles = {
         color: "black",
         fontSize: 20,
         fontFamily: "Times New Roman",
-        // textShadow: "2px 2px 0 rgba(0,0,0,.95), -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000"
+        // textShadow: "2px 2px 0 rgba(0,0,0,.95), -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 rgb(96, 127, 176), 1px 1px 0 rgb(96, 127, 176)"
 
     },
     error: {
