@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import { UserProvider } from "./utils/GlobalState";
 import { Container } from "semantic-ui-react";
 import "./styles.css";
+import SignupForm from "./pages/Signup/components/SignupForm/SignupForm";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
                   <Login />
                 </Route>
                 <Route exact path="/index">
-                  <Register />
+                  <SignupForm />
                 </Route>
                 <Route exact path="/home">
                   <Dashboard />

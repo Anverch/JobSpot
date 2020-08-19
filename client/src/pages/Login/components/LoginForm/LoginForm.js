@@ -8,6 +8,28 @@ import { Button, Form, Message, Label } from 'semantic-ui-react';
 import "./styles.css";
 
 const styles = {
+    bodyStyle: {
+        position: "absolute",
+        top: -20,
+        left: -20,
+        right: -40,
+        bottom: -40,
+        width: "auto",
+        height: "auto",
+        backgroundImage: "url(https://www.muralsyourway.com/media/catalog/product/cache/1/base/1200x/040ec09b1e35df139433887a97daa66f/k/a/kansas-city-skyline-wallpaper-mural.jpg)",
+        backgroundSize: "cover",
+        filter: "blur(5px)",
+        zIndex: 0
+    },
+    gradStyle: {
+        position: "absolute",
+        top: -20,
+        left: -20,
+        right: -40,
+        bottom: -40,
+        width: "auto",
+        height: "auto"        
+    },
     loginForm: {
         position: "absolute",
         background: "transparent",
@@ -78,8 +100,8 @@ export default function LoginForm() {
     }
     return (
         <>
-            <div className="body-l" />
-            <div className="grad-l" />
+            <div style={styles.bodyStyle} />
+            <div style={styles.gradStyle} className="grad-l" />
 
             <Form style={styles.loginForm} onSubmit={handleSubmit}>
                 <Form.Input style={styles.loginFormInput}

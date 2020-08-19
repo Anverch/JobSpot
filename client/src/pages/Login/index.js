@@ -6,8 +6,6 @@ import "./login.css";
 export default function Login() {
   return (
     <>
-      {/* <div className="body-l" /> */}
-      <div className="grad-l"/>
       <LoginHeader />
       <LoginForm/>
     </>
