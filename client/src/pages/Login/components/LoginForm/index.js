@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
-import API from "../../../../utils/API";
+import API, {setHeader} from "../../../../utils/API";
 import { useUserContext } from "../../../../utils/GlobalState";
-import {Link, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Button, Form, Message } from 'semantic-ui-react';
 import "./styles.css";
 
@@ -14,9 +14,6 @@ const styles = {
         bottom: -40,
         width: "auto",
         height: "auto",
-        // backgroundImage: "url(https://www.muralsyourway.com/media/catalog/product/cache/1/base/1200x/040ec09b1e35df139433887a97daa66f/k/a/kansas-city-skyline-wallpaper-mural.jpg)",
-        // backgroundSize: "cover",
-        // filter: "blur(5px)",
         zIndex: 0
     },
     gradStyle: {
@@ -26,7 +23,7 @@ const styles = {
         right: -40,
         bottom: -40,
         width: "auto",
-        height: "auto"        
+        height: "auto"
     },
     loginForm: {
         position: "absolute",
@@ -79,7 +76,7 @@ const styles = {
         fontStyle: "italic"
     }
 }
-        
+
 
 
 
@@ -98,16 +95,19 @@ export default function LoginForm() {
         };
         try {
             const user = await API.login(userInfo);
+            setHeader(JSON.stringify(user));
+            localStorage.setItem("user", JSON.stringify(user));
+            console.log(user, "dbgjfdjdf")
             dispatch({ type: "login", user });
             history.push("/home");
         } catch (e) {
-            console.log("Error", e);
+            console.log("Error", e)
         }
     }
     return (
         <>
-            <div style={styles.bodyStyle} className="bodyImg"/>
-            <div style={styles.gradStyle} className="grad-l"/>
+            <div style={styles.bodyStyle} className="bodyImg" />
+            <div style={styles.gradStyle} className="grad-l" />
             <Form style={styles.loginForm} className="loginForm" onSubmit={handleSubmit}>
                 <Form.Input style={styles.loginFormInput}
                     fluid
@@ -117,7 +117,7 @@ export default function LoginForm() {
                     iconPosition="left"
                     placeholder="E-mail Address"
                     type="text"
-                    className="input-email"
+                    className="input-username"
                 />
                 <Form.Input style={styles.loginFormInput}
                     fluid
@@ -129,7 +129,7 @@ export default function LoginForm() {
                     type="password"
                     className="input-password"
                 />
-                <Button style={styles.buttonStyle} className="buttonStyle"value="Login" type="submit">
+                <Button style={styles.buttonStyle} className="buttonStyle" value="Login" type="submit">
                     Login
                 </Button>
                 <Message style={styles.messageStyle} className="messageStyle">
@@ -139,4 +139,3 @@ export default function LoginForm() {
         </>
     )
 }
-

@@ -1,9 +1,20 @@
 import axios from "axios";
 
+// setting the header for the request
+export const setHeader = (user) => {
+  axios.defaults.headers.common = {
+    user: user
+  }
+}
+
 export default {
   //Gets all jobs for one user
-  getJobs: function (id) {
-    return axios.get("/api/jobs/" + id);
+  getJobs: function () {
+    if (axios.defaults.headers !== null) {
+      const user = localStorage.getItem("user");
+      setHeader(user);
+    }
+    return axios.get("/api/jobs");
   },
   //Gets one job based on id
   getJob: function (id) {

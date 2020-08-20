@@ -1,17 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./pages/Login";
-import Register from "./pages/Signup";
+// import Register from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import JobsView from "./pages/JobsView";
 import JobDetail from "./pages/JobDetail";
 import CreateJob from "./pages/CreateJob";
-// import Nav from "./components/Nav";
+import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import { UserProvider } from "./utils/GlobalState";
 import { Container } from "semantic-ui-react";
-import "./styles.css";
-import SignupForm from "./pages/Signup/components/SignupForm/SignupForm";
+// import "./styles.css";
+import SignupForm from "./pages/Signup/index";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         {/* <Container textAlign="left"> */}
           <UserProvider>
             <Router>
-              {/* <Nav /> */}
+              <Nav />
               <Switch>
                 <Route exact path="/">
                   <Login />
