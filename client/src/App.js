@@ -16,34 +16,32 @@ function App() {
   return (
     <div className="app">
       <div className="wrapping">
-        <Container textAlign="left">
-          <UserProvider>
-            <Router>
-              <Nav />
-              <Switch>
-                <Route exact path="/">
-                  <SignIn />
-                </Route>
-                <Route exact path="/index">
-                  <Register />
-                </Route>
-                <Route exact path="/home">
-                  <Dashboard />
-                </Route>
-                <Route exact path="/view">
-                  <JobsView />
-                </Route>
-                <Route path="/jobs/">
-                  <JobDetail />
-                </Route>
-                <Route path="/create-job">
-                  <CreateJob />
-                </Route>
-              </Switch>
-              <div className="push"></div>
-            </Router>
-          </UserProvider>
-        </Container>
+        <UserProvider>
+          <Router>
+            <Nav />
+            <Switch>
+              <Route exact path="/">
+                <SignIn />
+              </Route>
+              <Route exact path="/index">
+                <Register />
+              </Route>
+              <Route exact path="/home">
+                <Dashboard />
+              </Route>
+              <Route exact path="/view">
+                <JobsView />
+              </Route>
+              <Route path="/jobs/">
+                <JobDetail />
+              </Route>
+              <Route path="/create-job">
+                <CreateJob />
+              </Route>
+            </Switch>
+            <div className="push"></div>
+          </Router>
+        </UserProvider>
       </div>
       <Footer className="footer" />
     </div>
@@ -82,4 +80,4 @@ function App() {
 //     </UserProvider>
 //   );
 // }
- export default App;
+export default App;

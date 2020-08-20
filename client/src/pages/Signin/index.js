@@ -11,7 +11,6 @@ export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
- 
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -23,12 +22,11 @@ export default function SignIn() {
       const user = await API.login(userInfo);
       setHeader(JSON.stringify(user));
       localStorage.setItem("user", JSON.stringify(user));
-      console.log(user, "dbgjfdjdf")
+      console.log(user, "dbgjfdjdf");
       dispatch({ type: "login", user });
       history.push("/home");
     } catch (e) {
-      console.log("Error", e)
-
+      console.log("Error", e);
     }
   }
 
@@ -36,12 +34,12 @@ export default function SignIn() {
     <Grid id="styleGrid">
       <div className="body" />
       <div className="grad" />
+      <Header id="title-header" as="h2">
+        <div>
+          Job<span>Spot</span>
+        </div>
+      </Header>
       <Grid.Column id="colStyle">
-        <Header id="title-header" as="h2">
-          <div>
-            Job<span>Spot</span>
-          </div>
-        </Header>
         <Form id="login" onSubmit={handleSubmit}>
           <Form.Input
             fluid
@@ -77,5 +75,3 @@ export default function SignIn() {
     </Grid>
   );
 }
-          
-          
