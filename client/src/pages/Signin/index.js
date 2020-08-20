@@ -23,7 +23,7 @@ export default function SignIn() {
       const user = await API.login(userInfo);
       setHeader(JSON.stringify(user));
       localStorage.setItem("user", JSON.stringify(user));
-      console.log(user, "dbgjfdjdf")
+      console.log(user, "dbgjfdjdf");
       dispatch({ type: "login", user });
       history.push("/home");
     } catch (e) {
