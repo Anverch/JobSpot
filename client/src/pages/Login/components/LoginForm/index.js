@@ -119,7 +119,7 @@ export default function LoginForm() {
                     type="text"
                     className="input-email"
                 />
-                <Form.Input
+                <Form.Input style={styles.loginFormInput}
                     fluid
                     icon="lock"
                     value={password}
@@ -129,11 +129,11 @@ export default function LoginForm() {
                     type="password"
                     className="input-password"
                 />
-                <Button className="buttonStyle"value="Login" type="submit">
+                <Button style={styles.buttonStyle} className="buttonStyle"value="Login" type="submit">
                     Login
                 </Button>
-                <Message className="messageStyle">
-                    New to us? <Link className="linkStyle" to="/index">Sign up</Link>
+                <Message style={styles.messageStyle} className="messageStyle">
+                    New to us? <Link style={styles.linkStyle} className="linkStyle" to="/index">Sign up</Link>
                 </Message>
             </Form>
         </>
