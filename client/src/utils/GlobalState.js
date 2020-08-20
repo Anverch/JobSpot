@@ -51,14 +51,7 @@ const reducer = (state, action) => {
         ...data,
       };
     }
-    case "submit": {
-      console.log(`action:>>`, action);
-      API.saveJob(action.newJob).then((res) => res.json);
-      const jobs = API.getJobs(state.id).then((jobs) =>
-        console.log(`jobs:>>`, jobs)
-      );
-      return { ...state, Jobs: jobs };
-    }
+
     default:
       return { ...state };
   }

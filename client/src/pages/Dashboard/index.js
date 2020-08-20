@@ -8,6 +8,8 @@ import "./styles.css";
 
 export default function Dashboard() {
   const [state, _] = useUserContext();
+  console.log(`state:>>`, state);
+  const [user, setUser] = useState();
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => API.getJobs().then((jobs) => setJobs(jobs.data)), {});

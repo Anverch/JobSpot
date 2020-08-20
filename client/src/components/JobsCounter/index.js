@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Label, Menu } from "semantic-ui-react";
-import { useUserContext } from "../../utils/GlobalState";
 import API from "../../utils/API";
 
 export default function JobsCounter() {
   const history = useHistory();
-  const [state, dispatch] = useUserContext();
 
   // creating state object for jobs
   const [jobs, setJobs] = useState([]);
