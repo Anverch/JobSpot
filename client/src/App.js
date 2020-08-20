@@ -39,9 +39,10 @@ function App() {
                 <CreateJob />
               </Route>
             </Switch>
-            <div className="push"></div>
+
           </Router>
         </UserProvider>
+        <div className="push"></div>
       </div>
       <Footer className="footer" />
     </div>

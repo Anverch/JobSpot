@@ -4,10 +4,10 @@
 
 //importing dependencies
 import React, { useEffect } from "react";
-import { Header, Form, Grid, TextArea } from "semantic-ui-react";
+import { Header, Grid } from "semantic-ui-react";
 import UpdateButton from "../UpdateButton";
 import { useUserContext } from "../../utils/GlobalState";
-import moment from 'moment';
+import moment from "moment";
 
 export default function Details() {
   // invokes useUserContext(),
@@ -15,7 +15,7 @@ export default function Details() {
 
   useEffect(() => {
     console.log(`state.activeJob:>>`, state.activeJob);
-  });
+  }, []);
   return (
     <>
       <Grid rows={5}>
@@ -35,8 +35,10 @@ export default function Details() {
           </Grid.Column>
           <Grid.Column>
             <Header sub>
-
-              In-Person Interview: {moment(state.activeJob.in_person_interview_date).local().format('MMMM Do YYYY, h:mm a')}
+              In-Person Interview:{" "}
+              {moment(state.activeJob.in_person_interview_date)
+                .local()
+                .format("MMMM Do YYYY, h:mm a")}
             </Header>
           </Grid.Column>
           <Grid.Column>
@@ -56,7 +58,6 @@ export default function Details() {
         </Grid.Row>
         <Grid.Row id="notes-row">
           <div>{state.activeJob.notes}</div>
-
         </Grid.Row>
         <Grid.Row columns={1}>
           <UpdateButton />

@@ -1,10 +1,10 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import { Grid, Header } from "semantic-ui-react";
 import "./signin.css";
 import API, { setHeader } from "../../utils/API";
 import { useUserContext } from "../../utils/GlobalState";
 import { Link, useHistory } from "react-router-dom";
-import { Form, Segment, Button, Message } from "semantic-ui-react";
+import { Form, Button, Message } from "semantic-ui-react";
 
 export default function SignIn() {
   const [state, dispatch] = useUserContext();
@@ -18,6 +18,7 @@ export default function SignIn() {
       email: email,
       password: password,
     };
+    console.log(`userInfo:>>`, userInfo);
     try {
       const user = await API.login(userInfo);
       setHeader(JSON.stringify(user));

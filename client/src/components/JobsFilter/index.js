@@ -8,12 +8,13 @@ export default function JobsFilter() {
   const handleFilter = (event, data) => {
     console.log(`data:>>`, data);
     if (data.value !== "All") {
-      const filteredJobs = state.Jobs.filter(
-        (job) => job.status === data.value
-      );
-      dispatch({ type: "filter", filteredJobs });
+      //   const filteredJobs = state.Jobs.filter(
+      //     (job) => job.status === data.value
+      //   );
+      dispatch({ type: "filter", data });
       return;
     }
+
     const allJobs = state.Jobs;
     dispatch({ type: "all", allJobs });
     return;
