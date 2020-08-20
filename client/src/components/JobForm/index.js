@@ -40,23 +40,24 @@ export default function JobForm() {
     date: 0,
     time: 0,
   });
+
   const [newJob, setNewJob] = useState({
     company: "",
     job_title: "",
-    salary: 0,
+    salary: null,
     status: "",
-    phone: "",
-    in_person_interview_date: "",
+    phone: null,
+    in_person_interview_date: null,
     benefits: "",
     location: "",
     source: "",
     notes: "",
-    UserId: state.id,
+    UserId: JSON.parse(localStorage.getItem("user")).data.id,
   });
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch({ type: "submit", newJob });
+    API.saveJob(newJob).then((res) => res.json);
     history.push("/home");
   };
 
@@ -96,6 +97,7 @@ export default function JobForm() {
           name="company"
           onChange={handleInputChange}
           required
+          type="text"
         />
         <Form.Input
           label="Job title"
@@ -103,6 +105,7 @@ export default function JobForm() {
           name="job_title"
           required
           onChange={handleInputChange}
+          type="text"
         />
         <Form.Input
           label="Annual salary"
@@ -110,6 +113,7 @@ export default function JobForm() {
           onChange={handleInputChange}
           required
           maxLength="7"
+          type="number"
         />
         <Form.Select
           label="Job Status"
@@ -131,13 +135,15 @@ export default function JobForm() {
           name="location"
           required
           onChange={handleInputChange}
+          type="text"
         />
         <Header as="h3">Interview Dates</Header>
         <Form.Input
           label="Phone Number for Interviewer (optional)"
-          placeholder=""
+          placeholder="8165009876"
           name="phone"
           onChange={handleInputChange}
+          type="number"
         />
         <Form.Input
           label="Interview Date"
@@ -159,12 +165,14 @@ export default function JobForm() {
           placeholder="e.g. Long commute, 4 direct reports, Commuter benefits, Catered lunches"
           name="notes"
           onChange={handleInputChange}
+          type="text"
         />
         <Form.Input
           label="Source"
           placeholder="e.g. Indeed, JobMonster"
           name="source"
           onChange={handleInputChange}
+          type="text"
         />
         <Button type="submit" color="yellow" size="large">
           Submit

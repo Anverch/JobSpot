@@ -9,7 +9,6 @@ import CreateJob from "./pages/CreateJob";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import { UserProvider } from "./utils/GlobalState";
-import { Container } from "semantic-ui-react";
 import "./styles.css";
 
 function App() {
@@ -39,7 +38,6 @@ function App() {
                 <CreateJob />
               </Route>
             </Switch>
-
           </Router>
         </UserProvider>
         <div className="push"></div>
