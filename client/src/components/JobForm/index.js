@@ -46,10 +46,10 @@ export default function JobForm() {
     company: "",
     job_title: "",
     salary: 0,
-    status: "interested",
+    status: "",
     phone: "",
 
-    in_person_interview_date: "2020-08-19 04:57:09",
+    in_person_interview_date: "",
     benefits: "",
     location: "",
     source: "",
@@ -82,9 +82,9 @@ export default function JobForm() {
     setNewJob({ ...newJob, [name]: value });
   };
 
-  const handleDropdownChange = (event) => {
-    const label = event.nativeEvent.target.parentElement.parentElement.id;
-    const choice = event.nativeEvent.target.children[0].textContent;
+  const handleDropdownChange = (event, data) => {
+    const label = data.id;
+    const choice = data.value;
     setNewJob({ ...newJob, [label]: choice });
   };
 
