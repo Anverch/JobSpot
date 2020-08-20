@@ -1,161 +1,22 @@
 import React, { createContext, useReducer, useContext } from "react";
-// import user from "../../../controllers/user";
+import API from "../utils/API";
 
 const testUser = {
-  id: Math.floor(Math.random() * 1000),
   name: "",
   email: "",
   password: "",
-  Jobs: [],
   filteredJobs: [],
-  filter: ["All", "Interested", "Applied", "In Process", "Closed"],
-  loggedIn: true,
-  activeJob: {},
-};
-
-const emily = {
-  id: 3,
-  name: "emily wirtz",
-  email: "ememail@gmail.com",
-  password: "password",
-  Jobs: [
-    {
-      id: 1,
-      company: "Glossier",
-      job_title: "Software Engineer",
-      salary: 90000,
-      status: "In Process",
-      phone: "8/15/2020",
-      in_person_interview_date: "",
-      benefits: "Yes",
-      location: "New York",
-      notes: ["free makeup for life"],
-    },
-    {
-      id: 2,
-      company: "American Century",
-      job_title: "Staff Backend Developer",
-      salary: 120000,
-      status: "Interested",
-      phone: "",
-      in_person_interview_date: "",
-      benefits: "Yes",
-      location: "KC",
-      notes: ["on-site gym", "WFH"],
-    },
-    {
-      id: 3,
-      company: "Google",
-      job_title: "Java Developer",
-      salary: 100000,
-      status: "Applied",
-      phone: "",
-      in_person_interview_date: "",
-      benefits: "Yes",
-      location: "Mountain View",
-      notes: ["on-site gym", "on-site cafeteria", "monthly Uber credit"],
-    },
-    {
-      id: 4,
-      company: "GitHub",
-      job_title: "Software Engineer",
-      salary: 95000,
-      status: "In Process",
-      phone: "7/29/2020",
-      in_person_interview_date: "8/5/2020",
-      benefits: "Yes",
-      location: "Chicago",
-      notes: ["25 days of PTO per year"],
-    },
-    {
-      id: 5,
-      company: "Intuit",
-      job_title: "Project Manager",
-      salary: 1400000,
-      status: "Interested",
-      phone: "",
-      in_person_interview_date: "",
-      benefits: "Yes",
-      location: "SF",
-      notes: ["moving expenses covered", "monthly Uber credit"],
-    },
-  ],
-  filteredJobs: [
-    {
-      id: 1,
-      company: "Glossier",
-      job_title: "Software Engineer",
-      salary: 90000,
-      status: "In Process",
-      phone: "8/15/2020",
-      in_person_interview_date: "",
-      benefits: "Yes",
-      location: "New York",
-      notes: ["free makeup for life"],
-    },
-    {
-      id: 2,
-      company: "American Century",
-      job_title: "Staff Backend Developer",
-      salary: 120000,
-      status: "Interested",
-      phone: "",
-      in_person_interview_date: "",
-      benefits: "Yes",
-      location: "KC",
-      notes: ["on-site gym", "WFH"],
-    },
-    {
-      id: 3,
-      company: "Google",
-      job_title: "Java Developer",
-      salary: 100000,
-      status: "Applied",
-      phone: "",
-      in_person_interview_date: "",
-      benefits: "Yes",
-      location: "Mountain View",
-      notes: ["on-site gym", "on-site cafeteria", "monthly Uber credit"],
-    },
-    {
-      id: 4,
-      company: "GitHub",
-      job_title: "Software Engineer",
-      salary: 95000,
-      status: "In Process",
-      phone: "7/29/2020",
-      in_person_interview_date: "8/5/2020",
-      benefits: "Yes",
-      location: "Chicago",
-      notes: ["25 days of PTO per year"],
-    },
-    {
-      id: 5,
-      company: "Intuit",
-      job_title: "Project Manager",
-      salary: 1400000,
-      status: "Interested",
-      phone: "",
-      in_person_interview_date: "",
-      benefits: "Yes",
-      location: "SF",
-      notes: ["moving expenses covered", "monthly Uber credit"],
-    },
-  ],
-  newJob: {},
   filter: ["All", "Interested", "Applied", "In Process", "Closed"],
   loggedIn: true,
   activeJob: {},
 };
 
 const UserContext = createContext({
-  id: Math.floor(Math.random() * 1000),
   name: "",
   email: "",
   password: "",
-  Jobs: [],
+  status: "Interested",
   filteredJobs: [],
-  newJob: {},
   filter: ["All", "Interested", "Applied", "In Process", "Closed"],
   loggedIn: true,
   activeJob: {},
@@ -165,10 +26,17 @@ const reducer = (state, action) => {
   console.log(`action:>>`, action);
   switch (action.type) {
     case "filter": {
-      return { ...state, filteredJobs: action.filteredJobs };
+      if (action.data.value !== "All") {
+        const filteredJobs = API.getJobs(state.id).then((jobs) =>
+          jobs.filter((job) => job.status === action.data.value)
+        );
+        return { ...state, filteredJobs: filteredJobs };
+      }
     }
     case "all": {
-      return { ...state, filteredJobs: action.allJobs };
+      const Jobs = API.getJobs(state.id).then((data) =>
+        console.log(`data:>>`, data)
+      );
     }
     case "view": {
       return {
@@ -178,13 +46,18 @@ const reducer = (state, action) => {
     }
     case "login": {
       const data = action.user.data;
+      console.log(`data:>>`, data);
       return {
         ...data,
       };
     }
     case "submit": {
       console.log(`action:>>`, action);
-      return { ...state, Jobs: [...state.Jobs, action.newJob] };
+      API.saveJob(action.newJob).then((res) => res.json);
+      const jobs = API.getJobs(state.id).then((jobs) =>
+        console.log(`jobs:>>`, jobs)
+      );
+      return { ...state, Jobs: jobs };
     }
     default:
       return { ...state };

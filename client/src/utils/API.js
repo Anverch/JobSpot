@@ -1,16 +1,16 @@
 import axios from "axios";
 
 // setting the header for the request
-export const setHeader = (user)=>{
-  axios.defaults.headers.common={
-    user: user
-  }
-}
+export const setHeader = (user) => {
+  axios.defaults.headers.common = {
+    user: user,
+  };
+};
 
 export default {
   //Gets all jobs for one user
   getJobs: function () {
-    if (axios.defaults.headers !==null){
+    if (axios.defaults.headers !== null) {
       const user = localStorage.getItem("user");
       setHeader(user);
     }
@@ -33,8 +33,6 @@ export default {
     return axios.get("/api/users");
   },
   //Gets one user based on id
-  //   getUser: function (email) {
-  //     return axios.get("/api/users/" + email);
   getUser: function (id) {
     return axios.get("/api/users/" + id);
   },
@@ -59,5 +57,5 @@ export default {
   // Logout
   logout: function () {
     return axios.post("/api/users/logout");
-  }
+  },
 };

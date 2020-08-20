@@ -11,30 +11,29 @@
 
 ## About
 
-The need for job hunting tools is greater than ever with unemployment rates being at an all time high. When searching for a job, it can be difficult to keep track of interview dates, names, phone numbers, addresses, job details and all other information associated with the job searching process. JobSpot provides a central location for its users to organize this information and compare job opportunities.  
+The need for job hunting tools is greater than ever with unemployment rates being at an all time high. When searching for a job, it can be difficult to keep track of interview dates, names, phone numbers, addresses, job details and all other information associated with the job searching process. JobSpot provides a central location for its users to organize this information and compare job opportunities.
 
-## Technologies  
+## Technologies
 
-### Server Side  
+### Server Side
 
-- Node  
-- MySQL  
-- Passport  
-- Bcryptjs  
-- Express-Sessions   
+- Node
+- MySQL
+- Passport
+- Bcryptjs
+- Express-Sessions
 
-### Client Side   
+### Client Side
 
-- React  
-- Express  
-- Semantic UI  
-- React  
-- Axios  
+- React
+- Express
+- Semantic UI
+- React
+- Axios
 
+## Installation
 
-## Installation  
-
-To install necessary dependencies, run the following command in the root and client folders of this application  
+To install necessary dependencies, run the following command in the root and client folders of this application
 
 ```
 npm i
@@ -52,18 +51,15 @@ To seed the database, run
 npm run seed:up
 ```
 
-## App  
+## App
 
+### View [Demo](https://job-spot.herokuapp.com/)
 
-### View [Demo](https://job-spot.herokuapp.com/)   
+## Developers
 
-
-
-## Developers  
- 
    <img src="https://avatars.githubusercontent.com/Knzmck" height="90" width="90">   
  
-   Mackenzie Schutz  
+   Mackenzie Schutz
 
    <img src="https://avatars.githubusercontent.com/emcarlisle" height="90" width="90">   
  
@@ -75,11 +71,8 @@ npm run seed:up
  
    <img src="https://avatars.githubusercontent.com/Anverch" height="90" width="90">   
   
-   Aleks Saiyan    
+   Aleks Saiyan
 
+## License
 
-## License  
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
-
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
