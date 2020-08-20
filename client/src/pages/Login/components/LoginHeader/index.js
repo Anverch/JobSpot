@@ -27,9 +27,9 @@ const styles = {
 }
 
 const LoginHeader = () => (
-    <Header style={styles.headerColor}>
-        <div style={styles.headerPosition}>
-            job<span style={styles.spanColor}>Spot</span>
+    <Header className="headerColor" style={styles.headerColor}>
+        <div className="headerPosition" style={styles.headerPosition}>
+            job<span className="spanColor "style={styles.spanColor}>Spot</span>
         </div>
     </Header>
 )

@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import API from "../../../../utils/API";
 import { useUserContext } from "../../../../utils/GlobalState";
-import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
-
+import {Link, useHistory } from "react-router-dom";
 import { Button, Form, Message } from 'semantic-ui-react';
 import "./styles.css";
 
@@ -108,10 +106,9 @@ export default function LoginForm() {
     }
     return (
         <>
-            <div style={styles.bodyStyle} className="bodyImg" />
-            <div style={styles.gradStyle} className="grad-l" />
-
-            <Form style={styles.loginForm} onSubmit={handleSubmit}>
+            <div style={styles.bodyStyle} className="bodyImg"/>
+            <div style={styles.gradStyle} className="grad-l"/>
+            <Form style={styles.loginForm} className="loginForm" onSubmit={handleSubmit}>
                 <Form.Input style={styles.loginFormInput}
                     fluid
                     icon="user"
@@ -121,9 +118,8 @@ export default function LoginForm() {
                     placeholder="E-mail Address"
                     type="text"
                     className="input-email"
-
                 />
-                <Form.Input style={styles.loginFormInput}
+                <Form.Input
                     fluid
                     icon="lock"
                     value={password}
@@ -133,15 +129,14 @@ export default function LoginForm() {
                     type="password"
                     className="input-password"
                 />
-                <Button style={styles.buttonStyle} value="Login" type="submit">
+                <Button className="buttonStyle"value="Login" type="submit">
                     Login
                 </Button>
-                <Message style={styles.messageStyle}>
-                    New to us? <Link style={styles.linkStyle} to="/index">Sign up</Link>
+                <Message className="messageStyle">
+                    New to us? <Link className="linkStyle" to="/index">Sign up</Link>
                 </Message>
             </Form>
-
-
         </>
     )
 }
+
