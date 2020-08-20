@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import API from "../../../../utils/API";
 import { Link } from "react-router-dom";
-
 import { Button, Form, Message, Label, Grid, Header } from 'semantic-ui-react';
 import "./styles.css";
-// import { SignupHeader } from "../SignupHeader/SignupHeader";
+
 const styles = {
     gridStyle: {
         position: "absolute",
@@ -17,56 +16,34 @@ const styles = {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        alignItems: "center",
-        // backgroundImage: "url(https://www.freedomleaf.com/wp-content/uploads/2017/04/KansasCityHeader-672x353.png)",
-        // backgroundSize: "cover"
+        alignItems: "center"
     },
     formWrapper: {
         display: "flex",
         flexDirection: "column",
-        // textAlign: "center",
         width: 370,
         padding: "20px 20px",
         borderRadius: 6,
         border: "1px solid black",
-
-        // boxShadow: "0px 8px 36px #222",
         backgroundColor: "rgb(66 65 89 / 88%)"
     },
-    // formStyle: {
-    //     width: "100%",
-    //     display: "flex",
-    //     flexWrap: "wrap"
-    // },
     signupHeader: {
         display: "flex",
-        // flex: "column",
         textAlign: "center",
         justifyContent: "center",
         fontFamily: "Times New Roman",
         fontSize: 45,
         marginTop: "0.25em",
-        color: "black",
-        // textShadow: "2px 2px 0 rgb(96, 127, 176), -1px -1px 0 rgb(96, 127, 176), 1px -1px 0 rgb(96, 127, 176), -1px 1px 0 rgb(96, 127, 176), 1px 1px 0 rgb(96, 127, 176)"
-
+        color: "black"
     },
     signupForm: {
         display: "flex",
         width: "100%",
         flexWrap: "wrap",
         padding: "10px 20px 0px 20px",
-        // border: "1px solid",
         borderRadius: 5,
         outline: "none",
-        fontStyle: "italic",
-        // flexDirection: "column",
-        // width: "100%",
-        // paddingTop: 20,
-        // paddingRight: 40,
-        // paddingBottom: 40,
-        // paddingLeft: 20,
-        // borderRadius: 6,
-        // backgroundColor: "white"
+        fontStyle: "italic"
     },
     signupFormInput: {
         width: "100%",
@@ -74,14 +51,8 @@ const styles = {
         borderRadius: 5,
         outline: "none",
         display: "flex",
-        width: "100%",
-        flexWrap: "wrap",
+        flexWrap: "wrap"
     },
-    // inputPlaceholder: {
-    //     fontSize: "1.2em",
-    //     fontWeight: "lighter",
-    //     color: "#bbb"
-    // },
     info: {
         paddingBottom: "0.5em",
         fontSize: 16,
@@ -99,17 +70,12 @@ const styles = {
         color: "black",
         fontSize: 20,
         fontFamily: "Times New Roman",
-        // textShadow: "2px 2px 0 rgba(0,0,0,.95), -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 rgb(96, 127, 176), 1px 1px 0 rgb(96, 127, 176)"
-
     },
     error: {
         color: "red",
         fontSize: "1em",
         display: "relative",
         margin: 2
-    },
-    linkStyle: {
-        justifyContent: "center"
     },
     labelStyle: {
         display: "flex",
