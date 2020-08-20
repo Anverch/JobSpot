@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { Grid, Header } from "semantic-ui-react";
 import "./signin.css";
-import API from "../../utils/API";
+import API, { setHeader } from "../../utils/API";
 import { useUserContext } from "../../utils/GlobalState";
 import { Link, useHistory } from "react-router-dom";
 import { Form, Segment, Button, Message } from "semantic-ui-react";
@@ -21,6 +21,9 @@ export default function SignIn() {
     };
     try {
       const user = await API.login(userInfo);
+      setHeader(JSON.stringify(user));
+      localStorage.setItem("user", JSON.stringify(user));
+      console.log(user, "dbgjfdjdf")
       dispatch({ type: "login", user });
       history.push("/home");
     } catch (e) {
