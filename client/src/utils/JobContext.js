@@ -3,7 +3,7 @@ export const JobModel = {
   company: "",
   job_title: "",
   salary: 0,
-  status: "interested",
+  status: "Interested",
   phone: new Date(),
   in_person_interview_date: new Date(),
   benefits: "",

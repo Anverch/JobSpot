@@ -1,17 +1,16 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import { Grid, Header } from "semantic-ui-react";
 import "./signin.css";
 import API, { setHeader } from "../../utils/API";
 import { useUserContext } from "../../utils/GlobalState";
 import { Link, useHistory } from "react-router-dom";
-import { Form, Segment, Button, Message } from "semantic-ui-react";
+import { Form, Button, Message } from "semantic-ui-react";
 
 export default function SignIn() {
   const [state, dispatch] = useUserContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
- 
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -19,6 +18,7 @@ export default function SignIn() {
       email: email,
       password: password,
     };
+    console.log(`userInfo:>>`, userInfo);
     try {
       const user = await API.login(userInfo);
       setHeader(JSON.stringify(user));
@@ -27,8 +27,7 @@ export default function SignIn() {
       dispatch({ type: "login", user });
       history.push("/home");
     } catch (e) {
-      console.log("Error", e)
-
+      console.log("Error", e);
     }
   }
 
@@ -36,12 +35,12 @@ export default function SignIn() {
     <Grid id="styleGrid">
       <div className="body" />
       <div className="grad" />
+      <Header id="title-header" as="h2">
+        <div>
+          Job<span>Spot</span>
+        </div>
+      </Header>
       <Grid.Column id="colStyle">
-        <Header id="title-header" as="h2">
-          <div>
-            Job<span>Spot</span>
-          </div>
-        </Header>
         <Form id="login" onSubmit={handleSubmit}>
           <Form.Input
             fluid
@@ -77,5 +76,3 @@ export default function SignIn() {
     </Grid>
   );
 }
-          
-          

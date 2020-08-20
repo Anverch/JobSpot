@@ -20,7 +20,6 @@ const countErrors = (errors) => {
 };
 
 class Register extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -30,17 +29,15 @@ class Register extends Component {
         name: "",
         email: "",
         password: "",
-
       },
-      serverError: false
+      serverError: false,
     };
   }
 
   handleChange = (event) => {
     event.preventDefault();
     const { name, value } = event.target;
-    this.setState({ [event.target.name]: event.target.value }, () => {
-    })
+    this.setState({ [event.target.name]: event.target.value }, () => {});
     let errors = this.state.errors;
 
     switch (name) {
@@ -68,19 +65,18 @@ class Register extends Component {
     const userInfo = {
       name: this.state.name,
       email: this.state.email,
-      password: this.state.password
-    }
+      password: this.state.password,
+    };
     API.createUser(userInfo)
-      .then(res =>
-        this.setState({ formValid: validateForm(this.state.errors) }),
+      .then(
+        (res) => this.setState({ formValid: validateForm(this.state.errors) }),
         this.setState({ errorCount: countErrors(this.state.errors) }),
         this.setState({ name: "", email: "", password: "" })
       )
-      .catch(err => {
-        this.setState({ serverError: true })
-        console.log(err)
-      }
-      )
+      .catch((err) => {
+        this.setState({ serverError: true });
+        console.log(err);
+      });
   };
 
   render() {
@@ -96,20 +92,20 @@ class Register extends Component {
           <Form id="signup-form" onSubmit={this.handleSubmit} noValidate>
             <div id="signup-name">
               <label htmlFor="name">Full Name</label>
-              <Form.Input id="input-name"
+              <Form.Input
+                id="input-name"
                 type="text"
                 name="name"
                 value={name}
                 onChange={this.handleChange}
                 noValidate
               />
-              {errors.name.length > 0 && (
-                <span id="error">{errors.name}</span>
-              )}
+              {errors.name.length > 0 && <span id="error">{errors.name}</span>}
             </div>
             <div id="signup-email">
               <label htmlFor="email">Email</label>
-              <Form.Input id="input-newEmail"
+              <Form.Input
+                id="input-newEmail"
                 type="email"
                 name="email"
                 value={email}
@@ -122,7 +118,8 @@ class Register extends Component {
             </div>
             <div id="signup-password">
               <label htmlFor="signup-password">Password</label>
-              <Form.Input id="input-newPassword"
+              <Form.Input
+                id="input-newPassword"
                 type="password"
                 name="password"
                 value={password}
@@ -146,11 +143,9 @@ class Register extends Component {
                 Form is {formValid ? "valid ✅" : "invalid ❌"}
               </p>
             ) : (
-                "Form not submitted"
-              )}
-            {
-              this.state.serverError && <div>Email already in use!</div>
-            }
+              "Form not submitted"
+            )}
+            {this.state.serverError && <div>Email already in use!</div>}
           </Form>
           <Message id="member-message">
             <Link id="login-link" to="/">
