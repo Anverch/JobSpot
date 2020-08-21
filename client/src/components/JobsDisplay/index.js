@@ -23,7 +23,7 @@ export default function JobsDisplay() {
                 <List.Item key={i}>
                   <List.Content floated="right">
                     <ViewButton id={job.id} />
-                    <UpdateButton />
+                    <UpdateButton id={job.id}/>
                   </List.Content>
                   <List.Header>{job.company}</List.Header>
                   <List.Content>{job.job_title}</List.Content>
