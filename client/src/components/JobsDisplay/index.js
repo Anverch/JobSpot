@@ -3,21 +3,22 @@ import { Segment, List } from "semantic-ui-react";
 import "./JobsDisplay.css";
 import UpdateButton from "../UpdateButton";
 import ViewButton from "../ViewButton";
-import { useUserContext } from "../../utils/GlobalState";
+import { useUserContext } from "../../utils/UserContext";
 
 export default function JobsDisplay() {
-  const [state] = useUserContext();
+  const { user } = useUserContext();
+
   const noFilteredJobs =
-    !state.filteredJobs ||
-    (state.filteredJobs && state.filteredJobs.length === 0);
+    !user.filteredJobs || (user.filteredJobs && user.filteredJobs.length === 0);
 
   return (
     <>
       <Segment id="jobs-segment" centered="true" raised>
         <List divided verticalAlign="middle" size="large">
           {noFilteredJobs && <h2>No jobs with that status!</h2>}
-          {!noFilteredJobs && state.filteredJobs.length > 0 &&
-            state.filteredJobs.map((job, i) => {
+          {!noFilteredJobs &&
+            user.filteredJobs.length > 0 &&
+            user.filteredJobs.map((job, i) => {
               return (
                 <List.Item key={i}>
                   <List.Content floated="right">

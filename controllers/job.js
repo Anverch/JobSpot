@@ -2,7 +2,11 @@ const db = require("../models");
 
 module.exports = {
   getJobs(req, res) {
-    db.Job.findAll()
+    db.Job.findAll({
+      where: {
+        UserId: JSON.parse(req.headers.user).data.id,
+      },
+    })
       .then((dbJob) => res.json(dbJob))
       .catch((err) => res.status(500).json(err));
   },
@@ -17,10 +21,12 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   createJob(req, res) {
-    console.log(req.body)
     db.Job.create(req.body)
       .then((dbJob) => res.json(dbJob))
-      .catch((err) => res.status(500).json(err));
+      .catch((err) => {
+        console.error(err);
+        res.status(500).json(err);
+      });
   },
   getJob(req, res) {
     const id = req.params.id;
@@ -39,6 +45,11 @@ module.exports = {
         job_title: req.body.job_title,
         salary: req.body.salary,
         status: req.body.status,
+        phone: req.body.phone,
+        in_person_interview_date: req.body.in_person_interview_date,
+        benefits: req.body.benefits,
+        location: req.body.location,
+        source: req.body.source,
         notes: req.body.notes,
         UserId: req.body.UserId,
       },

@@ -3,38 +3,63 @@
 ## Table of Contents
 
 - [About](#about)
-- [User Story](#user-story)
 - [Technologies](#technologies)
 - [Installation](#installation)
 - [App](#app)
 - [Developer](#developer)
 - [Questions](#Questions)
 
-  ## About
+## About
 
-## User Story
+The need for job hunting tools is greater than ever with unemployment rates being at an all time high. When searching for a job, it can be difficult to keep track of interview dates, names, phone numbers, addresses, job details and all other information associated with the job searching process. JobSpot provides a central location for its users to organize this information and compare job opportunities.
 
 ## Technologies
 
+### Server Side
+
 - Node
+- MySQL
+- Passport
+- Bcryptjs
+- Express-Sessions
+
+### Client Side
 
 - React
-
-- HTML, CSS, & Javascript
-
-- Passport & B-Crypt
+- Express
+- Semantic UI
+- React
+- Axios
 
 ## Installation
 
+To install necessary dependencies, run the following command in the root and client folders of this application
+
+```
+npm i
+```
+
+To run the program, run
+
+```
+npm start
+```
+
+To seed the database, run
+
+```
+npm run seed:up
+```
+
 ## App
 
-### View [Demo]()
+### View [Demo](https://job-spot.herokuapp.com/)
 
-## Developers  
- 
+## Developers
+
    <img src="https://avatars.githubusercontent.com/Knzmck" height="90" width="90">   
  
-   Mackenzie Schutz  
+   Mackenzie Schutz
 
    <img src="https://avatars.githubusercontent.com/emcarlisle" height="90" width="90">   
  
@@ -46,9 +71,8 @@
  
    <img src="https://avatars.githubusercontent.com/Anverch" height="90" width="90">   
   
-   Aleks Saiyan    
+   Aleks Saiyan
 
+## License
 
-## Questions
-
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
