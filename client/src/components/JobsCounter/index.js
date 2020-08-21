@@ -2,44 +2,44 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { Label, Menu } from "semantic-ui-react";
 import API from "../../utils/API";
+import { useUserContext } from "../../utils/UserContext";
 
 export default function JobsCounter() {
   const history = useHistory();
-
   // creating state object for jobs
-  const [jobs, setJobs] = useState([]);
+  const { user } = useUserContext();
   //retrieve data from database and set to state
-  useEffect(() => {
-    const results = API.getJobs().then((res) => setJobs(res.data));
-    console.log(`results:>>`, results);
-  }, {});
+  // useEffect(() => {
+  //   API.getJobs().then((res) => setJobs(res.data));
+  // }, {});
 
   const filterJobs = (filter) => {
     switch (filter) {
       case "All": {
-        return jobs.length;
+        return user.Jobs.length;
       }
-
       case "Interested": {
-        const interested = jobs.filter((job) => job.status === "Interested");
+        const interested = user.Jobs.filter(
+          (job) => job.status === "Interested"
+        );
         return interested.length;
       }
       case "Applied": {
-        const applied = jobs.filter((job) => job.status === "Applied");
-
+        const applied = user.Jobs.filter((job) => job.status === "Applied");
         return applied.length;
       }
       case "In Process": {
-        const inProcess = jobs.filter((job) => job.status === "In Process");
+        const inProcess = user.Jobs.filter(
+          (job) => job.status === "In Process"
+        );
         return inProcess.length;
       }
       case "Closed": {
-        const closed = jobs.filter((job) => job.status === "Closed");
-
+        const closed = user.Jobs.filter((job) => job.status === "Closed");
         return closed.length;
       }
       default:
-        return jobs.length;
+        return user.Jobs.length;
     }
   };
 

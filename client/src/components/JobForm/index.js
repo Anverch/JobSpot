@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Header, Form, Button } from "semantic-ui-react";
 import "./JobForm.css";
-import { useUserContext } from "../../utils/GlobalState";
+import { useUserContext } from "../../utils/UserContext";
 import { useHistory } from "react-router-dom";
 import API from "../../utils/API";
 
@@ -35,7 +35,7 @@ const jobStatusOptions = [
 
 export default function JobForm() {
   const history = useHistory();
-  const [state, dispatch] = useUserContext();
+  const { user, setUser } = useUserContext();
   const [dateTime, setDateTime] = useState({
     date: 0,
     time: 0,
@@ -52,12 +52,21 @@ export default function JobForm() {
     location: "",
     source: "",
     notes: "",
-    UserId: JSON.parse(localStorage.getItem("user")).data.id,
+    UserId: user.id,
   });
+
+  useEffect(() => {
+    if (user.id !== "") {
+      setNewJob({ ...newJob, UserId: user.id });
+    }
+  }, [user]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    API.saveJob(newJob).then((res) => res.json);
+    API.saveJob(newJob).then((res) => {
+      const userJobs = user.Jobs;
+      setUser({ ...user, Jobs: [...userJobs, res.data] });
+    });
     history.push("/home");
   };
 

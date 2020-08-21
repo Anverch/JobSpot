@@ -23,19 +23,17 @@ const UserContext = createContext({
 });
 
 const reducer = (state, action) => {
-  console.log(`action:>>`, action);
   switch (action.type) {
     case "filter": {
       if (action.data.value !== "All") {
-        const filteredJobs = API.getJobs(state.id).then((jobs) =>
-          jobs.filter((job) => job.status === action.data.value)
+        const filteredJobs = API.getJobs().then((jobs) =>
+          jobs.data.filter((job) => job.status === action.data.value)
         );
         return { ...state, filteredJobs: filteredJobs };
       }
     }
     case "all": {
       const Jobs = API.getJobs(state.id).then((data) =>
-        console.log(`data:>>`, data)
       );
     }
     case "view": {
@@ -46,7 +44,6 @@ const reducer = (state, action) => {
     }
     case "login": {
       const data = action.user.data;
-      console.log(`data:>>`, data);
       return {
         ...data,
       };
