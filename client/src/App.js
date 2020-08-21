@@ -18,22 +18,14 @@ import API from "./utils/API";
 
 function App() {
   const { user, setUser } = useUserContext();
-  //verify login 
-  useEffect(() => {
-    API.getUserData().then(({data}) => {
+  
+  if (user.name === "") {
+    API.getUserData().then(({ data }) => {
       if (data) {
         setUser(data);
       }
-    })
-  }, []);
-
-  // if (user.name === "") {
-  //   API.getUserData().then(({ data }) => {
-  //     if (data) {
-  //       setUser(data);
-  //     }
-  //   });
-  // }
+    });
+  }
 
   return (
     <div className="app">
