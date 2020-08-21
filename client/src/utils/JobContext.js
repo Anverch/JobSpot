@@ -9,9 +9,8 @@ export const JobModel = {
   benefits: "",
   location: "",
   source: "",
-  notes: [],
+  notes: "",
   Userid: "",
-
 };
 
 const JobContext = createContext(JobModel);

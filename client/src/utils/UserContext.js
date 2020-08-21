@@ -1,18 +1,41 @@
-import React, { createContext, useContext } from "react";
-export const UserModel = {
-  fullName: "",
-  email: "",
-  password: "",
-  jobs: [],
-  filteredJobs: [],
-  filter: {},
-  currentView: {},
-  addJob: (job) => {},
-  handleInputChange: () => {},
-  handleSubmit: () => {},
+import React, { createContext, useContext, useState } from "react";
+export const useUserModel = () => {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+    Jobs: [],
+    filteredJobs: [],
+    filter: {},
+    activeJob: {},
+    id: "",
+  });
+  return {
+    setUser: ({
+      name,
+      email,
+      password,
+      Jobs,
+      filteredJobs,
+      filter,
+      activeJob,
+      id,
+    }) =>
+      setUser({
+        name,
+        email,
+        password,
+        Jobs,
+        filteredJobs,
+        filter,
+        activeJob,
+        id,
+      }),
+    user: user,
+  };
 };
 
-const UserContext = createContext(UserModel);
+const UserContext = createContext([null, () => {}]);
 
 export function UserProvider({ value, ...props }) {
   return <UserContext.Provider value={value} {...props} />;

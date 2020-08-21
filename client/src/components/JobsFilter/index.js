@@ -1,22 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Dropdown, Icon } from "semantic-ui-react";
-
-import { useUserContext } from "../../utils/GlobalState";
+import { useUserContext } from "../../utils/UserContext";
+import API from "../../utils/API";
 
 export default function JobsFilter() {
-  const [state, dispatch] = useUserContext();
+  const { user, setUser } = useUserContext();
   const handleFilter = (event, data) => {
-    console.log(`data:>>`, data);
     if (data.value !== "All") {
-      //   const filteredJobs = state.Jobs.filter(
-      //     (job) => job.status === data.value
-      //   );
-      dispatch({ type: "filter", data });
+      const filteredJobs = user.Jobs.filter((job) => job.status === data.value);
+      setUser({ ...user, filteredJobs: filteredJobs });
       return;
     }
-
-    const allJobs = state.Jobs;
-    dispatch({ type: "all", allJobs });
+    const allJobs = user.Jobs;
+    setUser({ ...user, filteredJobs: allJobs });
     return;
   };
 
