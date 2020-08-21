@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import JobsView from "./pages/JobsView";
 import JobDetail from "./pages/JobDetail";
 import CreateJob from "./pages/CreateJob";
+import UpdateJob from "./pages/UpdateJob/index"
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import {
@@ -17,13 +18,22 @@ import API from "./utils/API";
 
 function App() {
   const { user, setUser } = useUserContext();
-  if (user.name === "") {
-    API.getUserData().then(({ data }) => {
+  //verify login 
+  useEffect(() => {
+    API.getUserData().then(({data}) => {
       if (data) {
         setUser(data);
       }
-    });
-  }
+    })
+  }, []);
+
+  // if (user.name === "") {
+  //   API.getUserData().then(({ data }) => {
+  //     if (data) {
+  //       setUser(data);
+  //     }
+  //   });
+  // }
 
   return (
     <div className="app">
@@ -36,7 +46,7 @@ function App() {
           <Route exact path="/index">
             <SignupForm />
           </Route>
-          <Route exact path="/home">
+          <Route exact path="/home" >
             <Dashboard />
           </Route>
           <Route exact path="/view">
@@ -47,6 +57,9 @@ function App() {
           </Route>
           <Route path="/create-job">
             <CreateJob />
+          </Route>
+          <Route path="/update-job/">
+            <UpdateJob />
           </Route>
         </Switch>
       </Router>

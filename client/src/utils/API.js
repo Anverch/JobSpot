@@ -20,9 +20,8 @@ export default {
   getJob: function (id) {
     return axios.get("/api/jobs/" + id);
   },
-  //Updates one job based on id
-  updateJob: function (id) {
-    return axios.put("/api/jobs/" + id);
+  updateJob: function (id, updatedJob) {
+    return axios.put("/api/jobs/" + id, updatedJob);
   },
   //Saves a new job to the database
   saveJob: function (jobInfo) {
