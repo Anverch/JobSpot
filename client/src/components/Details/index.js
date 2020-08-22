@@ -5,13 +5,23 @@ import UpdateButton from "../UpdateButton";
 import { useUserContext } from "../../utils/UserContext";
 import moment from "moment";
 
+
+const styles = {
+  detailsContainer: {
+    background: "white",
+    padding: 20,
+    width: "80%",
+    marginTop: 30,
+    borderRadius: 2
+  }
+}
 export default function Details() {
   // invokes useUserContext(),
   const { user } = useUserContext();
 
   return (
     <>
-      <Container fluid>
+      <Container fluid style={styles.detailsContainer}>
 
         <Grid rows={5}>
           <Grid.Row columns={2} id="meta-row">

@@ -11,7 +11,7 @@ const styles = {
     padding: 20,
     width: "80%",
     marginTop: 30,
-    borderRadius: 2,
+    borderRadius: 2
 
   },
   jobFormHeader: {
