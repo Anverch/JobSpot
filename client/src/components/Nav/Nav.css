@@ -1,4 +1,4 @@
-h2#nav-logo.header {
+/* h2#nav-logo.header {
   font-size: 5rem;
   text-align: center;
   padding: 20px;
@@ -12,16 +12,16 @@ h2#nav-logo.header {
 }
 #nav-logo {
   font-size: 4rem;
-}
+} */
 /* #nav-grid {
   display: table-cell;
 } */
-.container#nav-container, #nav-menu.menu {
+/* .container#nav-container, #nav-menu.menu {
   width: 100%!important;
   margin: 0px!important;
   background-image: url("./tweed.png");
   /* background-color: #FFC675; */
-  justify-content: center;
+  /* justify-content: center;
   box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgb(0 0 0 / 99%);
   border-bottom-color: black;
 }
@@ -39,6 +39,6 @@ a#nav-link-home, a#nav-link-create, a#nav-link-logout {
   font-size: 18px;
   border-radius: 2px;
   font-family: "Exo", sans-serif;
-  
-}
+   */
+
 /* Background pattern from Toptal Subtle Patterns */
