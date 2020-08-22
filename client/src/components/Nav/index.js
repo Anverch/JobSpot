@@ -35,7 +35,7 @@ export default function Nav() {
 
   return (
     <>
-      <Container fluid style={styles.navContainer} id="nav-container">
+      <Container fluid style={styles.navContainer} className="nav-container">
         <Header style={styles.navHeader} as="h2" id="nav-logo">
           <span style={styles.spanHeader} id="job">Job</span>Spot
         </Header>
