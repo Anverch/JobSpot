@@ -14,7 +14,7 @@ const styles = {
   },
   container: {
     width: "80%",
-    
+
   },
   headerStyle: {
     justifyContent: "center",
@@ -25,6 +25,10 @@ const styles = {
     fontWeight: "bold",
     fontSize: "18px",
     fontFamily: "Times New Roman"
+  },
+  labelStyle: {
+    color: "black",
+    fontSize: 18
   }
 }
 export default function JobsCounter() {
@@ -85,7 +89,7 @@ export default function JobsCounter() {
           onClick={() => handleClick({ activeItem: "All" })}
         >
           All
-          <Label color="teal">{filterJobs("All")}</Label>
+          <Label style={styles.labelStyle} color="teal">{filterJobs("All")}</Label>
         </Menu.Item>
         <Menu.Item style={styles.menuItemStyle}
           id="job-status-interested"
@@ -94,7 +98,7 @@ export default function JobsCounter() {
           onClick={() => handleClick({ activeItem: "Interested" })}
         >
           Interested
-          <Label color="purple">{filterJobs("Interested")}</Label>
+          <Label style={styles.labelStyle} color="purple">{filterJobs("Interested")}</Label>
         </Menu.Item>
         <Menu.Item style={styles.menuItemStyle}
           id="job-status-applied"
@@ -103,7 +107,7 @@ export default function JobsCounter() {
           onClick={() => handleClick({ activeItem: "Applied" })}
         >
           Applied
-          <Label color="blue">{filterJobs("Applied")}</Label>
+          <Label style={styles.labelStyle} color="blue">{filterJobs("Applied")}</Label>
         </Menu.Item>
         <Menu.Item style={styles.menuItemStyle}
           id="job-status-inProcess"
@@ -112,7 +116,7 @@ export default function JobsCounter() {
           onClick={() => handleClick({ activeItem: "In Process" })}
         >
           In Process
-          <Label color="green">{filterJobs("In Process")}</Label>
+          <Label style={styles.labelStyle} color="green">{filterJobs("In Process")}</Label>
         </Menu.Item>
         <Menu.Item style={styles.menuItemStyle}
           id="job-status-closed"
@@ -121,7 +125,7 @@ export default function JobsCounter() {
           onClick={() => handleClick({ activeItem: "Closed" })}
         >
           Closed
-          <Label color="red">{filterJobs("Closed")}</Label>
+          <Label style={styles.labelStyle} color="red">{filterJobs("Closed")}</Label>
         </Menu.Item>
 
         <Menu.Item style={styles.menuItemStyle}
@@ -131,7 +135,7 @@ export default function JobsCounter() {
           onClick={() => history.push("/create-job")}
         >
           New Job
-          <Label color="brown">Add</Label>
+          <Label style={styles.labelStyle} color="brown">Add</Label>
         </Menu.Item>
       </Menu>
     </Container>
