@@ -2,27 +2,30 @@ import React, { useState, useCallback } from "react";
 import API, { setHeader } from "../../../../utils/API";
 import { useUserContext } from "../../../../utils/UserContext";
 import { Link, useHistory } from "react-router-dom";
-import { Button, Form, Message } from "semantic-ui-react";
+import { Button, Form, Message, Container } from "semantic-ui-react";
 import "./styles.css";
 const styles = {
-  bodyStyle: {
-    position: "absolute",
-    top: -20,
-    left: -20,
-    right: -40,
-    bottom: -40,
-    width: "auto",
-    height: "auto",
-    zIndex: 0,
-  },
-  gradStyle: {
-    position: "absolute",
-    top: -20,
-    left: -20,
-    right: -40,
-    bottom: -40,
-    width: "auto",
-    height: "auto",
+  loginContainer: {
+    background: "#0D0D0D"
+    // bodyStyle: {
+      //   position: "absolute",
+      //   top: -20,
+      //   left: -20,
+      //   right: -40,
+      //   bottom: -40,
+      //   width: "auto",
+      //   height: "auto",
+      //   zIndex: 0,
+      // },
+      // gradStyle: {
+        //   position: "absolute",
+        //   top: -20,
+        //   left: -20,
+        //   right: -40,
+        //   bottom: -40,
+        //   width: "auto",
+        //   height: "auto",
+        
   },
   loginForm: {
     position: "absolute",
@@ -99,50 +102,53 @@ export default function SignIn() {
 
   return (
     <>
-      <div style={styles.bodyStyle} className="bodyImg" />
-      <div style={styles.gradStyle} className="grad-l" />
-      <Form
-        style={styles.loginForm}
-        className="loginForm"
-        onSubmit={handleSubmit}
-      >
-        <Form.Input
-          style={styles.loginFormInput}
-          fluid
-          icon="user"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          iconPosition="left"
-          placeholder="E-mail Address"
-          type="text"
-          className="input-username"
-        />
-        <Form.Input
-          style={styles.loginFormInput}
-          fluid
-          icon="lock"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          iconPosition="left"
-          placeholder="Password"
-          type="password"
-          className="input-password"
-        />
-        <Button
-          style={styles.buttonStyle}
-          className="buttonStyle"
-          value="Login"
-          type="submit"
+      <Container fluid style={styles.loginContainer}>
+
+        <Form
+          style={styles.loginForm}
+          className="loginForm"
+          onSubmit={handleSubmit}
         >
-          Login
-        </Button>
-        <Message style={styles.messageStyle} className="messageStyle">
-          New to us?{" "}
-          <Link style={styles.linkStyle} className="linkStyle" to="/index">
-            Sign up
-          </Link>
-        </Message>
-      </Form>
+          <Form.Input
+            style={styles.loginFormInput}
+            fluid
+            icon="user"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            iconPosition="left"
+            placeholder="E-mail Address"
+            type="text"
+            className="input-username"
+          />
+          <Form.Input
+            style={styles.loginFormInput}
+            fluid
+            icon="lock"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            iconPosition="left"
+            placeholder="Password"
+            type="password"
+            className="input-password"
+          />
+          <Button
+            style={styles.buttonStyle}
+            className="buttonStyle"
+            value="Login"
+            type="submit"
+          >
+            Login
+          </Button>
+          <Message style={styles.messageStyle} className="messageStyle">
+            New to us?{" "}
+            <Link style={styles.linkStyle} className="linkStyle" to="/index">
+              Sign up
+            </Link>
+          </Message>
+        </Form>
+      </Container>
+      {/* <div style={styles.bodyStyle} className="bodyImg" />
+      <div style={styles.gradStyle} className="grad-l" /> */}
     </>
   );
 }
