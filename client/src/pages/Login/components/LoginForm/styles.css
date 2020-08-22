@@ -1,10 +1,9 @@
-.bodyImg {
+/* .bodyImg {
   background-image: url("https://www.muralsyourway.com/media/catalog/product/cache/1/base/1200x/040ec09b1e35df139433887a97daa66f/k/a/kansas-city-skyline-wallpaper-mural.jpg");
   background-size: cover;
-  filter: blur(5px);
+  filter: blur(5px); */
   /* z-index: 0; */
-}
-.grad-l {
+/* s/* .grad-l {
   background: -webkit-gradient(
     linear,
     left top,
@@ -12,19 +11,19 @@
     color-stop(0%, rgba(0, 0, 0, 0)),
     color-stop(100%, rgba(0, 0, 0, 0.75))
   );
-}
+} */
 div.field {
-  background: transparent;
+  background: white;
   margin-top: 10px;
   margin: 0 0 1em;
 }
 input.ui.input-email {
-  background: transparent;
+  background: white;
   color: #fff;
   font-family: "Exo", sans-serif;
 }
 input.input-password {
-  background: transparent;
+  background: white;
   color: #fff;
   font-family: "Exo", sans-serif;
 }

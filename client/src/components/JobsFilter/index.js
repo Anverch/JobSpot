@@ -3,6 +3,17 @@ import { Container, Dropdown, Icon } from "semantic-ui-react";
 import { useUserContext } from "../../utils/UserContext";
 import API from "../../utils/API";
 
+
+const styles = {
+  jobFilterContainer: {
+    background: "white",
+    padding: 20,
+    width: "80%",
+    marginTop: 30,
+    borderRadius: 2,
+
+  }
+}
 export default function JobsFilter() {
   const { user, setUser } = useUserContext();
   const handleFilter = (event, data) => {
@@ -54,7 +65,7 @@ export default function JobsFilter() {
   ];
 
   return (
-    <Container className="jobsFilter-Container">
+    <Container style={styles.jobFilterContainer} className="jobsFilter-Container">
       <Icon name="filter" />
       <Dropdown
         floating

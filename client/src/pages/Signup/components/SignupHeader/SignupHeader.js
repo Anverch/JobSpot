@@ -3,7 +3,7 @@ import { Header } from 'semantic-ui-react';
 
 const styles = {
     signupHeader: {
-        display: "flex",
+        display: "none",
         flex: "column",
         textAlign: "center",
         justifyContent: "center",
