@@ -15,6 +15,7 @@ import {
   useUserModel,
 } from "./utils/UserContext";
 import API from "./utils/API";
+import "./styles.css";
 
 function App() {
   const { user, setUser } = useUserContext();

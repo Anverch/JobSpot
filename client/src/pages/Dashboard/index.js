@@ -7,11 +7,10 @@ import "semantic-ui-css/semantic.min.css";
 import "./styles.css";
 
 const styles = {
-  containerStyle: {
-    //backgroundColor: "#2C3540"
-    backgroundColor: "rgb(22 25 29)"
+  // containerStyle: {
+  //   backgroundImage: "url(./dark-honeycomb.jpg)"
 
-  },
+  // },
   headerStyle: {
     color: "#F25C05",
     fontSize: "3em",
@@ -37,7 +36,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <Container fluid style={styles.containerStyle}>
+      <Container fluid >
         <Header style={styles.headerStyle} className="greetings-header">Hello {user.name},</Header>
         <p style={styles.jobsHeaderStyle} className="jobs-header">
           You have {filteredJobs.length > 0 ? filteredJobs.length : 0} open
