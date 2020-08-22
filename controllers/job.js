@@ -41,6 +41,7 @@ module.exports = {
   updateJob(req, res) {
     db.Job.update(
       {
+        id: req.body.id,
         company: req.body.company,
         job_title: req.body.job_title,
         salary: req.body.salary,
