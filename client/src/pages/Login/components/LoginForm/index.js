@@ -71,7 +71,7 @@ const styles = {
   },
   linkStyle: {
     fontSize: 24,
-    color: "teal",
+    color: "white",
     fontWeight: "bold",
     textDecorationStyle: "underline",
     fontStyle: "italic",

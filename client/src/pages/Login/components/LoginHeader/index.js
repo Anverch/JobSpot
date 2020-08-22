@@ -17,7 +17,7 @@ const styles = {
         zIndex: 2
     },
     spanColor: {
-        color: "darkcyan",
+        color: "white",
         textShadow: "2px 2px 0 rgba(0,0,0,.95), -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000"
     }
     
@@ -26,7 +26,7 @@ const styles = {
 const LoginHeader = () => (
     <Header className="headerColor" style={styles.headerColor}>
         <div className="headerPosition" style={styles.headerPosition}>
-            job<span className="spanColor "style={styles.spanColor}>Spot</span>
+            Job<span className="spanColor "style={styles.spanColor}>Spot</span>
         </div>
     </Header>
 )
