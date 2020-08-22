@@ -1,8 +1,8 @@
-.container#header-container, .header.greetings-header, .container#jobs-counter-container {
+/* .container#header-container, .header.greetings-header, .container#jobs-counter-container {
     padding: 10px;
-    color: rgb(201, 201, 201);
+    color: rgb(201, 201, 201); */
     /* background-color: #FFC675; */
-    background-image: url("./stardust.png");
+    /* background-image: url("./stardust.png");
     font-size: 2.0em;
     width: 100%!important;
     margin: 0px!important;
@@ -36,6 +36,6 @@ a#job-status.item {
     margin: auto;
     box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgb(0 0 0 / 99%);
 
-}
+} */
 
 /* Background pattern from Toptal Subtle Patterns */
