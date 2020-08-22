@@ -13,9 +13,9 @@ const styles = {
     fontSize: "1em",
     margin: "0px!important",
     color: "#F29F05",
-    position: "fixed",
-    left: 0,
-    bottom: 0,
+    // position: "fixed",
+    // left: 0,
+    // bottom: 0,
   
   },
   github: {
