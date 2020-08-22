@@ -1,4 +1,4 @@
-#footer-container.container {
+/* #footer-container.container {
   text-align: center;
   padding: 10px;
   color: black;
@@ -9,12 +9,12 @@
   display: inline-block;
   clear: both;
   /* position: absolute; */
-}
+/* } 
 a#github.item {
   color: rgb(201, 201, 201);
-}
-@media (min-width: 768px) and (max-width: 979px) {
+} */
+/* @media (min-width: 768px) and (max-width: 979px) {
   #footer-container.container {
     width: 100%;
   }
-}
+} */
