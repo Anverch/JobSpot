@@ -1,8 +1,10 @@
-import React, { Component } from "react";
-import API from "../../../../utils/API";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Form, Message, Label, Grid, Header, Container } from "semantic-ui-react";
 import "./styles.css";
+import API from "../../../../utils/API";
+import { useUserContext } from "../../../../utils/UserContext";
+import { useHistory } from "react-router-dom";
 
 const styles = {
   signupFormContainer: {
@@ -108,170 +110,103 @@ const styles = {
     justifyContent: "center",
   },
 };
-const validEmailRegex = RegExp(
-  /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
-);
-const validateForm = (errors) => {
-  let valid = true;
-  Object.values(errors).forEach((val) => val.length > 0 && (valid = false));
-  return valid;
-};
-const countErrors = (errors) => {
-  let count = 0;
-  Object.values(errors).forEach((val) => val.length > 0 && (count = count + 1));
-  return count;
-};
-class SignupForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      formValid: false,
-      errorCount: null,
-      errors: {
-        name: "",
-        email: "",
-        password: "",
-      },
-      serverError: false,
-    };
-  }
 
-  handleChange = (event) => {
-    event.preventDefault();
-    const { name, value } = event.target;
-    this.setState({ [event.target.name]: event.target.value }, () => {});
-    let errors = this.state.errors;
-    switch (name) {
-      case "name":
-        errors.name = value.length < 5 ? "Please enter your full name." : "";
-        break;
-      case "email":
-        errors.email = validEmailRegex.test(value) ? "" : "Email is not valid!";
-        break;
-      case "password":
-        errors.password =
-          value.length < 8
-            ? "Password must be at least 8 characters long!"
-            : "";
-        break;
-      default:
-        break;
+export default function SignupForm() {
+  const history = useHistory();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const { user, setUser } = useUserContext();
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    const newUser = {
+      name: name,
+      email: email,
+      password: password
     }
-    this.setState({ errors, [name]: value });
+    try {
+    await API.createUser(newUser); 
+      history.push("/")
+    } catch (e) {
+      console.error("Error", e);
+    }
+   
   };
-  handleSubmit = (event) => {
-    event.preventDefault();
-    const userInfo = {
-      name: this.state.name,
-      email: this.state.email,
-      password: this.state.password,
-    };
-    API.createUser(userInfo)
-      .then(
-        (res) => this.setState({ formValid: validateForm(this.state.errors) }),
-        this.setState({ errorCount: countErrors(this.state.errors) }),
-        this.setState({ name: "", email: "", password: "" })
-      )
-      .catch((err) => {
-        this.setState({ serverError: true });
-        console.error(err);
-      });
-  };
-  render() {
-    const { errors, formValid } = this.state;
-    const { name, email, password } = this.state;
-    return (
-      <>
-        <Container fluid style={styles.signupFormContainer}>
-          <Grid fluid style={styles.grid}>
-            <Grid.Column className="column" style={styles.formWrapper}>
-              <Header style={styles.signupHeader}>
-                <div>Create an account with us!</div>
-              </Header>
-              <Form
-                style={styles.signupForm}
-                onSubmit={this.handleSubmit} /*noValidate*/
-              >
-                <Label htmlFor="name" style={styles.labelStyle}>
-                  Full Name
+
+  return (
+    <>
+      <Container fluid style={styles.signupFormContainer}>
+        <Grid fluid style={styles.grid}>
+          <Grid.Column className="column" style={styles.formWrapper}>
+            <Header style={styles.signupHeader}>
+              <div>Create an account with us!</div>
+            </Header>
+            <Form
+              style={styles.signupForm}
+              onSubmit={handleSubmit}
+            >
+              <Label htmlFor="name" style={styles.labelStyle}>
+                Full Name
                 </Label>
-                <Form.Input
-                  style={styles.signupFormInput}
-                  fluid
-                  value={name}
-                  name="name"
-                  onChange={this.handleChange}
-                  noValidate
-                  placeholder="Full Name"
-                  type="text"
-                  className="inputs"
-                />
-                {errors.name.length > 0 && (
-                  <span style={styles.error}>{errors.name}</span>
-                )}
-                <Label htmlFor="name" style={styles.labelStyle}>
-                  Email
+              <Form.Input
+                style={styles.signupFormInput}
+                fluid
+                name="name"
+                onChange={(e) => setName(e.target.value)}
+                noValidate
+                placeholder="Full Name"
+                type="text"
+                className="inputs"
+              />
+              <Label htmlFor="name" style={styles.labelStyle}>
+                Email
                 </Label>
-                <Form.Input
-                  style={styles.signupFormInput}
-                  fluid
-                  value={email}
-                  name="email"
-                  onChange={this.handleChange}
-                  noValidate
-                  placeholder="Email"
-                  type="email"
-                  className="inputs"
-                />
-                {errors.email.length > 0 && (
-                  <span style={styles.error}>{errors.email}</span>
-                )}
-                <Label htmlFor="name" style={styles.labelStyle}>
-                  Password
+              <Form.Input
+                style={styles.signupFormInput}
+                fluid
+                name="email"
+                onChange={(e) => setEmail(e.target.value)}
+                noValidate
+                placeholder="Email"
+                type="email"
+                className="inputs"
+              />
+              <Label htmlFor="name" style={styles.labelStyle}>
+                Password
                 </Label>
-                <Form.Input
-                  style={styles.signupFormInput}
-                  fluid
-                  value={password}
-                  name="password"
-                  onChange={this.handleChange}
-                  noValidate
-                  placeholder="Password"
-                  type="password"
-                  className="inputs"
-                />
-                {errors.password.length > 0 && (
-                  <span style={styles.error}>{errors.password}</span>
-                )}
-                <div style={styles.info}>
-                  <small>
-                    Password must be at least eight characters in length.
+              <Form.Input
+                style={styles.signupFormInput}
+                fluid
+                name="password"
+                onChange={(e) => setPassword(e.target.value)}
+                noValidate
+                placeholder="Password"
+                type="password"
+                className="inputs"
+              />
+              <div style={styles.info}>
+                <small>
+                  Password must be at least eight characters in length.
                   </small>
-                </div>
-                <div style={styles.createButton}>
-                  <Button value="Sign Up" style={styles.signupBtn}>
-                    Create
+              </div>
+              <div style={styles.createButton}>
+                <Button value="Sign Up" style={styles.signupBtn}>
+                  Create
                   </Button>
-                </div>
-                {this.state.errorCount !== null ? (
-                  <div>Form is {formValid ? "valid ✅" : "invalid ❌"}</div>
-                ) : (
-                  "Form not submitted"
-                )}
-                {this.state.serverError && <div>Email already in use!</div>}
-                <Message style={styles.messageStyle}>
-                  <Link style={styles.linkStyle} to="/">
-                    Already a member?
+              </div>
+              <Message style={styles.messageStyle}>
+                <Link style={styles.linkStyle} to="/">
+                  Already a member?
                   </Link>
-                </Message>
-              </Form>
-            </Grid.Column>
-          </Grid>
+              </Message>
+            </Form>
+          </Grid.Column>
+        </Grid>
 
-        </Container>
+      </Container>
 
-      </>
-    );
-  }
+    </>
+
+  )
 }
-export default SignupForm;
