@@ -1,5 +1,9 @@
-.backgroundImg {
+#signUpBackground {
   background-image: url(https://www.freedomleaf.com/wp-content/uploads/2017/04/KansasCityHeader-672x353.png);
+  background-color: "#29d4ff";
+  height: 1000px;
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
-  filter: blur(4px);
+  position: relative;
 }

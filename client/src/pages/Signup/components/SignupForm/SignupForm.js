@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Button, Form, Message, Label, Grid, Header, Container } from "semantic-ui-react";
+import {
+  Button,
+  Form,
+  Message,
+  Label,
+  Grid,
+  Header,
+  Container,
+} from "semantic-ui-react";
 import "./styles.css";
 import API from "../../../../utils/API";
 import { useUserContext } from "../../../../utils/UserContext";
@@ -8,38 +16,40 @@ import { useHistory } from "react-router-dom";
 
 const styles = {
   signupFormContainer: {
-    background: "#0D0D0D"
-
-  },
-  grid: {
-    justifyContent: "center"
-  },
-  formWrapper: {
     display: "flex",
     flexDirection: "column",
     width: 370,
     padding: "20px 20px",
+    minHeight: "60%",
     borderRadius: 6,
-    border: "1px solid black",
-    backgroundColor: "#D96704",
+    border: "1px solid #a929ff",
+    backgroundColor: "#ff9f29",
   },
   signupHeader: {
     display: "flex",
     textAlign: "center",
     justifyContent: "center",
-    fontFamily: "Times New Roman",
+    fontFamily: ["Roboto Slab", "serif"],
     fontSize: 45,
     marginTop: "0.25em",
-    color: "black",
+    color: "#29d4ff",
+    textShadow:
+      "2px 2px 0 rgba(0,0,0,.95), -1px -1px 0 #a929ff, 1px -1px 0 #a929ff, -1px 1px 0 #a929ff, 1px 1px 0 #a929ff",
   },
   signupForm: {
     display: "flex",
     width: "100%",
     flexWrap: "wrap",
-    padding: "10px 20px 0px 20px",
+    padding: "10px 20px 10px 20px",
     borderRadius: 5,
     outline: "none",
-    fontStyle: "italic"
+    fontStyle: "italic",
+  },
+  error: {
+    color: "red",
+    fontSize: "1em",
+    display: "relative",
+    margin: 2,
   },
   signupFormInput: {
     width: "100%",
@@ -49,10 +59,27 @@ const styles = {
     display: "flex",
     flexWrap: "wrap",
   },
+  labelStyle: {
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
+    fontWeight: "bolder",
+    color: "black",
+    background: "transparent",
+    fontSize: 16,
+    padding: 4,
+    fontFamily: ["Roboto Slab", "serif"],
+    fontStyle: "normal",
+  },
   info: {
     paddingBottom: "0.5em",
     fontSize: 16,
     fontWeight: "bold",
+  },
+  createButton: {
+    width: "100%",
+    display: "flex",
+    flexWrap: "wrap",
   },
   signupBtn: {
     width: "100%",
@@ -62,52 +89,23 @@ const styles = {
     padding: "0.938em",
     border: "1px solid black",
     borderRadius: 4,
-    backgroundColor: "#8C4820",
-    color: "black",
-    fontSize: 20,
-    fontFamily: "Times New Roman",
-  },
-  error: {
-    color: "red",
-    fontSize: "1em",
-    display: "relative",
-    margin: 2,
-  },
-  labelStyle: {
-    display: "flex",
-    flexDirection: "column",
-    width: "100%",
-    fontWeight: "bolder",
-    color: "black",
-    background: "transparent",
-    fontSize: 16,
-    padding: 1,
-    fontFamily: "Times New Roman",
-    fontStyle: "normal",
-  },
-  createButton: {
-    width: "100%",
-    display: "flex",
-    flexWrap: "wrap",
+    backgroundColor: "#a929ff",
+    color: "#29d4ff",
+    fontSize: 24,
+    fontFamily: ["Roboto Slab", "serif"],
   },
   messageStyle: {
     background: "transparent",
     boxShadow: "none",
-    fontFamily: "Times New Roman",
-    borderRadius: 2,
-    margin: "0%",
-    justifyContent: "center",
+    fontFamily: ["Roboto Slab", "serif"],
+    width: "100%",
+    textAlign: "center",
   },
   linkStyle: {
     fontSize: 18,
-    padding: "0%",
-    width: 330,
-    fontFamily: "Times New Roman",
     color: "black",
     fontWeight: "bold",
-    textDecorationStyle: "underline",
     fontStyle: "italic",
-    justifyContent: "center",
   },
 };
 
@@ -119,36 +117,32 @@ export default function SignupForm() {
   const { user, setUser } = useUserContext();
 
   async function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
     const newUser = {
       name: name,
       email: email,
-      password: password
-    }
+      password: password,
+    };
     try {
-    await API.createUser(newUser); 
-      history.push("/")
+      await API.createUser(newUser);
+      history.push("/");
     } catch (e) {
       console.error("Error", e);
     }
-   
-  };
+  }
 
   return (
     <>
       <Container fluid style={styles.signupFormContainer}>
-        <Grid fluid style={styles.grid}>
-          <Grid.Column className="column" style={styles.formWrapper}>
+        <Grid fluid>
+          <Grid.Column className="column">
             <Header style={styles.signupHeader}>
               <div>Create an account with us!</div>
             </Header>
-            <Form
-              style={styles.signupForm}
-              onSubmit={handleSubmit}
-            >
+            <Form style={styles.signupForm} onSubmit={handleSubmit}>
               <Label htmlFor="name" style={styles.labelStyle}>
                 Full Name
-                </Label>
+              </Label>
               <Form.Input
                 style={styles.signupFormInput}
                 fluid
@@ -161,7 +155,7 @@ export default function SignupForm() {
               />
               <Label htmlFor="name" style={styles.labelStyle}>
                 Email
-                </Label>
+              </Label>
               <Form.Input
                 style={styles.signupFormInput}
                 fluid
@@ -174,7 +168,7 @@ export default function SignupForm() {
               />
               <Label htmlFor="name" style={styles.labelStyle}>
                 Password
-                </Label>
+              </Label>
               <Form.Input
                 style={styles.signupFormInput}
                 fluid
@@ -188,25 +182,22 @@ export default function SignupForm() {
               <div style={styles.info}>
                 <small>
                   Password must be at least eight characters in length.
-                  </small>
+                </small>
               </div>
               <div style={styles.createButton}>
                 <Button value="Sign Up" style={styles.signupBtn}>
                   Create
-                  </Button>
+                </Button>
               </div>
               <Message style={styles.messageStyle}>
                 <Link style={styles.linkStyle} to="/">
                   Already a member?
-                  </Link>
+                </Link>
               </Message>
             </Form>
           </Grid.Column>
         </Grid>
-
       </Container>
-
     </>
-
-  )
+  );
 }

@@ -1,10 +1,9 @@
 //importing dependencies
-import React, { useEffect } from "react";
+import React from "react";
 import { Header, Grid, Container } from "semantic-ui-react";
 import UpdateButton from "../UpdateButton";
 import { useUserContext } from "../../utils/UserContext";
 import moment from "moment";
-
 
 const styles = {
   detailsContainer: {
@@ -12,9 +11,9 @@ const styles = {
     padding: 20,
     width: "80%",
     marginTop: 30,
-    borderRadius: 2
-  }
-}
+    borderRadius: 2,
+  },
+};
 export default function Details() {
   // invokes useUserContext(),
   const { user } = useUserContext();
@@ -22,7 +21,6 @@ export default function Details() {
   return (
     <>
       <Container fluid style={styles.detailsContainer}>
-
         <Grid rows={5}>
           <Grid.Row columns={2} id="meta-row">
             <Grid.Column textAlign="left">
