@@ -6,26 +6,25 @@ import { Button, Form, Message, Container } from "semantic-ui-react";
 import "./styles.css";
 const styles = {
   loginContainer: {
-    background: "#0D0D0D"
+    background: "#0D0D0D",
     // bodyStyle: {
-      //   position: "absolute",
-      //   top: -20,
-      //   left: -20,
-      //   right: -40,
-      //   bottom: -40,
-      //   width: "auto",
-      //   height: "auto",
-      //   zIndex: 0,
-      // },
-      // gradStyle: {
-        //   position: "absolute",
-        //   top: -20,
-        //   left: -20,
-        //   right: -40,
-        //   bottom: -40,
-        //   width: "auto",
-        //   height: "auto",
-        
+    //   position: "absolute",
+    //   top: -20,
+    //   left: -20,
+    //   right: -40,
+    //   bottom: -40,
+    //   width: "auto",
+    //   height: "auto",
+    //   zIndex: 0,
+    // },
+    // gradStyle: {
+    //   position: "absolute",
+    //   top: -20,
+    //   left: -20,
+    //   right: -40,
+    //   bottom: -40,
+    //   width: "auto",
+    //   height: "auto",
   },
   loginForm: {
     position: "absolute",
@@ -41,7 +40,7 @@ const styles = {
     border: "1px solid black",
     borderRadius: 2,
     color: "black",
-    fontFamily: "Times New Roman",
+    fontFamily: ["Roboto Slab", "serif"],
     fontSize: 18,
     fontWeight: 400,
     padding: 4,
@@ -49,29 +48,29 @@ const styles = {
   buttonStyle: {
     width: "100%",
     height: 35,
-    background: "teal",
+    background: "#a929ff",
     border: 1,
     cursor: "pointer",
-    borderRadius: 2,
-    color: "black",
-    fontFamily: "Times New Roman",
-    fontSize: 18,
+    borderRadius: 4,
+    color: "white",
+    fontFamily: ["Roboto Slab", "serif"],
+    fontSize: 21,
     fontWeight: "bold",
     padding: 6,
     marginTop: 10,
   },
   messageStyle: {
     width: "100%",
-    fontFamily: "Times New Roman",
-    fontSize: 24,
-    padding: 7,
+    fontFamily: ["Roboto Slab", "serif"],
+    fontSize: 21,
+    padding: 6,
     textAlign: "center",
-    color: "orange",
-    backgroundColor: "transparent",
+    color: "#29d4ff",
+    backgroundColor: "white",
   },
   linkStyle: {
     fontSize: 24,
-    color: "white",
+    color: "#ff9f29",
     fontWeight: "bold",
     textDecorationStyle: "underline",
     fontStyle: "italic",
@@ -103,7 +102,6 @@ export default function SignIn() {
   return (
     <>
       <Container fluid style={styles.loginContainer}>
-
         <Form
           style={styles.loginForm}
           className="loginForm"
