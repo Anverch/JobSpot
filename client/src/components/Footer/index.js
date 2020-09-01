@@ -12,7 +12,6 @@ const styles = {
     display: "inline-block",
     fontSize: "18px",
     margin: "0px!important",
-    color: "black",
     position: "fixed",
     left: 0,
     bottom: 0,

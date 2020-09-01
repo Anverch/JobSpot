@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Container, Dropdown, Icon } from "semantic-ui-react";
-import { useUserContext } from "../../utils/UserContext";
-import API from "../../utils/API";
-
+import { useUserContext } from "../../../../utils/UserContext";
 
 const styles = {
   jobFilterContainer: {
@@ -10,10 +8,11 @@ const styles = {
     padding: 20,
     width: "80%",
     marginTop: 30,
+    marginBottom: 20,
     borderRadius: 2,
+  },
+};
 
-  }
-}
 export default function JobsFilter() {
   const { user, setUser } = useUserContext();
   const handleFilter = (event, data) => {
@@ -31,9 +30,9 @@ export default function JobsFilter() {
     let search = window.location.search;
     let params = new URLSearchParams(search);
     let filterQuery = params.get("filter");
-    if (filterQuery) {
-      handleFilter(null, { value: filterQuery.replace("-", " ") });
-    }
+    // if (filterQuery) {
+    //   handleFilter(null, { value: filterQuery.replace("-", " ") });
+    // }
   }, []);
 
   const filterOptions = [
@@ -65,14 +64,13 @@ export default function JobsFilter() {
   ];
 
   return (
-    <Container style={styles.jobFilterContainer} className="jobsFilter-Container">
+    <Container style={styles.jobFilterContainer}>
       <Icon name="filter" />
       <Dropdown
         floating
         inline
         options={filterOptions}
         id="status-filter"
-        defaultValue="All"
         onChange={handleFilter}
       ></Dropdown>
     </Container>

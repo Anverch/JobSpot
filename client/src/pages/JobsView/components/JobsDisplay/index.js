@@ -1,9 +1,10 @@
 import React from "react";
 import { Segment, List, Container } from "semantic-ui-react";
 import "./JobsDisplay.css";
-import UpdateButton from "../UpdateButton";
-import ViewButton from "../ViewButton";
-import { useUserContext } from "../../utils/UserContext";
+import UpdateButton from "../../../../components/UpdateButton";
+import ViewButton from "../../../../components/ViewButton";
+import { useUserContext } from "../../../../utils/UserContext";
+import moment from "moment";
 
 const styles = {
   jobDisplayContainer: {
@@ -12,12 +13,26 @@ const styles = {
     width: "80%",
     marginTop: 30,
     borderRadius: 2,
-
-  }
-
-  
-}
-
+  },
+  jobTitle: {
+    fontFamily: ["Roboto Slab", "serif"],
+    fontSize: 18,
+    color: "#ff9f29",
+  },
+  jobInfo: {
+    fontFamily: ["Roboto Slab", "serif"],
+    fontSize: 14,
+  },
+  updateSpan: {
+    color: "green",
+  },
+  warningSpan: {
+    color: "yellow",
+  },
+  overdueSpan: {
+    color: "red",
+  },
+};
 
 export default function JobsDisplay() {
   const { user } = useUserContext();
@@ -34,22 +49,43 @@ export default function JobsDisplay() {
             {!noFilteredJobs &&
               user.filteredJobs.length > 0 &&
               user.filteredJobs.map((job, i) => {
+                console.log(`job:>>`, job);
+                const updatedAt = moment(job.updatedAt).fromNow();
                 return (
                   <List.Item key={i}>
                     <List.Content floated="right">
                       <ViewButton id={job.id} />
-                      <UpdateButton id={job.id}/>
+                      <UpdateButton id={job.id} />
                     </List.Content>
-                    <List.Header>{job.company}</List.Header>
-                    <List.Content>{job.job_title}</List.Content>
-                    <List.Content>Last updated: yesterday</List.Content>
+                    <List.Header style={styles.jobTitle}>
+                      {job.company}
+                    </List.Header>
+                    <List.Content style={styles.jobInfo}>
+                      {job.job_title}
+                    </List.Content>
+                    <List.Content style={styles.jobInfo}>
+                      Last updated:{" "}
+                      <span
+                        style={
+                          updatedAt < 5
+                            ? styles.updatedAt
+                            : updatedAt <= 5 && updatedAt < 8
+                            ? styles.warningSpan
+                            : styles.overdueSpan
+                        }
+                      >
+                        {updatedAt}
+                      </span>
+                    </List.Content>
+                    <List.Content style={styles.jobInfo}>
+                      Current Status: {job.status}
+                    </List.Content>
                   </List.Item>
                 );
               })}
           </List>
         </Segment>
       </Container>
-        
     </>
   );
 }

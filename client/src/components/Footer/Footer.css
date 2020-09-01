@@ -13,8 +13,13 @@
 a#github.item {
   color: rgb(201, 201, 201);
 } */
-/* @media (min-width: 768px) and (max-width: 979px) {
+@media (min-width: 768px) and (max-width: 979px) {
   #footer-container.container {
     width: 100%;
   }
-} */
+}
+
+#footer-container {
+  background-image: url(../../components/Nav/what-the-hex.png);
+  background-repeat: repeat-x;
+}

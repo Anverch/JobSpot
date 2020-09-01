@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import API, { setHeader } from "../../../../utils/API";
 import { useUserContext } from "../../../../utils/UserContext";
 import { Link, useHistory } from "react-router-dom";
@@ -7,24 +7,6 @@ import "./styles.css";
 const styles = {
   loginContainer: {
     background: "#0D0D0D",
-    // bodyStyle: {
-    //   position: "absolute",
-    //   top: -20,
-    //   left: -20,
-    //   right: -40,
-    //   bottom: -40,
-    //   width: "auto",
-    //   height: "auto",
-    //   zIndex: 0,
-    // },
-    // gradStyle: {
-    //   position: "absolute",
-    //   top: -20,
-    //   left: -20,
-    //   right: -40,
-    //   bottom: -40,
-    //   width: "auto",
-    //   height: "auto",
   },
   loginForm: {
     position: "absolute",

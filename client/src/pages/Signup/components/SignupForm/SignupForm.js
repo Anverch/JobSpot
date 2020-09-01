@@ -11,7 +11,6 @@ import {
 } from "semantic-ui-react";
 import "./styles.css";
 import API from "../../../../utils/API";
-import { useUserContext } from "../../../../utils/UserContext";
 import { useHistory } from "react-router-dom";
 
 const styles = {
@@ -114,7 +113,6 @@ export default function SignupForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const { user, setUser } = useUserContext();
 
   async function handleSubmit(e) {
     e.preventDefault();
