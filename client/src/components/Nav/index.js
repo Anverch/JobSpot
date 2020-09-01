@@ -6,19 +6,24 @@ import API from "../../utils/API";
 
 const styles = {
   navContainer: {
-    backgroundColor: "rgb(22 25 29)",
+    backgroundColor: "#29d4ff",
+    marginBottom: "15px",
   },
   navHeader: {
     textAlign: "center",
-    fontSize: "4.5em",
+    fontSize: "5em",
     color: "white",
     fontFamily: ["Londrina Solid", "cursive"],
+    textShadow:
+      "2px 2px 0 rgba(0,0,0,.95), -1px -1px 0 #a929ff, 1px -1px 0 #a929ff, -1px 1px 0 #a929ff, 1px 1px 0 #a929ff",
   },
   spanHeader: {
     color: "#ff9f29",
+    textShadow:
+      "2px 2px 0 rgba(0,0,0,.95), -1px -1px 0 #a929ff, 1px -1px 0 #a929ff, -1px 1px 0 #a929ff, 1px 1px 0 #a929ff",
   },
   navItems: {
-    color: "white",
+    color: "#29d4ff",
     textDecoration: "none",
     fontSize: 18,
     fontFamily: ["Roboto Slab", "serif"],
@@ -50,7 +55,7 @@ export default function Nav() {
                 e.target.style.color = "#a929ff";
               }}
               onMouseLeave={(e) => {
-                e.target.style.color = "white";
+                e.target.style.color = "#29d4ff";
               }}
               to="/home"
               id="nav-link-home"
@@ -65,7 +70,7 @@ export default function Nav() {
                 e.target.style.color = "#a929ff";
               }}
               onMouseLeave={(e) => {
-                e.target.style.color = "white";
+                e.target.style.color = "#29d4ff";
               }}
               to="/create-job"
               id="nav-link-create"
@@ -82,7 +87,7 @@ export default function Nav() {
                   e.target.style.color = "#a929ff";
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.color = "white";
+                  e.target.style.color = "#29d4ff";
                 }}
                 onClick={handleItemClick}
               >

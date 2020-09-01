@@ -1,17 +1,27 @@
 //importing dependencies
 import React from "react";
 import { Header, Grid, Container } from "semantic-ui-react";
-import UpdateButton from "../UpdateButton";
-import { useUserContext } from "../../utils/UserContext";
+import UpdateButton from "../../../../components/UpdateButton";
+import { useUserContext } from "../../../../utils/UserContext";
 import moment from "moment";
 
 const styles = {
   detailsContainer: {
     background: "white",
-    padding: 20,
+    padding: 40,
     width: "80%",
     marginTop: 30,
     borderRadius: 2,
+    fontFamily: ["Roboto Slab", "serif"],
+  },
+  larger: {
+    fontSize: 20,
+  },
+  smaller: {
+    fontSize: 14,
+  },
+  fieldLabel: {
+    color: "#ff9f29",
   },
 };
 export default function Details() {
@@ -24,21 +34,31 @@ export default function Details() {
         <Grid rows={5}>
           <Grid.Row columns={2} id="meta-row">
             <Grid.Column textAlign="left">
-              <Header as="h3">{user.activeJob.company}</Header>
-              <span>{user.activeJob.job_title}</span>
+              <Header as="h3" style={styles.larger}>
+                {user.activeJob.company}
+              </Header>
+              <span style={styles.fieldLabel}>{user.activeJob.job_title}</span>
             </Grid.Column>
             <Grid.Column textAlign="right">
-              <Header as="h4">${user.activeJob.salary}</Header>
-              <Header sub>Current status: {user.activeJob.status}</Header>
+              <Header as="h4" style={styles.larger}>
+                ${user.activeJob.salary}
+              </Header>
+              <Header sub>
+                <span style={styles.fieldLabel}>Current status:</span>{" "}
+                {user.activeJob.status}
+              </Header>
             </Grid.Column>
           </Grid.Row>
           <Grid.Row columns={3} id="details1-row">
             <Grid.Column>
-              <Header sub>Phone interview: {user.activeJob.phone}</Header>
+              <Header sub>
+                <span style={styles.fieldLabel}>Phone interview:</span>{" "}
+                {user.activeJob.phone}
+              </Header>
             </Grid.Column>
             <Grid.Column>
               <Header sub>
-                In-Person Interview:{" "}
+                <span style={styles.fieldLabel}>In-Person Interview:</span>{" "}
                 {moment(user.activeJob.in_person_interview_date)
                   .local()
                   .format("MMMM Do YYYY, h:mm a")}
@@ -50,20 +70,34 @@ export default function Details() {
           </Grid.Row>
           <Grid.Row id="details2-row" columns={3}>
             <Grid.Column>
-              <Header sub>Full benefits: {user.activeJob.benefits}</Header>
+              <Header sub>
+                <span style={styles.fieldLabel}>Full benefits:</span>{" "}
+                {user.activeJob.benefits}
+              </Header>
             </Grid.Column>
             <Grid.Column>
-              <Header sub>Location: {user.activeJob.location}</Header>
+              <Header sub>
+                <span style={styles.fieldLabel}>Location:</span>{" "}
+                {user.activeJob.location}
+              </Header>
             </Grid.Column>
             <Grid.Column>
-              <Header sub>Source: {user.activeJob.source}</Header>
+              <Header sub>
+                <span style={styles.fieldLabel}>Job Source:</span>{" "}
+                {user.activeJob.source}
+              </Header>
             </Grid.Column>
           </Grid.Row>
           <Grid.Row id="notes-row">
-            <div>{user.activeJob.notes}</div>
+            <Grid.Column>
+              <Header sub>
+                <span style={styles.fieldLabel}>Notes:</span>
+              </Header>
+              <div>{user.activeJob.notes}</div>
+            </Grid.Column>
           </Grid.Row>
           <Grid.Row columns={1}>
-            <UpdateButton />
+            <UpdateButton color="#ff9f29" />
           </Grid.Row>
         </Grid>
       </Container>

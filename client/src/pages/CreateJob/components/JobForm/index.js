@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Header, Form, Button, Container } from "semantic-ui-react";
 import "./JobForm.css";
-import { useUserContext } from "../../utils/UserContext";
+import { useUserContext } from "../../../../utils/UserContext";
 import { useHistory } from "react-router-dom";
-import API from "../../utils/API";
+import API from "../../../../utils/API";
 
 const styles = {
   jobFormContainer: {
@@ -11,22 +11,18 @@ const styles = {
     padding: 20,
     width: "80%",
     marginTop: 30,
-    borderRadius: 2
-
+    borderRadius: 2,
   },
   jobFormHeader: {
     textAlign: "center",
     fontSize: "4.5",
-    fontFamily: "Times New Roman"
+    fontFamily: ["Roboto Slab", "serif"],
   },
   formInput: {
     fontSize: "18px",
-    fontFamily: "Times New Roman"
-  }
-    
-
-  
-}
+    fontFamily: ["Roboto Slab", "serif"],
+  },
+};
 
 const yesNoOptions = [
   { key: "y", text: "Yes", value: "yes" },
@@ -122,16 +118,20 @@ export default function JobForm() {
 
   return (
     <Container fluid style={styles.jobFormContainer}>
-      <Header style={styles.jobFormHeader} as="h1">Job Info</Header>
+      <Header style={styles.jobFormHeader} as="h1">
+        Job Info
+      </Header>
       <Form id="jobForm" onSubmit={handleSubmit}>
-        <Form.Input style={styles.formInput}
+        <Form.Input
+          style={styles.formInput}
           label="Company name"
           name="company"
           onChange={handleInputChange}
           required
           type="text"
         />
-        <Form.Input style={styles.formInput}
+        <Form.Input
+          style={styles.formInput}
           label="Job title"
           placeholder="e.g. React Developer"
           name="job_title"
@@ -139,7 +139,8 @@ export default function JobForm() {
           onChange={handleInputChange}
           type="text"
         />
-        <Form.Input style={styles.formInput}
+        <Form.Input
+          style={styles.formInput}
           label="Annual salary"
           name="salary"
           onChange={handleInputChange}
@@ -161,7 +162,8 @@ export default function JobForm() {
           id="benefits"
           onChange={handleDropdownChange}
         />
-        <Form.Input style={styles.formInput}
+        <Form.Input
+          style={styles.formInput}
           label="Location"
           placeholder="e.g. San Francisco, CA; Remote"
           name="location"
@@ -177,14 +179,16 @@ export default function JobForm() {
           onChange={handleInputChange}
           type="number"
         />
-        <Form.Input style={styles.formInput}
+        <Form.Input
+          style={styles.formInput}
           label="Interview Date"
           placeholder="e.g. 7/10/2020"
           name="in_person_interview_date"
           type="date"
           onChange={handleInputChange}
         />
-        <Form.Input style={styles.formInput}
+        <Form.Input
+          style={styles.formInput}
           label="Interview Time"
           placeholder=""
           name="time"
@@ -199,7 +203,8 @@ export default function JobForm() {
           onChange={handleInputChange}
           type="text"
         />
-        <Form.Input style={styles.formInput}
+        <Form.Input
+          style={styles.formInput}
           label="Source"
           placeholder="e.g. Indeed, JobMonster"
           name="source"
