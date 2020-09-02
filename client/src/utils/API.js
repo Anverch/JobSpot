@@ -58,9 +58,5 @@ export default {
   // Logout
   logout: function () {
     return axios.post("/api/users/logout");
-  },
-  //checkAuthentication
-  checkAuthentication: function () {
-    return axios.get("/api/users/checkauthentication");
-  },
+  }
 };
