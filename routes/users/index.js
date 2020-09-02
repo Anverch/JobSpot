@@ -20,23 +20,25 @@ router
   .put(usersController.updateUser);
 
 // Matches with "/api/users/login"
-router
-  .route("/login")
-  .post(passport.authenticate("local"), isAuthenticated, (req, res) => {
-    const { email, id, name, Jobs } = req.user || {};
-    res.json({ email, id, name, Jobs });
-  })
+router.route("/login").post(passport.authenticate("local"), (req, res) => {
+  const { email, id, name, Jobs } = req.user || {};
+  res.json({ email, id, name, Jobs });
+});
+//Matches with "/checkAuthentication"
+router.route("/checkauthentication").get(isAuthenticated, (req, res) => {
+  console.log(`req.user.dataValues:>>`, req.user.dataValues);
+  const user = req.user ? req.user.dataValues : null;
+  res.status(200).json({ user: user });
+});
 // Matches with "/api/users/logout"
-router
-  .route("/logout")
-  .post((req, res) => {
-    if (req.user) {
-      req.session.destroy();
-      res.clearCookie('connect.sid');
-      return res.json({ msg: "you logged out successfully!"})
-    } else {
-      return res.json({ msg: "no user to logout."})
-    }
-  })
+router.route("/logout").post((req, res) => {
+  if (req.user) {
+    req.session.destroy();
+    res.clearCookie("connect.sid");
+    return res.json({ msg: "you logged out successfully!" });
+  } else {
+    return res.json({ msg: "no user to logout." });
+  }
+});
 
 module.exports = router;
