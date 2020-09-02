@@ -57,14 +57,14 @@ function App() {
     <Router>
       <div className="app">
         <Switch>
-          <Route>
-            <DefaultContainer />
-          </Route>
           <Route exact path="/">
             <Login />
           </Route>
           <Route exact path="/index">
             <Signup />
+          </Route>
+          <Route>
+            <DefaultContainer />
           </Route>
         </Switch>
       </div>
