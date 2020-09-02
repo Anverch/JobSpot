@@ -14,8 +14,12 @@ export default function ViewButton(props) {
     history.push(`/jobs/${id}`);
   };
 
+  const styles = {
+    fontFamily: ["Roboto Slab", "serif"],
+  };
+
   return (
-    <Button color="yellow" onClick={onClick}>
+    <Button style={styles} basic color="violet" onClick={onClick}>
       View
     </Button>
   );

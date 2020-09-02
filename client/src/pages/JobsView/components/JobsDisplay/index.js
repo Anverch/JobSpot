@@ -36,6 +36,7 @@ const styles = {
 
 export default function JobsDisplay() {
   const { user } = useUserContext();
+  console.log(`user:>>`, user);
 
   const noFilteredJobs =
     !user.filteredJobs || (user.filteredJobs && user.filteredJobs.length === 0);
@@ -45,12 +46,16 @@ export default function JobsDisplay() {
       <Container fluid style={styles.jobDisplayContainer}>
         <Segment id="jobs-segment" centered="true" raised>
           <List divided verticalAlign="middle" size="large">
-            {noFilteredJobs && <h2>No jobs with that status!</h2>}
+            {noFilteredJobs && (
+              <h2 style={styles.jobTitle}>No jobs with that status!</h2>
+            )}
             {!noFilteredJobs &&
               user.filteredJobs.length > 0 &&
               user.filteredJobs.map((job, i) => {
                 console.log(`job:>>`, job);
                 const updatedAt = moment(job.updatedAt).fromNow();
+                console.log(`updatedAt:>>`, updatedAt);
+                console.log(`job.updatedAt:>>`, job.updatedAt);
                 return (
                   <List.Item key={i}>
                     <List.Content floated="right">
@@ -68,8 +73,8 @@ export default function JobsDisplay() {
                       <span
                         style={
                           updatedAt < 5
-                            ? styles.updatedAt
-                            : updatedAt <= 5 && updatedAt < 8
+                            ? styles.updateSpan
+                            : updatedAt >= 5 && updatedAt < 8
                             ? styles.warningSpan
                             : styles.overdueSpan
                         }

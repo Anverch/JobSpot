@@ -41,7 +41,7 @@ export default {
   },
   //Saves a new user to the database
   createUser: function (userInfo) {
-    console.log(userInfo)
+    console.log(userInfo);
     return axios.post("/api/users", userInfo);
   },
   deleteUser: function (id) {
@@ -49,6 +49,7 @@ export default {
   },
   // Login to Application
   login: function (userInfo) {
+    console.log(`userInfo:>>`, userInfo);
     return axios.post("/api/users/login", userInfo);
   },
   getUserData: function () {
@@ -57,5 +58,9 @@ export default {
   // Logout
   logout: function () {
     return axios.post("/api/users/logout");
+  },
+  //checkAuthentication
+  checkAuthentication: function () {
+    return axios.get("/api/users/checkauthentication");
   },
 };

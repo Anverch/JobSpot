@@ -13,8 +13,12 @@ export default function UpdateButton(props) {
     history.push(`/update-job/${id}`);
   };
 
+  const styles = {
+    fontFamily: ["Roboto Slab", "serif"],
+  };
+
   return (
-    <Button color="blue" onClick={onClick}>
+    <Button style={styles} basic color="teal" onClick={onClick}>
       Update
     </Button>
   );
