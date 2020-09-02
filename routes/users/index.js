@@ -38,5 +38,11 @@ router
       return res.json({ msg: "no user to logout."})
     }
   })
+router 
+  .route("/checkauthenticated")
+  .post(isAuthenticated, (req, res) => {
+    const user = req.user ? req.user : null;
+    res.status(200).json({ user: user })
+  })
 
 module.exports = router;
