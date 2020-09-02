@@ -29,40 +29,42 @@ function App() {
   }
 
   const DefaultContainer = () => (
-    <div className="container">
-      <Nav />
-      <Route exact path="/home">
-        <Dashboard />
-      </Route>
-      <Route exact path="/view">
-        <JobsView />
-      </Route>
-      <Route path="/jobs">
-        <JobDetail />
-      </Route>
-      <Route path="/create-job">
-        <CreateJob />
-      </Route>
-      <Route path="/update-job">
-        <UpdateJob />
-      </Route>
-      <div className="push"></div>
+    <>
+      <div className="wrapping">
+        <Nav />
+        <Route exact path="/home">
+          <Dashboard />
+        </Route>
+        <Route exact path="/view">
+          <JobsView />
+        </Route>
+        <Route path="/jobs">
+          <JobDetail />
+        </Route>
+        <Route path="/create-job">
+          <CreateJob />
+        </Route>
+        <Route path="/update-job">
+          <UpdateJob />
+        </Route>
+        <div className="push"></div>
+      </div>
       <Footer className="footer" />
-    </div>
+    </>
   );
 
   return (
     <Router>
       <div className="app">
         <Switch>
+          <Route>
+            <DefaultContainer />
+          </Route>
           <Route exact path="/">
             <Login />
           </Route>
           <Route exact path="/index">
             <Signup />
-          </Route>
-          <Route>
-            <DefaultContainer />
           </Route>
         </Switch>
       </div>
