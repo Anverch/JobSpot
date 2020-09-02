@@ -1,7 +1,6 @@
 import React from "react";
-import JobsDisplay from "../../components/JobsDisplay";
-import JobsFilter from "../../components/JobsFilter";
-import Wrapper from "../../components/Wrapper";
+import JobsDisplay from "./components/JobsDisplay";
+import JobsFilter from "./components/JobsFilter";
 
 export default function JobsView() {
   return (
