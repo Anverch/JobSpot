@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Container, Dropdown, Icon } from "semantic-ui-react";
 import { useUserContext } from "../../../../utils/UserContext";
+import API from "../../../../utils/API";
 
 const styles = {
   jobFilterContainer: {
@@ -15,25 +16,42 @@ const styles = {
 
 export default function JobsFilter() {
   const { user, setUser } = useUserContext();
-  const handleFilter = (event, data) => {
+
+  const handleDropdownFilter = async (event, data) => {
+    console.log(`data:>>`, data);
     if (data.value !== "All") {
-      const filteredJobs = user.Jobs.filter((job) => job.status === data.value);
-      setUser({ ...user, filteredJobs: filteredJobs });
+      switch (data.value) {
+        case "Interested": {
+          let userJobs = await API.getJobsInterested();
+          setUser({
+            ...user,
+            filteredJobs: userJobs,
+            filter: data.value,
+          });
+          break;
+        }
+        case "Applied": {
+          let userJobs = await API.getJobsApplied();
+          setUser({ ...user, filteredJobs: userJobs, filter: data.value });
+          break;
+        }
+        case "In Process": {
+          let userJobs = await API.getJobsInProcess();
+          setUser({ ...user, filteredJobs: userJobs, filter: data.value });
+          break;
+        }
+        case "Closed": {
+          let userJobs = await API.getJobsClosed();
+          setUser({ ...user, filteredJobs: userJobs, filter: data.value });
+          break;
+        }
+      }
+    } else {
+      let allJobs = await API.getJobs();
+      setUser({ ...user, filteredJobs: allJobs, filter: "All" });
       return;
     }
-    const allJobs = user.Jobs;
-    setUser({ ...user, filteredJobs: allJobs });
-    return;
   };
-
-  useEffect(() => {
-    let search = window.location.search;
-    let params = new URLSearchParams(search);
-    let filterQuery = params.get("filter");
-    // if (filterQuery) {
-    //   handleFilter(null, { value: filterQuery.replace("-", " ") });
-    // }
-  }, []);
 
   const filterOptions = [
     {
@@ -71,7 +89,8 @@ export default function JobsFilter() {
         inline
         options={filterOptions}
         id="status-filter"
-        onChange={handleFilter}
+        defaultValue={user.filter}
+        onChange={handleDropdownFilter}
       ></Dropdown>
     </Container>
   );
