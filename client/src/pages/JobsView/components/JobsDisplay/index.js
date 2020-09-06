@@ -36,10 +36,17 @@ const styles = {
 
 export default function JobsDisplay() {
   const { user } = useUserContext();
-  console.log(`user:>>`, user);
+  console.log(`user.filter:>>`, user.filter);
+  console.log(`user.filteredJobs:>>`, user.filteredJobs);
 
   const noFilteredJobs =
     !user.filteredJobs || (user.filteredJobs && user.filteredJobs.length === 0);
+
+  console.log(`noFilteredJobs:>>`, noFilteredJobs);
+  console.log(
+    `user.filteredJobs.data.length:>>`,
+    user.filteredJobs.data.length
+  );
 
   return (
     <>
@@ -50,8 +57,8 @@ export default function JobsDisplay() {
               <h2 style={styles.jobTitle}>No jobs with that status!</h2>
             )}
             {!noFilteredJobs &&
-              user.filteredJobs.length > 0 &&
-              user.filteredJobs.map((job, i) => {
+              user.filteredJobs.data.length > 0 &&
+              user.filteredJobs.data.map((job, i) => {
                 console.log(`job:>>`, job);
                 const updatedAt = moment(job.updatedAt).fromNow();
                 console.log(`updatedAt:>>`, updatedAt);

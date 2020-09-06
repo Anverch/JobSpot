@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Label, Menu, Container } from "semantic-ui-react";
 import { useUserContext } from "../../../../utils/UserContext";
+import API from "../../../../utils/API";
 
 const styles = {
   jobsCounter: {
@@ -30,16 +31,42 @@ const styles = {
 };
 export default function JobsCounter() {
   const history = useHistory();
-  const { user } = useUserContext();
+  const { user, setUser } = useUserContext();
   const [activeItem, setActiveItem] = useState({
     activeItem: "",
   });
 
-  const handleClick = ({ activeItem }) => {
-    setActiveItem(activeItem);
-    history.push(`/view?filter=${activeItem.replace(" ", "-")}`);
+  const handleClick = async ({ activeItem }) => {
+    switch (activeItem) {
+      case "Interested": {
+        let userJobs = await API.getJobsInterested();
+        setUser({ ...user, filteredJobs: userJobs, filter: activeItem });
+        history.push(`/view?filter=${activeItem.replace(" ", "-")}`);
+        break;
+      }
+      case "Applied": {
+        let userJobs = await API.getJobsApplied();
+        setUser({ ...user, filteredJobs: userJobs, filter: activeItem });
+        history.push(`/view?filter=${activeItem.replace(" ", "-")}`);
+        break;
+      }
+      case "In Process": {
+        let userJobs = await API.getJobsInProcess();
+        setUser({ ...user, filteredJobs: userJobs, filter: activeItem });
+        history.push(`/view?filter=${activeItem.replace(" ", "-")}`);
+        break;
+      }
+      case "Closed": {
+        let userJobs = await API.getJobsClosed();
+        setUser({ ...user, filteredJobs: userJobs, filter: activeItem });
+        history.push(`/view?filter=${activeItem.replace(" ", "-")}`);
+        break;
+      }
+      default: {
+        return;
+      }
+    }
   };
-
   const filterJobs = (filter) => {
     switch (filter) {
       case "All": {

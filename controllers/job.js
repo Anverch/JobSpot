@@ -4,12 +4,13 @@ module.exports = {
   getJobs(req, res) {
     db.Job.findAll({
       where: {
-        UserId: JSON.parse(req.headers.user).data.id,
+        UserId: JSON.parse(req.headers.user).id,
       },
     })
       .then((dbJob) => res.json(dbJob))
       .catch((err) => res.status(500).json(err));
   },
+
   createJob(req, res) {
     db.Job.create(req.body)
       .then((dbJob) => res.json(dbJob))
@@ -50,6 +51,24 @@ module.exports = {
         },
       }
     )
+      .then((dbJob) => res.json(dbJob))
+      .catch((err) => res.status(500).json(err));
+  },
+  createJob(req, res) {
+    db.Job.create(req.body)
+      .then((dbJob) => res.json(dbJob))
+      .catch((err) => {
+        console.error(err);
+        res.status(500).json(err);
+      });
+  },
+  getJobsByUser(req, res) {
+    userId = req.params.id;
+    db.Job.findAll({
+      where: {
+        UserId: userId,
+      },
+    })
       .then((dbJob) => res.json(dbJob))
       .catch((err) => res.status(500).json(err));
   },
@@ -107,7 +126,9 @@ module.exports = {
       .then((dbJob) => res.json(dbJob))
       .catch((err) => res.status(500).json(err));
   },
-  getJobsOutcome(req, res) {
+
+  getJobsClosed(req, res) {
+
     const id = req.params.id;
     db.Job.findAll({
       where: {
