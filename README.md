@@ -53,25 +53,27 @@ npm run seed:up
 
 ## App
 
+<img src="./jobSpotScreenShot.png">
+
 ### View [Demo](https://job-spot.herokuapp.com/)
 
 ## Developers
 
    <img src="https://avatars.githubusercontent.com/Knzmck" height="90" width="90">   
  
-   Mackenzie Schutz
+   Mackenzie Schutz <a href="https://github.com/knzmck" target="_blank">@Knzmck</a>
 
    <img src="https://avatars.githubusercontent.com/emcarlisle" height="90" width="90">   
  
-   Emily Carlisle    
+   Emily Carlisle <a href="https://github.com/emcarlisle">@emcarlisle</a>  
  
    <img src="https://avatars.githubusercontent.com/ewirtz3" height="90" width="90">   
   
-   Emily Wirtz    
+   Emily Wirtz <a href="https://github.com/ewirtz3">@ewirtz3</a>
  
    <img src="https://avatars.githubusercontent.com/Anverch" height="90" width="90">   
   
-   Aleks Saiyan
+   Aleks Saiyan <a href="https://github.com/anverch">@Anverch</a>
 
 ## License
 
