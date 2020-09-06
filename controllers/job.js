@@ -93,6 +93,17 @@ module.exports = {
       .then((dbJob) => res.json(dbJob))
       .catch((err) => res.status(500).json(err));
   },
+  getJobsPending(req, res) {
+    const id = req.params.id;
+    db.Job.findAll({
+      where: {
+        UserId: id,
+        status: "Pending",
+      },
+    })
+      .then((dbJob) => res.json(dbJob))
+      .catch((err) => res.status(500).json(err));
+  },
   getJobsInterested(req, res) {
     const id = req.params.id;
     db.Job.findAll({
