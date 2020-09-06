@@ -18,6 +18,7 @@ router.route("/inprocess").get(jobsController.getJobsInProcess);
 // Matches with  "api/jobs/closed"
 router.route("/closed").get(jobsController.getJobsClosed);
 
+
 // Matches with "/api/jobs"
 router.route("/").get(jobsController.getJobs).post(jobsController.createJob);
 
@@ -29,6 +30,8 @@ router
   .delete(jobsController.deleteJob);
 
 // Matches with "/api/jobs/user/:id"
-router.route("/user/:id").get(jobsController.getJobsByUser);
 
-module.exports = router;
+router.route("/user/:id")
+    .get(jobsController.getJobsByUser);
+
+module.exports = router

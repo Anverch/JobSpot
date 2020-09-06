@@ -10,6 +10,15 @@ module.exports = {
       .then((dbJob) => res.json(dbJob))
       .catch((err) => res.status(500).json(err));
   },
+
+  createJob(req, res) {
+    db.Job.create(req.body)
+      .then((dbJob) => res.json(dbJob))
+      .catch((err) => {
+        console.error(err);
+        res.status(500).json(err);
+      });
+  },
   getJob(req, res) {
     const id = req.params.id;
     db.Job.findOne({
@@ -73,18 +82,22 @@ module.exports = {
       .then((dbJob) => res.json(dbJob))
       .catch((err) => res.status(500).json(err));
   },
-  getJobsPending(req, res) {
+  // API CALLS FOR FILTER
+  getJobsByUser(req, res) {
+    userId = req.params.id;
     db.Job.findAll({
       where: {
-        status: "Pending",
+        UserId: userId,
       },
     })
       .then((dbJob) => res.json(dbJob))
       .catch((err) => res.status(500).json(err));
   },
   getJobsInterested(req, res) {
+    const id = req.params.id;
     db.Job.findAll({
       where: {
+        UserId: id,
         status: "Interested",
       },
     })
@@ -92,8 +105,10 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   getJobsApplied(req, res) {
+    const id = req.params.id;
     db.Job.findAll({
       where: {
+        UserId: id,
         status: "Applied",
       },
     })
@@ -101,17 +116,23 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   getJobsInProcess(req, res) {
+    const id = req.params.id;
     db.Job.findAll({
       where: {
+        UserId: id,
         status: "In Process",
       },
     })
       .then((dbJob) => res.json(dbJob))
       .catch((err) => res.status(500).json(err));
   },
+
   getJobsClosed(req, res) {
+
+    const id = req.params.id;
     db.Job.findAll({
       where: {
+        UserId: id,
         status: "Closed",
       },
     })
