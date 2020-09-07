@@ -19,36 +19,37 @@ export default function JobsFilter() {
 
   const handleDropdownFilter = async (event, data) => {
     console.log(`data:>>`, data);
+    let allJobs = await API.getJobs();
     if (data.value !== "All") {
       switch (data.value) {
         case "Interested": {
-          let userJobs = await API.getJobsInterested();
+          let userJobs = await API.getJobsInterested(user.id);
           setUser({
             ...user,
-            filteredJobs: userJobs,
+            filteredJobs: userJobs.data,
             filter: data.value,
           });
           break;
         }
         case "Applied": {
-          let userJobs = await API.getJobsApplied();
-          setUser({ ...user, filteredJobs: userJobs, filter: data.value });
+          let userJobs = await API.getJobsApplied(user.id);
+          setUser({ ...user, filteredJobs: userJobs.data, filter: data.value });
           break;
         }
         case "In Process": {
-          let userJobs = await API.getJobsInProcess();
-          setUser({ ...user, filteredJobs: userJobs, filter: data.value });
+          let userJobs = await API.getJobsInProcess(user.id);
+          setUser({ ...user, filteredJobs: userJobs.data, filter: data.value });
           break;
         }
         case "Closed": {
-          let userJobs = await API.getJobsClosed();
-          setUser({ ...user, filteredJobs: userJobs, filter: data.value });
+          let userJobs = await API.getJobsClosed(user.id);
+          setUser({ ...user, filteredJobs: userJobs.data, filter: data.value });
           break;
         }
       }
     } else {
       let allJobs = await API.getJobs();
-      setUser({ ...user, filteredJobs: allJobs, filter: "All" });
+      setUser({ ...user, filteredJobs: allJobs.data, filter: "All" });
       return;
     }
   };

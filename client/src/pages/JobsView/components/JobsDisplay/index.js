@@ -26,12 +26,6 @@ const styles = {
   updateSpan: {
     color: "green",
   },
-  warningSpan: {
-    color: "yellow",
-  },
-  overdueSpan: {
-    color: "red",
-  },
 };
 
 export default function JobsDisplay() {
@@ -43,10 +37,7 @@ export default function JobsDisplay() {
     !user.filteredJobs || (user.filteredJobs && user.filteredJobs.length === 0);
 
   console.log(`noFilteredJobs:>>`, noFilteredJobs);
-  console.log(
-    `user.filteredJobs.data.length:>>`,
-    user.filteredJobs.data.length
-  );
+  console.log(`user.filteredJobs.length:>>`, user.filteredJobs.length);
 
   return (
     <>
@@ -57,12 +48,9 @@ export default function JobsDisplay() {
               <h2 style={styles.jobTitle}>No jobs with that status!</h2>
             )}
             {!noFilteredJobs &&
-              user.filteredJobs.data.length > 0 &&
-              user.filteredJobs.data.map((job, i) => {
-                console.log(`job:>>`, job);
+              user.filteredJobs.length > 0 &&
+              user.filteredJobs.map((job, i) => {
                 const updatedAt = moment(job.updatedAt).fromNow();
-                console.log(`updatedAt:>>`, updatedAt);
-                console.log(`job.updatedAt:>>`, job.updatedAt);
                 return (
                   <List.Item key={i}>
                     <List.Content floated="right">
@@ -77,17 +65,7 @@ export default function JobsDisplay() {
                     </List.Content>
                     <List.Content style={styles.jobInfo}>
                       Last updated:{" "}
-                      <span
-                        style={
-                          updatedAt < 5
-                            ? styles.updateSpan
-                            : updatedAt >= 5 && updatedAt < 8
-                            ? styles.warningSpan
-                            : styles.overdueSpan
-                        }
-                      >
-                        {updatedAt}
-                      </span>
+                      <span style={styles.updateSpan}>{updatedAt}</span>
                     </List.Content>
                     <List.Content style={styles.jobInfo}>
                       Current Status: {job.status}

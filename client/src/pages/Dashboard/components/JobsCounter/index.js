@@ -38,27 +38,34 @@ export default function JobsCounter() {
 
   const handleClick = async ({ activeItem }) => {
     switch (activeItem) {
+      case "All": {
+        let allJobs = await API.getJobs();
+        setUser({ ...user, filteredJobs: allJobs.data, filter: activeItem });
+        history.push(`/view?filter=${activeItem.replace(" ", "-")}`);
+        break;
+      }
       case "Interested": {
-        let userJobs = await API.getJobsInterested();
-        setUser({ ...user, filteredJobs: userJobs, filter: activeItem });
+        let userJobs = await API.getJobsInterested(user.id);
+        console.log(`userJobs - jobsCounter:>>`, userJobs);
+        setUser({ ...user, filteredJobs: userJobs.data, filter: activeItem });
         history.push(`/view?filter=${activeItem.replace(" ", "-")}`);
         break;
       }
       case "Applied": {
-        let userJobs = await API.getJobsApplied();
-        setUser({ ...user, filteredJobs: userJobs, filter: activeItem });
+        let userJobs = await API.getJobsApplied(user.id);
+        setUser({ ...user, filteredJobs: userJobs.data, filter: activeItem });
         history.push(`/view?filter=${activeItem.replace(" ", "-")}`);
         break;
       }
       case "In Process": {
-        let userJobs = await API.getJobsInProcess();
-        setUser({ ...user, filteredJobs: userJobs, filter: activeItem });
+        let userJobs = await API.getJobsInProcess(user.id);
+        setUser({ ...user, filteredJobs: userJobs.data, filter: activeItem });
         history.push(`/view?filter=${activeItem.replace(" ", "-")}`);
         break;
       }
       case "Closed": {
-        let userJobs = await API.getJobsClosed();
-        setUser({ ...user, filteredJobs: userJobs, filter: activeItem });
+        let userJobs = await API.getJobsClosed(user.id);
+        setUser({ ...user, filteredJobs: userJobs.data, filter: activeItem });
         history.push(`/view?filter=${activeItem.replace(" ", "-")}`);
         break;
       }

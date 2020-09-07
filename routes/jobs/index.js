@@ -4,19 +4,19 @@ const jobsController = require("../../controllers/job");
 var isAuthenticated = require("../../config/middleware/isAuthenticated");
 
 // Matches with "api/jobs/pending"
-router.route("/pending").get(jobsController.getJobsPending);
+router.route("/pending/:id").get(jobsController.getJobsPending);
 
 // Matches with "api/jobs/interested"
-router.route("/interested").get(jobsController.getJobsInterested);
+router.route("/interested/:id").get(jobsController.getJobsInterested);
 
 // Matches with  "api/jobs/applied"
-router.route("/applied").get(jobsController.getJobsApplied);
+router.route("/applied/:id").get(jobsController.getJobsApplied);
 
 // Matches with  "api/jobs/inprocess"
-router.route("/inprocess").get(jobsController.getJobsInProcess);
+router.route("/inprocess/:id").get(jobsController.getJobsInProcess);
 
 // Matches with  "api/jobs/closed"
-router.route("/closed").get(jobsController.getJobsClosed);
+router.route("/closed/:id").get(jobsController.getJobsClosed);
 
 // Matches with "/api/jobs"
 router.route("/").get(jobsController.getJobs).post(jobsController.createJob);
