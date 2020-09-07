@@ -27,21 +27,22 @@ export default {
   createJob: function (jobInfo) {
     return axios.post("/api/jobs", jobInfo);
   },
-  //The next 5 calls return jobs with a given status, used in JobsView component
+  //The next 5 calls return jobs with a given status, used in JobsCounter component
   getJobsPending: function () {
     return axios.get("/api/jobs/pending");
   },
-  getJobsInterested: function () {
-    return axios.get("/api/jobs/interested");
+  getJobsInterested: function (id) {
+    console.log(`id:>>`, id);
+    return axios.get("/api/jobs/interested/" + id);
   },
-  getJobsApplied: function () {
-    return axios.get("/api/jobs/applied");
+  getJobsApplied: function (id) {
+    return axios.get("/api/jobs/applied/" + id);
   },
-  getJobsInProcess: function () {
-    return axios.get("/api/jobs/inprocess");
+  getJobsInProcess: function (id) {
+    return axios.get("/api/jobs/inprocess/" + id);
   },
-  getJobsClosed: function () {
-    return axios.get("/api/jobs/closed");
+  getJobsClosed: function (id) {
+    return axios.get("/api/jobs/closed/" + id);
   },
   //Gets all users
   getUsers: function () {
@@ -65,7 +66,6 @@ export default {
   },
   // Login to Application
   login: function (userInfo) {
-    console.log(`userInfo:>>`, userInfo);
     return axios.post("/api/users/login", userInfo);
   },
   getUserData: function () {
