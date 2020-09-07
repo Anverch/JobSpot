@@ -26,30 +26,30 @@ const styles = {
   updateSpan: {
     color: "green",
   },
-  warningSpan: {
-    color: "yellow",
-  },
-  overdueSpan: {
-    color: "red",
-  },
 };
 
 export default function JobsDisplay() {
   const { user } = useUserContext();
+  console.log(`user.filter:>>`, user.filter);
+  console.log(`user.filteredJobs:>>`, user.filteredJobs);
 
   const noFilteredJobs =
     !user.filteredJobs || (user.filteredJobs && user.filteredJobs.length === 0);
+
+  console.log(`noFilteredJobs:>>`, noFilteredJobs);
+  console.log(`user.filteredJobs.length:>>`, user.filteredJobs.length);
 
   return (
     <>
       <Container fluid style={styles.jobDisplayContainer}>
         <Segment id="jobs-segment" centered="true" raised>
           <List divided verticalAlign="middle" size="large">
-            {noFilteredJobs && <h2>No jobs with that status!</h2>}
+            {noFilteredJobs && (
+              <h2 style={styles.jobTitle}>No jobs with that status!</h2>
+            )}
             {!noFilteredJobs &&
               user.filteredJobs.length > 0 &&
               user.filteredJobs.map((job, i) => {
-                console.log(`job:>>`, job);
                 const updatedAt = moment(job.updatedAt).fromNow();
                 return (
                   <List.Item key={i}>
@@ -65,17 +65,7 @@ export default function JobsDisplay() {
                     </List.Content>
                     <List.Content style={styles.jobInfo}>
                       Last updated:{" "}
-                      <span
-                        style={
-                          updatedAt < 5
-                            ? styles.updatedAt
-                            : updatedAt <= 5 && updatedAt < 8
-                            ? styles.warningSpan
-                            : styles.overdueSpan
-                        }
-                      >
-                        {updatedAt}
-                      </span>
+                      <span style={styles.updateSpan}>{updatedAt}</span>
                     </List.Content>
                     <List.Content style={styles.jobInfo}>
                       Current Status: {job.status}

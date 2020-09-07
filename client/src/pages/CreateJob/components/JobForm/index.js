@@ -82,7 +82,7 @@ export default function JobForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    API.saveJob(newJob).then((res) => {
+    API.createJob(newJob).then((res) => {
       const userJobs = user.Jobs;
       setUser({ ...user, Jobs: [...userJobs, res.data] });
     });

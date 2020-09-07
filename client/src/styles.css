@@ -6,16 +6,10 @@ body {
 body {
   background-color: #ccf5ff;
 }
-.body {
-  padding: 0;
-  overflow-x: "hidden";
-  min-width: 320px;
-}
 .wrapping {
   min-height: 100%;
   margin-bottom: -50px;
 }
-
 .footer,
 .push {
   height: 50px;

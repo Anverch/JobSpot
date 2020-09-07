@@ -1,11 +1,10 @@
 import React from "react";
-// import LoginHeader from "./components/LoginHeader";
-import LoginForm from "./components/UpdateForm";
+import UpdateForm from "./components/UpdateForm";
 
 export default function UpdateJob() {
   return (
     <>
-    <LoginForm/>
+      <UpdateForm />
     </>
   );
 }
