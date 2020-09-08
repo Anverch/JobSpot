@@ -26,7 +26,6 @@ router.route("/login").post(passport.authenticate("local"), (req, res) => {
 });
 //Matches with "/checkAuthentication"
 router.route("/checkauthentication").get(isAuthenticated, (req, res) => {
-  console.log(`req.user.dataValues:>>`, req.user.dataValues);
   const user = req.user ? req.user.dataValues : null;
   res.status(200).json({ user: user });
 });

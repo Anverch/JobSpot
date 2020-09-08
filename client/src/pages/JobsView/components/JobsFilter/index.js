@@ -18,8 +18,6 @@ export default function JobsFilter() {
   const { user, setUser } = useUserContext();
 
   const handleDropdownFilter = async (event, data) => {
-    console.log(`data:>>`, data);
-    let allJobs = await API.getJobs();
     if (data.value !== "All") {
       switch (data.value) {
         case "Interested": {
