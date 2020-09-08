@@ -97,7 +97,7 @@ export default function Details() {
             </Grid.Column>
           </Grid.Row>
           <Grid.Row columns={1}>
-            <UpdateButton />
+            <UpdateButton id={user.activeJob.id} />
           </Grid.Row>
         </Grid>
       </Container>
