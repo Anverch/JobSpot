@@ -31,6 +31,7 @@ router.route("/checkauthentication").get(isAuthenticated, (req, res) => {
   res.status(200).json({ user: user });
 });
 // Matches with "/api/users/logout"
+
 router.route("/logout").post((req, res) => {
   if (req.user) {
     req.session.destroy();

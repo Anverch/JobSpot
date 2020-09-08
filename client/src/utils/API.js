@@ -74,5 +74,6 @@ export default {
   // Logout
   logout: function () {
     return axios.post("/api/users/logout");
-  },
+
+  }
 };
