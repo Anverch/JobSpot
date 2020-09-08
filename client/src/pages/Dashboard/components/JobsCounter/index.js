@@ -46,7 +46,6 @@ export default function JobsCounter() {
       }
       case "Interested": {
         let userJobs = await API.getJobsInterested(user.id);
-        console.log(`userJobs - jobsCounter:>>`, userJobs);
         setUser({ ...user, filteredJobs: userJobs.data, filter: activeItem });
         history.push(`/view?filter=${activeItem.replace(" ", "-")}`);
         break;
