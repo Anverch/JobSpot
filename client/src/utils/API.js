@@ -32,7 +32,6 @@ export default {
     return axios.get("/api/jobs/pending");
   },
   getJobsInterested: function (id) {
-    console.log(`id:>>`, id);
     return axios.get("/api/jobs/interested/" + id);
   },
   getJobsApplied: function (id) {
@@ -54,7 +53,6 @@ export default {
   },
   //Saves a new user to the database
   createUser: function (userInfo) {
-    console.log(userInfo);
     return axios.post("/api/users", userInfo);
   },
   //Updates on user based on id

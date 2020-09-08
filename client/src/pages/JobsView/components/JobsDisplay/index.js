@@ -30,14 +30,9 @@ const styles = {
 
 export default function JobsDisplay() {
   const { user } = useUserContext();
-  console.log(`user.filter:>>`, user.filter);
-  console.log(`user.filteredJobs:>>`, user.filteredJobs);
 
   const noFilteredJobs =
     !user.filteredJobs || (user.filteredJobs && user.filteredJobs.length === 0);
-
-  console.log(`noFilteredJobs:>>`, noFilteredJobs);
-  console.log(`user.filteredJobs.length:>>`, user.filteredJobs.length);
 
   return (
     <>
